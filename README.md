@@ -33,7 +33,7 @@ in-depth analysis of each optimization to solve those problems.
 
 EasySocket
 ==============
-Socket、全栈、跨平台 Socket 运用C++和 Socket API来构建百万级处理能力的网络通信引擎,全栈跨平台技术知识和设计方案可以应用在Windows/Linux /Android/IOS等主流操作系统上，支持Socket的其他语言也开始借鉴使用 
+Socket、全栈、跨平台 Socket 运用C++和 Socket API来构建百万级处理能力的网络通信引擎,全栈跨平台技术知识和设计方案可以应用在Windows/Linux /Android/iOS等主流操作系统上，支持Socket的其他语言也开始借鉴使用 
 
 ### 开发工具
 - Windows Windows10 + Visual Studio 20XX Linux Linux(ubuntu 16.04 64位)/GCC/Gedit 
