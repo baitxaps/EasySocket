@@ -2,7 +2,7 @@ EasySocket
 ==============
 - Full stack, cross-platform
 Socket uses C++ and Socket API to build a network communication engine with millions of processing capabilities
-- Full Stack Technical knowledge and design schemes in cross-platform courses can be applied to mainstream operating systems such as Windows/Linux/Android/IOS, and other languages supporting Socket have begun to use for reference.
+- Full Stack Technical knowledge and design schemes in cross-platform courses can be applied to mainstream operating systems such as Windows/Linux/Android/iOS, and other languages supporting Socket have begun to use for reference.
 
 ### Development tool
 - Windows Windows 10 + Visual Studio 20XX
