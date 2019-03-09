@@ -1,6 +1,5 @@
 EasySocket
 ==============
-### Socket
 - full stack, cross-platform
 Socket uses C++ and Socket API to build a network communication engine with millions of processing capabilities
 - Full Stack Technical knowledge and design schemes in cross-platform courses can be applied to mainstream operating systems such as Windows/Linux/Android/IOS, and other languages supporting Socket have begun to use for reference.
@@ -29,7 +28,7 @@ Socket uses C++ and Socket API to build a network communication engine with mill
 - Back-end (server) network communication, step by step to build high-performance servers. 
 Connect to 10,000 user links from one user.Exploring performance bottlenecks,
 Solve the bottleneck, step by step, add optimization points, compare before and after,
-in-depth analysis of each optimization to solve those problems.Really grasp the core knowledge.
+in-depth analysis of each optimization to solve those problems.
 
 
 EasySocket
@@ -61,6 +60,4 @@ iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2015 + NDK + JDK + A
 - Socket网络通信基础知识。
 - 前端(客户端)网络通信，并实际应用到商业工具引擎中。
 - 后端(服务端)网络通信，一步一步建立高性能服务器从1个用户连接到10000个用户链接，
-从每秒1个用户/1个数据包，到1万用户/1百万个数据包，探索性能瓶颈，解决瓶颈，一步一步加入优化点，进行前后对比，深度解析每一个优化解决了那些问题,真正掌握核心知识
-
-
+从每秒1个用户/1个数据包，到1万用户/1百万个数据包，探索性能瓶颈，解决瓶颈，一步一步加入优化点，进行前后对比，深度解析每一个优化解决了那些问题
