@@ -1,9 +1,10 @@
 EasySocket
 ==============
-- full stack, cross-platform
+- Full stack, cross-platform
 Socket uses C++ and Socket API to build a network communication engine with millions of processing capabilities
 - Full Stack Technical knowledge and design schemes in cross-platform courses can be applied to mainstream operating systems such as Windows/Linux/Android/IOS, and other languages supporting Socket have begun to use for reference.
-- development tool
+
+### Development tool
 - Windows Windows 10 + Visual Studio 20XX
 - Linux Linux (ubuntu 16.04 64 bit)/GCC/Gedit editor
 - Android Windows 10 + Eclipse + NDK + JDK + ADT + ANT
@@ -25,10 +26,7 @@ Socket uses C++ and Socket API to build a network communication engine with mill
 - How to build the C++ development environment under different platforms and share the application of code base.
 - Basic knowledge of Socket network communication.
 - Front-end (client) network communication, and practical application to the commercial tool engine.
-- Back-end (server) network communication, step by step to build high-performance servers. 
-Connect to 10,000 user links from one user.Exploring performance bottlenecks,
-Solve the bottleneck, step by step, add optimization points, compare before and after,
-in-depth analysis of each optimization to solve those problems.
+- Back-end (server) network communication, step by step to build high-performance servers. Connect to 10,000 user links from one user.Exploring performance bottlenecks,Solve the bottleneck, step by step, add optimization points, compare before and after,in-depth analysis of each optimization to solve those problems.
 
 
 EasySocket
@@ -59,5 +57,4 @@ iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2015 + NDK + JDK + A
 - 如何搭建不同平台下的C++开发环境、共享代码库的应用。
 - Socket网络通信基础知识。
 - 前端(客户端)网络通信，并实际应用到商业工具引擎中。
-- 后端(服务端)网络通信，一步一步建立高性能服务器从1个用户连接到10000个用户链接，
-从每秒1个用户/1个数据包，到1万用户/1百万个数据包，探索性能瓶颈，解决瓶颈，一步一步加入优化点，进行前后对比，深度解析每一个优化解决了那些问题
+- 后端(服务端)网络通信，一步一步建立高性能服务器从1个用户连接到10000个用户链接，从每秒1个用户/1个数据包，到1万用户/1百万个数据包，探索性能瓶颈，解决瓶颈，一步一步加入优化点，进行前后对比，深度解析每一个优化解决了那些问题
