@@ -43,7 +43,7 @@ Socket、全栈、跨平台 Socket 运用C++和 Socket API来构建百万级处�
 iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2015 + NDK + JDK + ADT + ANT
 
 ### 辅助工具
--虚拟机VMware Player、代码管理工具、等其它辅助开发工具
+- 虚拟机VMware Player、代码管理工具、等其它辅助开发工具
 
 ### 目标
 - 多平台C++程序的设计、编码、调试、发布
