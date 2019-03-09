@@ -13,7 +13,6 @@ Socket uses C++ and Socket API to build a network communication engine with mill
 - Auxiliary Tools Virtual Machine VMware Player, Code Management Tool, and Other Auxiliary Development Tools
 
 ### Target
-==============
 - Design, coding, debugging and publishing of multi-platform C++ program
 - Select, IOCP, epoll network communication model, choose the most appropriate model for different scenarios.
 - Network Communication Using C++ TCP on Mainstream Platform
@@ -24,7 +23,6 @@ Socket uses C++ and Socket API to build a network communication engine with mill
 - Develop a high performance communication engine with millions of processing power in C++.
 
 ### Plan
-==============
 - How to build the C++ development environment under different platforms and share the application of code base.
 - Basic knowledge of Socket network communication.
 - Front-end (client) network communication, and practical application to the commercial tool engine.
@@ -39,17 +37,14 @@ EasySocket
 Socket、全栈、跨平台 Socket 运用C++和 Socket API来构建百万级处理能力的网络通信引擎,全栈跨平台技术知识和设计方案可以应用在Windows/Linux /Android/IOS等主流操作系统上，支持Socket的其他语言也开始借鉴使用 
 
 ### 开发工具
-==============
-Windows Windows10 + Visual Studio 20XX Linux Linux(ubuntu 16.04 64位)/GCC/Gedit 
+- Windows Windows10 + Visual Studio 20XX Linux Linux(ubuntu 16.04 64位)/GCC/Gedit 
 
 ### 编辑器 
-==============
-Android Windows 10 + Eclipse + NDK + JDK + ADT + ANT 
+- Android Windows 10 + Eclipse + NDK + JDK + ADT + ANT 
 iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2015 + NDK + JDK + ADT + ANT
 
 ### 辅助工具
-==============
-虚拟机VMware Player、代码管理工具、等其它辅助开发工具
+-虚拟机VMware Player、代码管理工具、等其它辅助开发工具
 
 ### 目标
 - 多平台C++程序的设计、编码、调试、发布
