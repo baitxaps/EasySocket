@@ -21,6 +21,9 @@
     <ClInclude Include="MessageHeader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CELLTimestamp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="server.cpp">

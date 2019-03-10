@@ -1,6 +1,7 @@
 #ifndef _EasyTcpServer_hpp_
 #define _EasyTcpServer_hpp_
 #ifdef _WIN32
+	#define FD_SETSIZE      4024
 	//#pragma comment(lib,"ws2_32.lib")
 	#define WIN32_LEAN_AND_MEAN
 	#define _WINSOCK_DEPRECATED_NO_WARNINGS
@@ -16,9 +17,11 @@
 	#define INVALID_SOCKET (SOCKET)(~0)
 	#define SOCKET_ERROR           (-1)
 #endif
+
 #include<stdio.h>
 #include<vector>
 #include"MessageHeader.hpp"
+#include"CELLTimestamp.hpp"
 
 #ifndef RECV_BUFF_SIZE
 #define RECV_BUFF_SIZE 10240
@@ -67,11 +70,13 @@ class EasyTcpServer
 private:
 	SOCKET _sock;
 	vector<ClientSocket *> _clients;
-
+	CELLTimestamp _tTime;
+	int _recvCount;
 public:
 	EasyTcpServer()
 	{
 		_sock = INVALID_SOCKET;
+		_recvCount = 0;
 	}
 	virtual ~EasyTcpServer()
 	{
@@ -170,7 +175,7 @@ public:
 			closesocket(_sock);
 			WSACleanup();
 #else
-			for (int i = (int)g_clients.size() - 1; i >= 0; i--)
+			for (int i = (int)_clients.size() - 1; i >= 0; i--)
 			{
 				close(_clients[i]->sockfd());
 				delete _clients[i];
@@ -202,7 +207,7 @@ public:
 			NewUserJoin userJoin;
 			SendDataToAll(&userJoin);
 			_clients.push_back(new ClientSocket(cSock));
-			printf("<socket=%d>新客户端加入: socket=%d,IP=%s \n", (int)_sock, (int)cSock, inet_ntoa(clientAddr.sin_addr));
+			printf("<socket=%d>新客户端<%d>加入: socket=%d,IP=%s \n", (int)_sock, _clients.size(),(int)cSock, inet_ntoa(clientAddr.sin_addr));
 		}
 		return cSock;
 	}
@@ -319,16 +324,24 @@ public:
 	// 响应网络消息
 	virtual void OnNetMsg(SOCKET cSock, DataHeader *header)
 	{
+		_recvCount++;
+		auto t1 = _tTime.getElapsedSecond();
+		if (t1 >= 1.0)
+		{
+			printf("time<%lf>, socket<%d>,clients<%d>,recvCount<%d> \n",t1, _sock,_clients.size(), _recvCount);
+			_recvCount = 0;
+			_tTime.update();
+		}
 		switch (header->cmd)
 		{
 			case CMD_LOGIN:
 			{
 				Login *login = (Login *)header;
-				printf("收到客户端<socked=%d> 请求:CMD_LOGIN 数据长度:%d userName=%s password=%s\n", cSock, login->dataLength, login->userName, login->passWord);
+				//printf("收到客户端<socked=%d> 请求:CMD_LOGIN 数据长度:%d userName=%s password=%s\n", cSock, login->dataLength, login->userName, login->passWord);
 				//  it is correct for judging the login msg 
 				// sending head and body data
-				LoginResult ret;
-				SendData(cSock, &ret);
+				//LoginResult ret;
+				//SendData(cSock, &ret);
 			//	send(cSock, (char*)&ret, sizeof(LogoutResult), 0);
 			}
 			break;
@@ -337,8 +350,8 @@ public:
 			{
 				Logout *logout = (Logout*)header;
 			//  printf("收到客户端<socked=%d> 请求CMD_LOGOUT: 数据长度:%d userName=%s\n", cSock, logout->dataLength, logout->userName);
-				LogoutResult result;
-				SendData(cSock, &result);
+			//	LogoutResult result;
+			//	SendData(cSock, &result);
 			}
 			break;
 

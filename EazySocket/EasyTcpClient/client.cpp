@@ -24,13 +24,20 @@ void cmdThread()
 
 int main()
 {
-	const int cCount = 10;
+	const int cCount = 2000;
 	EasyTcpClient* client[cCount];
+
 	for (int i = 0; i < cCount; i++)
 	{
+		if (!g_bRun) return 0;
 		client[i] = new EasyTcpClient();
+	}
+
+	for (int i = 0; i < cCount; i++)
+	{
+		if (!g_bRun) return 0;
 		client[i]->InitSocket();
-		client[i]->Connect("192.168.0.106", 4568);//  111.67.206.137
+		client[i]->Connect("192.168.0.106", 4568);// oip 111.67.206.137	vip:192.168.239.128 lip:192.168.0.106
 	}
 
 	/// thread start(UI thread)
@@ -57,7 +64,5 @@ int main()
 	}
 
 	printf("已退出.任务结束.\n");
-	getchar();
-
 	return 0;
 }
