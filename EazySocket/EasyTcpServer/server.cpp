@@ -49,6 +49,7 @@ int main()
 	server.InitSocket();
 	server.Bind(nullptr, 4567);
 	server.Listen(5);
+	server.Start();
 
 	// thread start(UI thread)
 	std::thread t1(cmdThread);
