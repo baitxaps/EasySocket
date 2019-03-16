@@ -1,8 +1,3 @@
-//注释： 先CTRL + K，然后CTRL + C
-//取消注释： 先CTRL + K，然后CTRL + U
-
-//Ctrl + A 全选代码
-//Ctrl + K , Ctrl + F 完成代码格式对齐
 #ifndef _MessageHeader_hpp_
 #define _MessageHeader_hpp_
 
@@ -27,8 +22,8 @@ struct DataHeader
 	short cmd;
 };
 
-// DataPackage
-struct Login :public DataHeader
+//DataPackage
+struct Login : public DataHeader
 {
 	Login()
 	{
@@ -36,11 +31,11 @@ struct Login :public DataHeader
 		cmd = CMD_LOGIN;
 	}
 	char userName[32];
-	char passWord[32];
-	char data[32];// 932 1024-64-24 --> sizeof(Login)=1000
+	char PassWord[32];
+	char data[32];
 };
 
-struct LoginResult :public DataHeader
+struct LoginResult : public DataHeader
 {
 	LoginResult()
 	{
@@ -49,10 +44,10 @@ struct LoginResult :public DataHeader
 		result = 0;
 	}
 	int result;
-	char data[92];//992 1024-32  --> sizeof(LoginResult)=1000
+	char data[92];
 };
 
-struct Logout :DataHeader
+struct Logout : public DataHeader
 {
 	Logout()
 	{
@@ -62,7 +57,7 @@ struct Logout :DataHeader
 	char userName[32];
 };
 
-struct LogoutResult :public DataHeader
+struct LogoutResult : public DataHeader
 {
 	LogoutResult()
 	{
@@ -73,15 +68,15 @@ struct LogoutResult :public DataHeader
 	int result;
 };
 
-struct NewUserJoin :public DataHeader
+struct NewUserJoin : public DataHeader
 {
 	NewUserJoin()
 	{
 		dataLength = sizeof(NewUserJoin);
 		cmd = CMD_NEW_USER_JOIN;
-		sock = 0;
+		scok = 0;
 	}
-	int sock;
+	int scok;
 };
 
-#endif
+#endif // !_MessageHeader_hpp_

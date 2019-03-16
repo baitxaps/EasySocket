@@ -1,5 +1,6 @@
-#include"EasyTcpServer.hpp"
+#include "EasyTcpServer.hpp"
 #include<thread>
+
 #if 0
 #define kAllServers
 #endif
@@ -14,35 +15,34 @@ void cmdThread()
 		if (0 == strcmp(cmdBuf, "exit"))
 		{
 			g_bRun = false;
-			printf("退出cmdThread线程.\n");
+			printf("退出cmdThread线程\n");
 			break;
 		}
-		else{
-			printf("不支持的命令.\n");
+		else {
+			printf("不支持的命令。\n");
 		}
 	}
 }
 
-
 class MyServer : public EasyTcpServer
 {
-public:
+private:
 
+public:
 	//只会被一个线程触发 安全
 	virtual void OnNetJoin(ClientSocket* pClient)
 	{
 		_clientCount++;
 		printf("client<%d> join\n", pClient->sockfd());
 	}
-	//cellServer 4 多个线程触发 不安全
-	//如果只开启1个cellServer就是安全的
+	//cellServer 多个线程触发 不安全
 	virtual void OnNetLeave(ClientSocket* pClient)
 	{
 		_clientCount--;
 		printf("client<%d> leave\n", pClient->sockfd());
 	}
-	//cellServer 4 多个线程触发 不安全
-	//如果只开启1个cellServer就是安全的
+
+	//cellServer 多个线程触发 不安全
 	virtual void OnNetMsg(ClientSocket* pClient, DataHeader* header)
 	{
 		_recvCount++;
@@ -76,8 +76,6 @@ public:
 		break;
 		}
 	}
-private:
-
 };
 
 int main()
@@ -102,24 +100,25 @@ int main()
 	server1.Close();
 	server2.Close();
 #else
+
 	MyServer server;
 	server.InitSocket();
 	server.Bind(nullptr, 4567);
 	server.Listen(5);
-	server.Start();
+	server.Start(4);
 
-	// thread start(UI thread)
+	//启动UI线程
 	std::thread t1(cmdThread);
 	t1.detach();
 
 	while (g_bRun)
 	{
 		server.OnRun();
+		//printf("空闲时间处理其它业务..\n");
 	}
 	server.Close();
 #endif
-	printf("已退出.\n");
+	printf("已退出。\n");
 	getchar();
-
 	return 0;
 }

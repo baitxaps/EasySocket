@@ -17,7 +17,7 @@ public:
     ~CELLTimestamp()
     {}
 
-    void update()
+    void    update()
     {
         //QueryPerformanceCounter(&_startCount);
 		_begin = high_resolution_clock::now();
