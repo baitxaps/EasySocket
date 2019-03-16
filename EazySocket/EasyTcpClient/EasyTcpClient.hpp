@@ -147,7 +147,7 @@ public:
 		return _sock != INVALID_SOCKET;
 	}
 	//第二缓冲区，消息缓冲区
-	char _szMsgBuf[RECV_BUFF_SIZE * 10] = {};
+	char _szMsgBuf[RECV_BUFF_SIZE * 5] = {};
 	// 接收缓冲区
 	char _szRecv[RECV_BUFF_SIZE] = {};
 	int _lastPos = 0;
@@ -227,13 +227,18 @@ public:
 	}
 
 	// 发送数据
-	int SendData(DataHeader *header)
+	int SendData(DataHeader *header,int nLen)
 	{
+		int ret = SOCKET_ERROR;
 		if (isRun() && header)
 		{
-			return send(_sock, (const char*)header, header->dataLength, 0);
+			ret= send(_sock, (const char*)header, nLen, 0);// send(_sock, (const char*)header, header->dataLength, 0);
+			if (ret == SOCKET_ERROR)
+			{
+				Close();
+			}
 		}
-		return SOCKET_ERROR;
+		return ret;
 	}
 };
 

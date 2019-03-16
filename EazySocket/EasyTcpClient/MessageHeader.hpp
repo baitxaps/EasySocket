@@ -37,7 +37,7 @@ struct Login :public DataHeader
 	}
 	char userName[32];
 	char passWord[32];
-	char data[932];//1024-64-24 --> sizeof(Login)=1000
+	char data[32];// 932 1024-64-24 --> sizeof(Login)=1000
 };
 
 struct LoginResult :public DataHeader
@@ -49,7 +49,7 @@ struct LoginResult :public DataHeader
 		result = 0;
 	}
 	int result;
-	char data[992];//1024-32  --> sizeof(LoginResult)=1000
+	char data[92];//992 1024-32  --> sizeof(LoginResult)=1000
 };
 
 struct Logout :DataHeader
@@ -83,4 +83,5 @@ struct NewUserJoin :public DataHeader
 	}
 	int sock;
 };
+
 #endif

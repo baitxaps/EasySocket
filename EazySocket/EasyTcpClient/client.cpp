@@ -45,15 +45,21 @@ void sendThread(int id)
 		client[i]->Connect("192.168.0.106", 4568);// oip 111.67.206.137	vip:192.168.239.128 lip:192.168.0.106
 	}
 
-	Login login;
-	strcpy(login.userName, "rhc");
-	strcpy(login.passWord, "123456");
+	std::chrono::microseconds t(5000);
+	std::this_thread::sleep_for(t);
 
+	Login login[10];
+	for (int i = 0; i < 10; i++)
+	{
+		strcpy(login[i].userName, "rhc");
+		strcpy(login[i].passWord, "123456");
+	}
+	const int nLen = sizeof(login);
 	while (g_bRun)
 	{
 		for (int i = begin; i < end; i++)
 		{
-			client[i]->SendData(&login);// 发送数
+			client[i]->SendData(login,nLen);// 发送数
 		//	client[i]->OnRun();// 接收数据
 		}
 		// 空闲状态，处理其他事务
@@ -63,7 +69,9 @@ void sendThread(int id)
 	for (int i = begin; i < end; i++ )
 	{
 		client[i]->Close();
+		delete client[i];
 	}
+	printf("thread<%d>,exit\n", id);
 }
 
 int main()
