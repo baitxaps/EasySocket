@@ -58,3 +58,6 @@ iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2015 + NDK + JDK + A
 - Socket网络通信基础知识。
 - 前端(客户端)网络通信，并实际应用到商业工具引擎中。
 - 后端(服务端)网络通信，一步一步建立高性能服务器从1个用户连接到10000个用户链接，从每秒1个用户/1个数据包，到1万用户/1百万个数据包，探索性能瓶颈，解决瓶颈，一步一步加入优化点，进行前后对比，深度解析每一个优化解决了那些问题
+
+License
+EasySocket is released under the MIT license. See LICENSE for details.
