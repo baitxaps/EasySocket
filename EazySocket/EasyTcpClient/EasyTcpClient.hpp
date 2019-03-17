@@ -21,8 +21,8 @@
 
 //缓冲区最小单元大小
 #ifndef RECV_BUFF_SZIE
-#define RECV_BUFF_SZIE 10240
-#endif // !RECV_BUFF_SZIE
+#define RECV_BUFF_SZIE 10240 *5
+#endif 
 
 class EasyTcpClient
 {
@@ -150,12 +150,11 @@ public:
 	}
 
 	//第二缓冲区 消息缓冲区
-	char _szMsgBuf[RECV_BUFF_SZIE * 5] = {};
+	char _szMsgBuf[RECV_BUFF_SZIE] = {};
 	//消息缓冲区的数据尾部位置
 	int _lastPos = 0;
 
-	//接收缓冲区
-	//char _szRecv[RECV_BUFF_SZIE] = {};
+	//接收缓冲区char _szRecv[RECV_BUFF_SZIE] = {};
 
 	//接收数据 处理粘包 拆分包
 	int RecvData(SOCKET cSock)
@@ -163,7 +162,7 @@ public:
 		//接收缓冲区
 		char *_szRecv = _szMsgBuf + _lastPos;
 		// 接收数据
-		int nLen = (int)recv(cSock, _szRecv,(RECV_BUFF_SZIE * 5) - _lastPos, 0);
+		int nLen = (int)recv(cSock, _szRecv,RECV_BUFF_SZIE - _lastPos, 0);
 		//printf("nLen=%d\n", nLen);
 		if (nLen <= 0)
 		{

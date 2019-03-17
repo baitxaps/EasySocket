@@ -6,7 +6,7 @@
 #endif
 
 bool g_bRun = true;
-void cmdThread()
+void cmdThread() // ctrl+shift+f:find
 {
 	while (true)
 	{
