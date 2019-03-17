@@ -215,9 +215,9 @@ public:
 				memcpy(&fdRead, &_fdRead_bak, sizeof(fd_set));
 			}
 
-			/// nfds 是一个整数值 是指fd_set集合中所有描述符(socket)的范围，而不是数量
-			/// 既是所有文件描述符最大值+1 在Windows中这个参数可以写0
-			/// t:是0 查询没有立即返回，不阻塞 timeval t = { 0,0 };
+			// nfds 是一个整数值 是指fd_set集合中所有描述符(socket)的范围，而不是数量
+			// 既是所有文件描述符最大值+1 在Windows中这个参数可以写0
+			// t:是0 查询没有立即返回，不阻塞 timeval t = { 0,0 };
 			int ret = select(_maxSock + 1, &fdRead, nullptr, nullptr, nullptr);
 			if (ret < 0)
 			{
@@ -274,13 +274,15 @@ public:
 #endif
 		}
 	}
-	//缓冲区
-	char _szRecv[RECV_BUFF_SZIE] = {};
+	
+	// char _szRecv[RECV_BUFF_SZIE] = {};
 	//接收数据 处理粘包 拆分包
 	int RecvData(ClientSocket* pClient)
 	{
-		// 5 接收客户端数据
-		int nLen = (int)recv(pClient->sockfd(), _szRecv, RECV_BUFF_SZIE, 0);
+		// 缓冲区
+		char *_szRecv = pClient->msgBuf() + pClient->getLastPos();
+		//  接收客户端数据
+		int nLen = (int)recv(pClient->sockfd(), _szRecv, (RECV_BUFF_SZIE*5) - pClient->getLastPos(), 0);
 
 		_pNetEvent->OnNetRecv(pClient);
 
@@ -290,7 +292,7 @@ public:
 			return -1;
 		}
 		//将收取到的数据拷贝到消息缓冲区
-		memcpy(pClient->msgBuf() + pClient->getLastPos(), _szRecv, nLen);
+		// memcpy(pClient->msgBuf() + pClient->getLastPos(), _szRecv, nLen);
 		//消息缓冲区的数据尾部位置后移
 		pClient->setLastPos(pClient->getLastPos() + nLen);
 
@@ -544,7 +546,7 @@ public:
 			// 既是所有文件描述符最大值+1 在Windows中这个参数可以写0
 			timeval t = { 0,10};
 			int ret = select(_sock + 1, &fdRead, 0, 0, &t); //
-		  //int ret = select(_sock + 1, &fdRead, &fdWrite, &fdExp, &t);
+		    //int ret = select(_sock + 1, &fdRead, &fdWrite, &fdExp, &t);
 			if (ret < 0)
 			{
 				printf("Accept Select任务结束。\n");

@@ -52,26 +52,26 @@ public:
 		{
 
 			Login* login = (Login*)header;
-			//printf("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n", cSock, login->dataLength, login->userName, login->PassWord);
+			printf("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
 			//忽略判断用户密码是否正确的过程
-			//LoginResult ret;
-			//pClient->SendData(&ret);
+			LoginResult ret;
+			pClient->SendData(&ret);
 		}
 		break;
 		case CMD_LOGOUT:
 		{
 			Logout* logout = (Logout*)header;
-			//printf("收到客户端<Socket=%d>请求：CMD_LOGOUT,数据长度：%d,userName=%s \n", cSock, logout->dataLength, logout->userName);
+			printf("收到客户端<Socket=%d>请求：CMD_LOGOUT,数据长度：%d,userName=%s \n", pClient->sockfd(),logout->dataLength, logout->userName);
 			//忽略判断用户密码是否正确的过程
-			//LogoutResult ret;
-			//SendData(cSock, &ret);
+			LogoutResult ret;
+			pClient->SendData(&ret);
 		}
 		break;
 		default:
 		{
 			printf("<socket=%d>收到未定义消息,数据长度：%d\n", pClient->sockfd(), header->dataLength);
-			//DataHeader ret;
-			//SendData(cSock, &ret);
+			DataHeader ret;
+			pClient->SendData(&ret);
 		}
 		break;
 		}
