@@ -92,6 +92,8 @@ public:
 	virtual void OnNetLeave(ClientSocket* pClient) = 0;
 	//客户端消息事件
 	virtual void OnNetMsg(ClientSocket* pClient, DataHeader* header) = 0;
+	//recv 事件
+	virtual void OnNetRecv(ClientSocket *pClient) = 0;
 private:
 
 };
@@ -229,22 +231,23 @@ public:
 			}
 			
 #ifdef _WIN32
-			for (int n = 0; n < fdRead.fd_count; n++)
+			for (u_int n = 0; n < fdRead.fd_count; n++)
 			{
 				auto iter  = _clients.find(fdRead.fd_array[n]);
 				if (iter != _clients.end())
 				{
 					if (-1 == RecvData(iter->second))
 					{
-						if (_pNetEvent)
+						if (_pNetEvent) 
+						{
 							_pNetEvent->OnNetLeave(iter->second);
+						}	
 						_clients_change = true;
 						_clients.erase(iter->first);
 					}
 				}else {
-					printf("error. if (iter != _clients.end())\n");
+					printf("error. iter != _clients.end()...\n");
 				}
-
 			}
 #else
 			std::vector<ClientSocket*> temp;
@@ -255,8 +258,10 @@ public:
 					if (-1 == RecvData(iter.second))
 					{
 						if (_pNetEvent)
+						{
 							_pNetEvent->OnNetLeave(iter.second);
-						_clients_change = false;
+						}
+						_clients_change = true;//false
 						temp.push_back(iter.second);
 					}
 				}
@@ -276,7 +281,9 @@ public:
 	{
 		// 5 接收客户端数据
 		int nLen = (int)recv(pClient->sockfd(), _szRecv, RECV_BUFF_SZIE, 0);
-		//printf("nLen=%d\n", nLen);
+
+		_pNetEvent->OnNetRecv(pClient);
+
 		if (nLen <= 0)
 		{
 			//printf("客户端<Socket=%d>已退出，任务结束。\n", pClient->sockfd());
@@ -336,7 +343,6 @@ public:
 	{
 		return _clients.size() + _clientsBuff.size();
 	}
-
 };
 
 class EasyTcpServer : public INetEvent
@@ -348,16 +354,19 @@ private:
 	//每秒消息计时
 	CELLTimestamp _tTime;
 protected:
-	//收到消息计数
+	//SOCKET recev 函数计数
 	std::atomic_int _recvCount;
 	//客户端计数
 	std::atomic_int _clientCount;
+	//消息数量
+	std::atomic_int _msgCount;
 public:
 	EasyTcpServer()
 	{
 		_sock = INVALID_SOCKET;
 		_recvCount = 0;
 		_clientCount = 0;
+		_msgCount = 0;
 	}
 
 	virtual ~EasyTcpServer()
@@ -566,13 +575,16 @@ public:
 		auto t1 = _tTime.getElapsedSecond();
 		if (t1 >= 1.0)
 		{
-			printf("thread<%d>,time<%lf>,socket<%d>,clients<%d>,recvCount<%d>\n", _cellServers.size(), t1, _sock,(int)_clientCount, (int)(_recvCount/ t1));
+			printf("thread<%d>,time<%lf>,socket<%d>,clients<%d>,recvCount<%d>，msgCount<%d>\n",
+				_cellServers.size(), t1, _sock,(int)_clientCount, (int)(_recvCount/ t1),(int)(_msgCount/t1));
+
 			_recvCount = 0;
+			_msgCount = 0;
 			_tTime.update();
 		}
 	}
 
-	//只会被一个线程触发 安全
+	// 只会被一个线程触发 安全
 	virtual void OnNetJoin(ClientSocket* pClient)
 	{
 		_clientCount++;
@@ -587,7 +599,13 @@ public:
 	//cellServer  多个线程触发 不安全
 	virtual void OnNetMsg(ClientSocket* pClient, DataHeader* header)
 	{
-		_recvCount++;
+		_msgCount++;
+	}
+
+	//recv 事件
+	virtual void OnNetRecv(ClientSocket *pClient)
+	{
+		_clientCount++;
 	}
 };
 

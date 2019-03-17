@@ -1,5 +1,7 @@
-#include "EasyTcpClient.hpp"
+#include"EasyTcpClient.hpp"
+#include"CELLTimestamp.hpp"
 #include<thread>
+#include<atomic>
 
 bool g_bRun = true;
 void cmdThread()
@@ -27,6 +29,11 @@ const int tCount = 4;
 //客户端数组
 EasyTcpClient* client[cCount];
 
+std::atomic_int sendCount = 0;
+
+std::atomic_int readyCount = 0;
+
+
 void sendThread(int id)
 {
 	printf("thread<%d>,start\n", id);
@@ -46,21 +53,29 @@ void sendThread(int id)
 
 	printf("thread<%d>,Connect<begin=%d, end=%d>\n", id, begin, end);
 
-	std::chrono::milliseconds t(3000);
-	std::this_thread::sleep_for(t);
+	readyCount++;
+	while (readyCount < tCount)
+	{
+		std::chrono::milliseconds t(10);
+		std::this_thread::sleep_for(t);
+	}
 
-	Login login[10];
+	Login login[1];
 	for (int n = 0; n < 10; n++)
 	{
 		strcpy(login[n].userName, "rhc");
 		strcpy(login[n].PassWord, "123456");
 	}
+
 	const int nLen = sizeof(login);
 	while (g_bRun)
 	{
 		for (int n = begin; n < end; n++)
 		{
-			client[n]->SendData(login, nLen);
+			if (client[n]->SendData(login, nLen) != SOCKET_ERROR)
+			{
+				sendCount++;
+			}
 			client[n]->OnRun();
 		}
 	}
@@ -87,9 +102,20 @@ int main()
 		t1.detach();
 	}
 
+	CELLTimestamp tTime;
 	while (g_bRun)
-		Sleep(100);
+	{
+		auto t = tTime.getElapsedSecond();
+		if (t >= 1.0)
+		{
+			printf("thread<%d>,clients<%d>,time<%lf>,sendCount<%d>\n",tCount,cCount,t,sendCount);
+			tTime.update();
+			sendCount = 0;
+		}
 
+		Sleep(1);
+	}
+	
 	printf("已退出。\n");
 	return 0;
 }

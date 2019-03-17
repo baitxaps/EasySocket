@@ -45,7 +45,7 @@ public:
 	//cellServer 多个线程触发 不安全
 	virtual void OnNetMsg(ClientSocket* pClient, DataHeader* header)
 	{
-		_recvCount++;
+		_msgCount++;
 		switch (header->cmd)
 		{
 		case CMD_LOGIN:
@@ -75,6 +75,12 @@ public:
 		}
 		break;
 		}
+	}
+
+	// recv 事件
+	virtual void OnNetRecv(ClientSocket *pClient)
+	{
+		_recvCount++;
 	}
 };
 

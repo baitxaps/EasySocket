@@ -15,8 +15,14 @@
 	#define INVALID_SOCKET  (SOCKET)(~0)
 	#define SOCKET_ERROR            (-1)
 #endif
+
 #include <stdio.h>
 #include "MessageHeader.hpp"
+
+//缓冲区最小单元大小
+#ifndef RECV_BUFF_SZIE
+#define RECV_BUFF_SZIE 10240
+#endif // !RECV_BUFF_SZIE
 
 class EasyTcpClient
 {
@@ -142,10 +148,7 @@ public:
 	{
 		return _sock != INVALID_SOCKET && _isConnect;
 	}
-	//缓冲区最小单元大小
-#ifndef RECV_BUFF_SZIE
-#define RECV_BUFF_SZIE 10240
-#endif // !RECV_BUFF_SZIE
+
 	//第二缓冲区 消息缓冲区
 	char _szMsgBuf[RECV_BUFF_SZIE * 5] = {};
 	//消息缓冲区的数据尾部位置
