@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CellTask.hpp" />
     <ClCompile Include="EasyTcpServer.hpp" />
     <ClCompile Include="server.cpp" />
   </ItemGroup>

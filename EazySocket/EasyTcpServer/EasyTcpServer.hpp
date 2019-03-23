@@ -26,6 +26,7 @@
 #include<atomic>
 #include"MessageHeader.hpp"
 #include"CELLTimestamp.hpp"
+#include"CellTask.hpp"
 
 //缓冲区最小单元大小
 #ifndef RECV_BUFF_SZIE
@@ -124,6 +125,7 @@ private:
 	int _lastSendPos;
 };
 
+class CellServer;
 //网络事件接口
 class INetEvent
 {
@@ -133,10 +135,32 @@ public:
 	//客户端离开事件
 	virtual void OnNetLeave(ClientSocket* pClient) = 0;
 	//客户端消息事件
-	virtual void OnNetMsg(ClientSocket* pClient, DataHeader* header) = 0;
+	virtual void OnNetMsg(CellServer* pCellServer, ClientSocket* pClient, DataHeader* header) = 0;
 	//recv 事件
 	virtual void OnNetRecv(ClientSocket *pClient) = 0;
 private:
+
+};
+
+// network message task class  to send 
+class CellSendMsgToClientTask:public CellTask
+{
+private:
+	ClientSocket* _pClient;
+	DataHeader*	_pHeader;
+
+public:
+	CellSendMsgToClientTask(ClientSocket* pClient, DataHeader* pHeader)
+	{
+		_pClient = pClient;
+		_pHeader = pHeader;
+	}
+
+	virtual void doTask()
+	{
+		_pClient->SendData(_pHeader);
+		delete _pHeader;
+	}
 
 };
 
@@ -153,6 +177,8 @@ private:
 	std::thread _thread;
 	//网络事件对象
 	INetEvent* _pNetEvent;
+	//
+	CellTaskServer _taskServer;
 public:
 	CellServer(SOCKET sock = INVALID_SOCKET)
 	{
@@ -164,6 +190,12 @@ public:
 	{
 		Close();
 		_sock = INVALID_SOCKET;
+	}
+
+	void addSendTask(ClientSocket* pClient, DataHeader* header)
+	{
+		CellSendMsgToClientTask* task = new CellSendMsgToClientTask(pClient, header);
+		_taskServer.addTask(task);
 	}
 
 	void setEventObj(INetEvent* event)
@@ -209,13 +241,13 @@ public:
 	//客户列表是否有变化
 	bool _clients_change;
 	SOCKET _maxSock;
-	bool OnRun()
+	void OnRun()
 	{
 		_clients_change = true;
 		while (isRun())
 		{
 			//从缓冲队列里取出客户数据
-			if (_clientsBuff.size() > 0)
+			if (_clientsBuff.empty())
 			{
 				std::lock_guard<std::mutex> lock(_mutex);
 				for (auto pClient : _clientsBuff)
@@ -265,7 +297,7 @@ public:
 			{
 				printf("select任务结束。\n");
 				Close();
-				return false;
+				return ;
 			}
 			else if (ret == 0)
 			{
@@ -366,7 +398,7 @@ public:
 	//响应网络消息
 	virtual void OnNetMsg(ClientSocket* pClient, DataHeader* header)
 	{
-		_pNetEvent->OnNetMsg(pClient, header);
+		_pNetEvent->OnNetMsg(this,pClient, header);
 	}
 
 	void addClient(ClientSocket* pClient)
@@ -381,6 +413,7 @@ public:
 	{
 		_thread = std::thread(std::mem_fn(&CellServer::OnRun), this);
 	//  std::thread t(std::mem_fun(&CellServer::OnRun), this);
+		_taskServer.Start();
 	}
 
 	size_t getClientCount()
@@ -641,7 +674,7 @@ public:
 	}
 
 	//cellServer  多个线程触发 不安全
-	virtual void OnNetMsg(ClientSocket* pClient, DataHeader* header)
+	virtual void OnNetMsg(CellServer* pCellServe,ClientSocket* pClient, DataHeader* header)
 	{
 		_msgCount++;
 	}
