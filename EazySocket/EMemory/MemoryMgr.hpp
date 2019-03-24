@@ -4,6 +4,17 @@
 #include<stdlib.h>
 #include<assert.h>
 
+#ifdef _DEBUG
+	#ifndef xPrintf
+		#include<stdio.h>
+		#define xPrintf(...) printf(__VA_ARGS__)
+	#endif
+#else
+	#ifndef xPrintf
+		#define xPrintf(...)
+	#endif
+#endif // _DEBUG
+
 #define MAX_MEMORY_SIZE 64
 class MemoryAlloc;
 
@@ -164,7 +175,6 @@ private:
 // memory manager tools
 class MemoryMgr
 {
-
 public:
 	// single instance 
 	static MemoryMgr& Instance()
@@ -186,7 +196,8 @@ public:
 			pReturn->nRef = 1;;
 			pReturn->pAlloc = nullptr;
 			pReturn->pNext = nullptr;
-			return  ((char*)(pReturn + sizeof(MemoryBlock)));
+			xPrintf("allocMem:%llx,id=%d,size=%d\n",pReturn,pReturn->nID,nSize);
+			return  (char*)pReturn + sizeof(MemoryBlock);
 		}
 	}
 
@@ -194,6 +205,8 @@ public:
 	void freeMem(void* ptr)
 	{
 		MemoryBlock *pBlock = (MemoryBlock*)((char*)ptr - sizeof(MemoryBlock));
+		xPrintf("freeMem:%llx,id=%d\n", pBlock, pBlock->nID);
+
 		int a = sizeof(MemoryBlock);
 		if (pBlock->bPool)
 		{
