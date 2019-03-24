@@ -161,7 +161,6 @@ public:
 		_pClient->SendData(_pHeader);
 		delete _pHeader;
 	}
-
 };
 
 class CellServer
