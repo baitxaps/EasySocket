@@ -1,0 +1,19 @@
+﻿C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  client.cpp
+c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\EasyTcpClient.hpp(80): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  C:\Program Files\Windows Kits\8.1\Include\um\WinSock2.h(1850): note: see declaration of 'inet_addr'
+client.cpp(12): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+client.cpp(66): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+client.cpp(67): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+client.cpp(111): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'std::atomic_int'
+  Generating code
+  2 of 191 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+  Finished generating code
+    0 functions had inline decision re-evaluated but remain unchanged
+  EasyTcpClient.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Release\EasyTcpClient.exe
+  EasyTcpClient.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Release\EasyTcpClient.pdb (Full PDB)
