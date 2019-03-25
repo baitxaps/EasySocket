@@ -15,7 +15,7 @@
 	#endif
 #endif // _DEBUG
 
-#define MAX_MEMORY_SIZE 64
+#define MAX_MEMORY_SIZE 1024
 class MemoryAlloc;
 
 //the min memory block 
@@ -228,13 +228,17 @@ public:
 private:
 	MemoryMgr()
 	{
-		init(0, 64, &_mem64);
+		init_szAlloc(0, 64, &_mem64);
+		init_szAlloc(65, 128, &_mem128);
+		init_szAlloc(129, 256, &_mem256);
+		init_szAlloc(257, 512, &_mem512);
+		init_szAlloc(513, 1024, &_mem1024);
 	}
 
 	~MemoryMgr() {}
 
 	// initial  memorypool array  to  one-to-one mapping    
-	void init(int nBegin, int nEnd, MemoryAlloc* mPmemA)
+	void init_szAlloc(int nBegin, int nEnd, MemoryAlloc* mPmemA)
 	{
 		for (int n = nBegin; n <= nEnd; n++)
 		{
@@ -242,9 +246,12 @@ private:
 		}
 	}
 
-	MemoryAlloctor<64, 10> _mem64;
-//	MemoryAlloctor<128, 10> _mem128;
-
+	MemoryAlloctor<64, 100> _mem64;
+	MemoryAlloctor<128, 100> _mem128;
+	MemoryAlloctor<256, 100> _mem256;
+	MemoryAlloctor<512, 100> _mem512;
+	MemoryAlloctor<1024,1000> _mem1024;
+//	MemoryAlloctor<1024, 1000000> _mem1024;//1G
 	// to find the index of _szAlloc 
 	MemoryAlloc* _szAlloc[MAX_MEMORY_SIZE + 1];
 };

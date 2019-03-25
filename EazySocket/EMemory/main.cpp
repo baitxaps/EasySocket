@@ -1,24 +1,40 @@
 #include<iostream>
 #include"Alloctor.h"
+#include"CELLTimestamp.hpp"
+#include<thread>
+#include<mutex>
+
+#define kArrayCount 1100
+#define kBlockSize  1024
+
+std::mutex m;
+const int tCount = 8;
+const int mCount = 100000;
+const int nCount = mCount / tCount;
+void workFun(int index)
+{
+	char* data[nCount];
+	for (size_t i = 0; i < nCount; i++)
+	{
+		data[i] = new char[(rand() % 128) + 1];
+	}
+	for (size_t i = 0; i < nCount; i++)
+	{
+		delete[] data[i];
+	}
+}//ÇÀÕ¼Ê½
 
 int main()
 {
-	//char* dat = new char[128];
-	//delete[] dat;
 
-	//char*_dat_ = new char;
-	//delete _dat_;
-
-	//char*__dat__ = (char*)malloc(64);
-	//free(__dat__);
-
-	char* dat[12] ;
-	for (int i = 0; i < 12; i++)
+	char* dat[kArrayCount] ;
+	for (int i = 0; i < kArrayCount; i++)
 	{
-		dat[i] = new char[60];
+		dat[i] = new char[1 +i];
+		//dat[i] = new char[1+(rand()%kBlockSize)];
 	}
 
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < kArrayCount; i++)
 	{
 		delete[] dat[i];
 	}
@@ -28,4 +44,5 @@ int main()
 
 	return 0;
 }
+
 
