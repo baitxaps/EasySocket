@@ -83,13 +83,12 @@ public:
 			assert(0 == pReturn->nRef);
 			pReturn->nRef = 1;
 		}
-
+		xPrintf("allocMem: %x, id=%d, size=%d\n", pReturn, pReturn->nID, nSize);
 		return (char*)pReturn + sizeof(MemoryBlock);
 	}
 
 	void freeMemory(void* ptr)
 	{
-		// char* pDat = (char*)ptr;
 		MemoryBlock *pBlock = (MemoryBlock*)((char*)ptr - sizeof(MemoryBlock));
 
 		assert(1 == pBlock->nRef);
@@ -115,8 +114,10 @@ public:
 		if (_pBuf) return;
 
 		// contructor memory pool
-		size_t buffSize = (_nSize + sizeof(MemoryBlock)) *_nBlockSize;
-		_pBuf = (char*)malloc(buffSize);
+		size_t realSzie = _nSize + sizeof(MemoryBlock);
+		size_t bufSize = realSzie*_nBlockSize;
+
+		_pBuf = (char*)malloc(bufSize);
 		_pHeader = (MemoryBlock*)_pBuf;
 		_pHeader->bPool = true;
 		_pHeader->nID = 0;
@@ -129,8 +130,7 @@ public:
 		for (size_t n = 1; n < _nBlockSize; n++)
 		{
 			// address  offset
-			MemoryBlock* curTmp =(MemoryBlock*)(_pBuf + (n * _nSize));
-			curTmp = (MemoryBlock*)_pBuf;
+			MemoryBlock* curTmp =(MemoryBlock*)(_pBuf + (n * realSzie));
 			curTmp->bPool = true;
 			curTmp->nID = n;
 			curTmp->nRef = 0;
@@ -196,7 +196,9 @@ public:
 			pReturn->nRef = 1;;
 			pReturn->pAlloc = nullptr;
 			pReturn->pNext = nullptr;
-			xPrintf("allocMem:%llx,id=%d,size=%d\n",pReturn,pReturn->nID,nSize);
+			
+			// print the pointer address %llx ,cpu 64bit																																																																									 
+			xPrintf("allocMem:%x,id=%d,size=%d\n",pReturn,pReturn->nID,nSize);
 			return  (char*)pReturn + sizeof(MemoryBlock);
 		}
 	}
@@ -205,9 +207,7 @@ public:
 	void freeMem(void* ptr)
 	{
 		MemoryBlock *pBlock = (MemoryBlock*)((char*)ptr - sizeof(MemoryBlock));
-		xPrintf("freeMem:%llx,id=%d\n", pBlock, pBlock->nID);
-
-		int a = sizeof(MemoryBlock);
+		xPrintf("freeMem:%x,id=%d\n", pBlock, pBlock->nID);
 		if (pBlock->bPool)
 		{
 			pBlock->pAlloc->freeMemory(ptr);
@@ -243,7 +243,7 @@ private:
 	}
 
 	MemoryAlloctor<64, 10> _mem64;
-	MemoryAlloctor<128, 10> _mem128;
+//	MemoryAlloctor<128, 10> _mem128;
 
 	// to find the index of _szAlloc 
 	MemoryAlloc* _szAlloc[MAX_MEMORY_SIZE + 1];
