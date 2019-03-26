@@ -3,11 +3,12 @@
 
 #include<stdlib.h>
 #include<assert.h>
+#include<mutex>
 
 #ifdef _DEBUG
 	#ifndef xPrintf
 		#include<stdio.h>
-		#define xPrintf(...) printf(__VA_ARGS__)
+		#define xPrintf(...)// printf(__VA_ARGS__)
 	#endif
 #else
 	#ifndef xPrintf
@@ -61,6 +62,7 @@ public:
 
 	void* allocMemory(size_t nSize)
 	{
+		std::lock_guard<std::mutex> lg(_mutex);
 		if (!_pBuf)
 		{
 			initMemory();
@@ -90,18 +92,19 @@ public:
 	void freeMemory(void* ptr)
 	{
 		MemoryBlock *pBlock = (MemoryBlock*)((char*)ptr - sizeof(MemoryBlock));
-
 		assert(1 == pBlock->nRef);
-
-		if (--pBlock->nRef != 0) return;
 
 		// 在池中指到头部，在池外直接释放
 		if (pBlock->bPool)
 		{
+			std::lock_guard<std::mutex> lg(_mutex);
+			if (--pBlock->nRef != 0) return;
+
 			pBlock->pNext = _pHeader;
 			_pHeader = pBlock;
 		}
 		else {
+			if (--pBlock->nRef != 0) return;
 			free(pBlock);
 		}
 	}
@@ -150,6 +153,8 @@ protected:
 	size_t _nSize;
 	// memory unit count
 	size_t _nBlockSize;
+	// lock
+	std::mutex _mutex;
 };
 
 

@@ -1,9 +1,6 @@
 ﻿C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Alloctor.cpp
-c:\users\huse\documents\cppnet100\git\eazysocket\ememory\memorymgr.hpp(86): warning C4477: 'printf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'MemoryBlock *'
-c:\users\huse\documents\cppnet100\git\eazysocket\ememory\memorymgr.hpp(201): warning C4477: 'printf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'MemoryBlock *'
-c:\users\huse\documents\cppnet100\git\eazysocket\ememory\memorymgr.hpp(210): warning C4477: 'printf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'MemoryBlock *'
   Generating Code...
   Skipping... (no relevant changes detected)
   main.cpp

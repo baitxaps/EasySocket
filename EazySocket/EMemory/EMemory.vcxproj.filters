@@ -29,5 +29,8 @@
     <ClInclude Include="MemoryMgr.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CELLTimestamp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

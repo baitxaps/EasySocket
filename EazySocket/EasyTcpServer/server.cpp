@@ -1,5 +1,6 @@
 #include "EasyTcpServer.hpp"
 #include<thread>
+#include"Alloctor.h"
 
 #if 0
 #define kAllServers

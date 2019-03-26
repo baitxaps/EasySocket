@@ -154,12 +154,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alloctor.cpp" />
     <ClCompile Include="CellTask.hpp" />
     <ClCompile Include="EasyTcpServer.hpp" />
     <ClCompile Include="server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alloctor.h" />
     <ClInclude Include="CELLTimestamp.hpp" />
+    <ClInclude Include="MemoryMgr.hpp" />
     <ClInclude Include="MessageHeader.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

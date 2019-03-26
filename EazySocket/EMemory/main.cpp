@@ -7,6 +7,8 @@
 #define kArrayCount 1100
 #define kBlockSize  1024
 
+using namespace std;
+
 std::mutex m;
 const int tCount = 8;
 const int mCount = 100000;
@@ -26,20 +28,19 @@ void workFun(int index)
 
 int main()
 {
-
-	char* dat[kArrayCount] ;
-	for (int i = 0; i < kArrayCount; i++)
+	thread t[tCount];
+	for (int n = 0; n < tCount; n++)
 	{
-		dat[i] = new char[1 +i];
-		//dat[i] = new char[1+(rand()%kBlockSize)];
+		t[n] = thread(workFun, n);
 	}
-
-	for (int i = 0; i < kArrayCount; i++)
+	CELLTimestamp tTime;
+	for (int n = 0; n < tCount; n++)
 	{
-		delete[] dat[i];
+		t[n].join();
+		//t[n].detach();
 	}
-
-	std::cout << "hello,main "<< std::endl;
+	cout << tTime.getElapsedTimeInMilliSec() << endl;
+	cout << "Hello,main thread." << endl;
 	system("pause");
 
 	return 0;
