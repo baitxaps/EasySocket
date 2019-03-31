@@ -3,12 +3,9 @@
 #include"CELLTimestamp.hpp"
 #include<thread>
 #include<mutex>
-
-#define kArrayCount 1100
-#define kBlockSize  1024
+#include<memory>
 
 using namespace std;
-
 std::mutex m;
 const int tCount = 8;
 const int mCount = 100000;
@@ -28,18 +25,21 @@ void workFun(int index)
 
 int main()
 {
-	thread t[tCount];
-	for (int n = 0; n < tCount; n++)
-	{
-		t[n] = thread(workFun, n);
-	}
-	CELLTimestamp tTime;
-	for (int n = 0; n < tCount; n++)
-	{
-		t[n].join();
-		//t[n].detach();
-	}
-	cout << tTime.getElapsedTimeInMilliSec() << endl;
+	//thread t[tCount];
+	//for (int n = 0; n < tCount; n++)
+	//{
+	//	t[n] = thread(workFun, n);
+	//}
+	//CELLTimestamp tTime;
+	//for (int n = 0; n < tCount; n++)
+	//{
+	//	t[n].join();
+	//	//t[n].detach();
+	//}
+	//cout << tTime.getElapsedTimeInMilliSec() << endl;
+
+	shared_ptr<int>b = make_shared<int>();
+
 	cout << "Hello,main thread." << endl;
 	system("pause");
 

@@ -31,20 +31,20 @@ private:
 
 public:
 	//只会被一个线程触发 安全
-	virtual void OnNetJoin(ClientSocket* pClient)
+	virtual void OnNetJoin(ClientSocketPtr& pClient)
 	{
 		EasyTcpServer::OnNetJoin(pClient);
 	 // printf("client<%d> join\n", pClient->sockfd());
 	}
 	//cellServer 多个线程触发 不安全
-	virtual void OnNetLeave(ClientSocket* pClient)
+	virtual void OnNetLeave(ClientSocketPtr& pClient)
 	{
 		EasyTcpServer::OnNetLeave(pClient);
 	 // printf("client<%d> leave\n", pClient->sockfd());
 	}
 
 	//cellServer 多个线程触发 不安全
-	virtual void OnNetMsg(CellServer* pCellServer, ClientSocket* pClient, DataHeader* header)
+	virtual void OnNetMsg(CellServer* pCellServer, ClientSocketPtr& pClient, DataHeader* header)
 	{
 		EasyTcpServer::OnNetMsg(pCellServer,pClient,header);
 		switch (header->cmd)
@@ -58,8 +58,9 @@ public:
 			//LoginResult ret;
 			//pClient->SendData(&ret);
 
-			LoginResult *ret = new LoginResult();
-			pCellServer->addSendTask(pClient,ret);
+			//LoginResult *ret = new LoginResult();
+			auto ret = std::make_shared<LoginResult>();
+			pCellServer->addSendTask(pClient,(DataHeaderPtr)ret);
 		}
 		break;
 		case CMD_LOGOUT:
@@ -68,14 +69,14 @@ public:
 			printf("收到客户端<Socket=%d>请求：CMD_LOGOUT,数据长度：%d,userName=%s \n", pClient->sockfd(),logout->dataLength, logout->userName);
 			//忽略判断用户密码是否正确的过程
 			LogoutResult ret;
-			pClient->SendData(&ret);
+			//pClient->SendData(&ret);
 		}
 		break;
 		default:
 		{
 			printf("<socket=%d>收到未定义消息,数据长度：%d\n", pClient->sockfd(), header->dataLength);
 			DataHeader ret;
-			pClient->SendData(&ret);
+		//	pClient->SendData(&ret);
 		}
 		break;
 		}

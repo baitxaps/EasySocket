@@ -68,13 +68,18 @@ void sendThread(int id)
 	}
 
 	const int nLen = sizeof(login);
+	CELLTimestamp tTime;
 	while (g_bRun)
 	{
+		tTime.update();
 		for (int n = begin; n < end; n++)
 		{
-			if (client[n]->SendData(login, nLen) != SOCKET_ERROR)
+			if (tTime.getElapsedSecond()>=1.0)
 			{
-				sendCount++;
+				if (client[n]->SendData(login, nLen) != SOCKET_ERROR)
+				{
+					sendCount++;
+				}
 			}
 			client[n]->OnRun();
 		}
