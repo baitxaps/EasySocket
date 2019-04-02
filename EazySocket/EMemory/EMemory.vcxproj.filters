@@ -32,5 +32,8 @@
     <ClInclude Include="CELLTimestamp.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CELLObjectPool.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

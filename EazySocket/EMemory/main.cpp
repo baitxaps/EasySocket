@@ -4,6 +4,7 @@
 #include<thread>
 #include<mutex>
 #include<memory>
+#include"CELLObjectPool.hpp"
 
 using namespace std;
 std::mutex m;
@@ -23,6 +24,38 @@ void workFun(int index)
 	}
 }//«¿’º Ω
 
+class TestOBjectPool:public ObjectPoolBase<TestOBjectPool,10>
+{
+public:
+	TestOBjectPool()
+	{
+		printf("TestObjectPool constructor\n");
+	}
+
+	TestOBjectPool(int n) 
+	{
+		this->n = n; 
+		printf("TestObjectPool constructor %d\n",n);
+	}
+
+	TestOBjectPool(int n,float b) 
+	{
+		this->n = n;
+		this->b = b;
+		printf("TestObjectPool constructor n= %d,b= %f\n", n,b);
+	}
+
+	~TestOBjectPool ()
+	{ 
+		printf("TestObjectPool destrouctor\n"); 
+	}
+
+private:
+	int n;
+	float b;
+};
+
+
 int main()
 {
 	//thread t[tCount];
@@ -38,8 +71,16 @@ int main()
 	//}
 	//cout << tTime.getElapsedTimeInMilliSec() << endl;
 
-	shared_ptr<int>b = make_shared<int>();
+	TestOBjectPool *n1 = new TestOBjectPool();
+	delete n1;
 
+	TestOBjectPool *n2 = TestOBjectPool::createObject(5);
+	TestOBjectPool::destoryObject(n2);
+
+	TestOBjectPool *n3 = new TestOBjectPool(5,6);
+	TestOBjectPool::destoryObject(n3);
+
+	shared_ptr<int>b = make_shared<int>();
 	cout << "Hello,main thread." << endl;
 	system("pause");
 
