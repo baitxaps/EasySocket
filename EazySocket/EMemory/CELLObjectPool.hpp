@@ -70,6 +70,7 @@ private:
 public:
 	CELLObjectPool()
 	{
+		_pBuf = nullptr;
 		initPool();
 	}
 

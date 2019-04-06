@@ -8,7 +8,7 @@
 #ifdef _DEBUG
 	#ifndef xPrintf
 		#include<stdio.h>
-		#define xPrintf(...) printf(__VA_ARGS__)
+		#define xPrintf(...)// printf(__VA_ARGS__)
 	#endif
 #else
 	#ifndef xPrintf

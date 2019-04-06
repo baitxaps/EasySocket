@@ -7,7 +7,7 @@
 #include"CELLObjectPool.hpp"
 
 using namespace std;
-std::mutex m;
+mutex m;
 const int tCount = 8;
 const int mCount = 100000;
 const int nCount = mCount / tCount;
@@ -24,7 +24,7 @@ void workFun(int index)
 	}
 }//«¿’º Ω
 
-class TestOBjectPool:public ObjectPoolBase<TestOBjectPool,10>
+class TestOBjectPool:public ObjectPoolBase<TestOBjectPool,1000>
 {
 public:
 	TestOBjectPool()
@@ -58,29 +58,29 @@ private:
 
 int main()
 {
-	//thread t[tCount];
-	//for (int n = 0; n < tCount; n++)
-	//{
-	//	t[n] = thread(workFun, n);
-	//}
-	//CELLTimestamp tTime;
-	//for (int n = 0; n < tCount; n++)
-	//{
-	//	t[n].join();
-	//	//t[n].detach();
-	//}
-	//cout << tTime.getElapsedTimeInMilliSec() << endl;
+	thread t[tCount];
+	for (int n = 0; n < tCount; n++)
+	{
+		t[n] = thread(workFun, n);
+	}
+	CELLTimestamp tTime;
+	for (int n = 0; n < tCount; n++)
+	{
+		t[n].join();
+		//t[n].detach();
+	}
+	cout << tTime.getElapsedTimeInMilliSec() << endl;
 
-	TestOBjectPool *n1 = new TestOBjectPool();
-	delete n1;
+	//TestOBjectPool *n1 = new TestOBjectPool();
+	//delete n1;
 
-	TestOBjectPool *n2 = TestOBjectPool::createObject(5);
-	TestOBjectPool::destoryObject(n2);
+	//TestOBjectPool *n2 = TestOBjectPool::createObject(5);
+	//TestOBjectPool::destoryObject(n2);
 
-	TestOBjectPool *n3 = new TestOBjectPool(5,6);
-	TestOBjectPool::destoryObject(n3);
+	//TestOBjectPool *n3 = new TestOBjectPool(5,6);
+	//TestOBjectPool::destoryObject(n3);
 
-	shared_ptr<int>b = make_shared<int>();
+	//shared_ptr<int>b = make_shared<int>();
 	cout << "Hello,main thread." << endl;
 	system("pause");
 

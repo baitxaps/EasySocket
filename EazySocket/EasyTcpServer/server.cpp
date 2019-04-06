@@ -31,20 +31,20 @@ private:
 
 public:
 	//只会被一个线程触发 安全
-	virtual void OnNetJoin(ClientSocketPtr& pClient)
+	virtual void OnNetJoin(CellClientPtr& pClient)
 	{
 		EasyTcpServer::OnNetJoin(pClient);
 	 // printf("client<%d> join\n", pClient->sockfd());
 	}
 	//cellServer 多个线程触发 不安全
-	virtual void OnNetLeave(ClientSocketPtr& pClient)
+	virtual void OnNetLeave(CellClientPtr& pClient)
 	{
 		EasyTcpServer::OnNetLeave(pClient);
 	 // printf("client<%d> leave\n", pClient->sockfd());
 	}
 
 	//cellServer 多个线程触发 不安全
-	virtual void OnNetMsg(CellServer* pCellServer, ClientSocketPtr& pClient, DataHeader* header)
+	virtual void OnNetMsg(CellServer* pCellServer, CellClientPtr& pClient, netmsg_DataHeader* header)
 	{
 		EasyTcpServer::OnNetMsg(pCellServer,pClient,header);
 		switch (header->cmd)
@@ -52,30 +52,30 @@ public:
 		case CMD_LOGIN:
 		{
 
-			Login* login = (Login*)header;
+			netmsg_Login* login = (netmsg_Login*)header;
 			printf("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
 			//忽略判断用户密码是否正确的过程
-			//LoginResult ret;
+			//netmsg_LoginResult ret;
 			//pClient->SendData(&ret);
 
-			//LoginResult *ret = new LoginResult();
-			auto ret = std::make_shared<LoginResult>();
+			//netmsg_LoginResult *ret = new netmsg_LoginResult();
+			auto ret = std::make_shared<netmsg_LoginResult>();
 			pCellServer->addSendTask(pClient,(DataHeaderPtr)ret);
 		}
 		break;
 		case CMD_LOGOUT:
 		{
-			Logout* logout = (Logout*)header;
+			netmsg_Logout* logout = (netmsg_Logout*)header;
 			printf("收到客户端<Socket=%d>请求：CMD_LOGOUT,数据长度：%d,userName=%s \n", pClient->sockfd(),logout->dataLength, logout->userName);
 			//忽略判断用户密码是否正确的过程
-			LogoutResult ret;
+			netmsg_LogoutResult ret;
 			//pClient->SendData(&ret);
 		}
 		break;
 		default:
 		{
 			printf("<socket=%d>收到未定义消息,数据长度：%d\n", pClient->sockfd(), header->dataLength);
-			DataHeader ret;
+			netmsg_DataHeader ret;
 		//	pClient->SendData(&ret);
 		}
 		break;

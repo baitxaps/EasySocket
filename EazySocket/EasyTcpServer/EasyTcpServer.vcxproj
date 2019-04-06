@@ -161,7 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alloctor.h" />
-    <ClInclude Include="CELLTimestamp.hpp" />
+    <ClInclude Include="Cell.hpp" />
+    <ClInclude Include="CellClient.hpp" />
+    <ClInclude Include="CellObjectPool.hpp" />
+    <ClInclude Include="CellServer.hpp" />
+    <ClInclude Include="CellTimestamp.hpp" />
+    <ClInclude Include="INetEvent.hpp" />
     <ClInclude Include="MemoryMgr.hpp" />
     <ClInclude Include="MessageHeader.hpp" />
   </ItemGroup>
