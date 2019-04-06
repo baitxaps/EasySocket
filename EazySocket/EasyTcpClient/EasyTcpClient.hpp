@@ -21,7 +21,7 @@
 
 //缓冲区最小单元大小
 #ifndef RECV_BUFF_SZIE
-#define RECV_BUFF_SZIE 10240 *5
+#define RECV_BUFF_SZIE 10240 
 #endif 
 
 class EasyTcpClient

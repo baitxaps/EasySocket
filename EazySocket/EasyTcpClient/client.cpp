@@ -30,9 +30,18 @@ const int tCount = 4;
 EasyTcpClient* client[cCount];
 
 std::atomic_int sendCount = 0;
-
 std::atomic_int readyCount = 0;
 
+void recvThread(int begin, int end)
+{
+	while (g_bRun)
+	{
+		for (int n = begin; n < end; n++)
+		{
+			client[n]->OnRun();
+		}
+	}
+}
 
 void sendThread(int id)
 {
@@ -50,7 +59,6 @@ void sendThread(int id)
 	{
 		client[n]->Connect("192.168.0.106", 4567);
 	}
-
 	printf("thread<%d>,Connect<begin=%d, end=%d>\n", id, begin, end);
 
 	readyCount++;
@@ -59,6 +67,11 @@ void sendThread(int id)
 		std::chrono::milliseconds t(10);
 		std::this_thread::sleep_for(t);
 	}
+
+// start recv Thread
+	std::thread t1(recvThread, begin,end);
+	t1.detach();
+//
 
 	Login login[10];
 	for (int n = 0; n < 10; n++)
@@ -81,7 +94,8 @@ void sendThread(int id)
 					sendCount++;
 				}
 			}
-			client[n]->OnRun();
+			std::chrono::microseconds t(10);
+			std::this_thread::sleep_for(t);
 		}
 	}
 
