@@ -61,7 +61,7 @@ public:
 				// 指针偏移，计算数据位置
 				pSendData += nCopyLen;
 				// 计算剩余数据长度
-				nSendLen -= nSendLen;
+				nSendLen -= nCopyLen;
 
 				ret = send(_sockfd, _szSendBuf, SEND_BUFF_SIZE, 0);
 				// ret = send(_sockfd, (const char*)header, header->dataLength, 0);

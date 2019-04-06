@@ -3,7 +3,7 @@
 
 // SOCKET
 #ifdef _WIN32
-	#define FD_SETSIZE      2506
+	#define FD_SETSIZE      10240  //10k
 	#define WIN32_LEAN_AND_MEAN
 	#define _WINSOCK_DEPRECATED_NO_WARNINGS
 	#include<windows.h>
