@@ -81,20 +81,20 @@ struct netmsg_NewUserJoin : public netmsg_DataHeader
 	int scok;
 };
 
-struct netmsg_C2S_Heart : public netmsg_DataHeader
+struct netmsg_c2s_Heart : public netmsg_DataHeader
 {
-	netmsg_C2S_Heart()
+	netmsg_c2s_Heart()
 	{
-		dataLength = sizeof(netmsg_C2S_Heart);
+		dataLength = sizeof(netmsg_c2s_Heart);
 		cmd = CMD_C2S_HEART;
 	}
 };
 
-struct netmsg_S2C_Heart : public netmsg_DataHeader
+struct netmsg_s2c_Heart : public netmsg_DataHeader
 {
-	netmsg_S2C_Heart()
+	netmsg_s2c_Heart()
 	{
-		dataLength = sizeof(netmsg_S2C_Heart);
+		dataLength = sizeof(netmsg_s2c_Heart);
 		cmd = CMD_S2C_HEART;
 	}
 };

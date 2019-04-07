@@ -2,8 +2,10 @@
 #define _CellClient_hpp_
 
 #include"Cell.hpp"
-// client heart dead time ,5 seconds
-#define CELIENT_HREAT_DEAD_TIME 5000
+// 60 seconds client heart dead time 
+#define CELIENT_HREAT_DEAD_TIME 60000
+// 200ms send cache data to client
+#define CLIENT_SEND_BUFF_TIME 200
 
 typedef std::shared_ptr<netmsg_DataHeader> DataHeaderPtr;
 typedef std::shared_ptr<netmsg_LoginResult> LoginResultPtr;
@@ -23,6 +25,7 @@ public:
 		_lastSendPos = 0;
 
 		resetDTheart();
+		resetDTSend();
 	}
 
 	SOCKET sockfd()
@@ -43,6 +46,27 @@ public:
 	void setLastPos(int pos)
 	{
 		_lastPos = pos;
+	}
+
+
+	int SendDataReal(DataHeaderPtr& header)
+	{
+		SendData(header);
+		SendDataReal();
+	}
+
+	// the cache data  send to client just now
+	int SendDataReal()
+	{
+		int ret = SOCKET_ERROR;
+		// cache data >0
+		if (_lastSendPos > 0 && SOCKET_ERROR != _sockfd)
+		{
+			ret = send(_sockfd, _szSendBuf, _lastSendPos, 0);
+			_lastSendPos = 0;
+			resetDTSend();
+		}
+		return ret;
 	}
 
 	//发送数据, 定时定量
@@ -68,10 +92,12 @@ public:
 				nSendLen -= nCopyLen;
 
 				ret = send(_sockfd, _szSendBuf, SEND_BUFF_SIZE, 0);
-				// ret = send(_sockfd, (const char*)header, header->dataLength, 0);
 
+				// ret = send(_sockfd, (const char*)header, header->dataLength, 0);
+				
 				_lastSendPos = 0;
 
+				resetDTSend();
 				if (SOCKET_ERROR == ret)
 				{
 					return ret;
@@ -92,6 +118,11 @@ public:
 		_dtHeart = 0;
 	}
 
+	void resetDTSend()
+	{
+		_dtSend = 0;
+	}
+
 	// check the socket heart
 	bool checkHeart(time_t dt)
 	{
@@ -100,6 +131,19 @@ public:
 		{
 			printf("checkHeart dead:s=%d,time = %d", _sockfd, (int)_dtHeart);
 			return true;
+		}
+		return false;
+	}
+
+	// check the Send
+	bool checkSend(time_t dt)
+	{
+		_dtSend += dt;
+		if (_dtSend >= CLIENT_SEND_BUFF_TIME)
+		{
+			printf("checkSend:s=%d,time = %d", _sockfd, (int)_dtSend);
+			SendDataReal();
+			resetDTSend();
 		}
 		return false;
 	}
@@ -118,6 +162,8 @@ private:
 	int _lastSendPos;
 	// the heart time of socket 
 	time_t _dtHeart;
+	//  send data timeStamp 
+	time_t _dtSend;
 };
 
 #endif

@@ -23,9 +23,9 @@ void cmdThread()
 }
 
 //客户端数量
-const int cCount = 100;
+const int cCount = 1;//100
 //发送线程数量
-const int tCount = 4;
+const int tCount = 1;//4
 //客户端数组
 EasyTcpClient* client[cCount];
 
@@ -76,12 +76,14 @@ void sendThread(int id)
 	t1.detach();
 //
 
-	Login login[10];
+	netmsg_Login login[1];//10
 	for (int n = 0; n < 10; n++)
 	{
 		strcpy(login[n].userName, "rhc");
 		strcpy(login[n].PassWord, "123456");
 	}
+
+
 
 	const int nLen = sizeof(login);
 	CELLTimestamp tTime;

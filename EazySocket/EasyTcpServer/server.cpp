@@ -51,6 +51,7 @@ public:
 		{
 		case CMD_LOGIN:
 		{
+			pClient->resetDTheart();
 
 			netmsg_Login* login = (netmsg_Login*)header;
 			printf("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
@@ -76,9 +77,9 @@ public:
 		case CMD_C2S_HEART:
 		{
 			pClient->resetDTheart();
-		//	netmsg_C2S_Heart ret;
+		//	netmsg_c2s_Heart ret;
 		//	pClient->SendData(&ret);
-			auto ret = std::make_shared<netmsg_C2S_Heart>();
+			auto ret = std::make_shared<netmsg_c2s_Heart>();
 			pCellServer->addSendTask(pClient, (DataHeaderPtr)ret);
 		}
 		break;

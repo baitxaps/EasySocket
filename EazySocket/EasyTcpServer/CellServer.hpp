@@ -189,6 +189,7 @@ public:
 
 		for (auto iter = _clients.begin();iter!=_clients.end();)
 		{
+			// Heart to check
 			if (iter->second->checkHeart(dt))
 			{
 				if (_pNetEvent) _pNetEvent->OnNetLeave(iter->second);
@@ -198,6 +199,8 @@ public:
 				_clients.erase(iterOld);
 				continue;
 			}
+			// send data to check
+			iter->second->checkSend(dt);
 			iter++;
 		}
 	}

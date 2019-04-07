@@ -8,14 +8,16 @@ enum CMD
 	CMD_LOGOUT,
 	CMD_LOGOUT_RESULT,
 	CMD_NEW_USER_JOIN,
+	CMD_C2S_HEART,
+	CMD_S2C_HEART,
 	CMD_ERROR
 };
 
-struct DataHeader
+struct netmsg_DataHeader
 {
-	DataHeader()
+	netmsg_DataHeader()
 	{
-		dataLength = sizeof(DataHeader);
+		dataLength = sizeof(netmsg_DataHeader);
 		cmd = CMD_ERROR;
 	}
 	short dataLength;
@@ -23,11 +25,11 @@ struct DataHeader
 };
 
 //DataPackage
-struct Login : public DataHeader
+struct netmsg_Login : public netmsg_DataHeader
 {
-	Login()
+	netmsg_Login()
 	{
-		dataLength = sizeof(Login);
+		dataLength = sizeof(netmsg_Login);
 		cmd = CMD_LOGIN;
 	}
 	char userName[32];
@@ -35,11 +37,11 @@ struct Login : public DataHeader
 	char data[32];
 };
 
-struct LoginResult : public DataHeader
+struct netmsg_LoginResult : public netmsg_DataHeader
 {
-	LoginResult()
+	netmsg_LoginResult()
 	{
-		dataLength = sizeof(LoginResult);
+		dataLength = sizeof(netmsg_LoginResult);
 		cmd = CMD_LOGIN_RESULT;
 		result = 0;
 	}
@@ -47,36 +49,56 @@ struct LoginResult : public DataHeader
 	char data[92];
 };
 
-struct Logout : public DataHeader
+struct netmsg_Logout : public netmsg_DataHeader
 {
-	Logout()
+	netmsg_Logout()
 	{
-		dataLength = sizeof(Logout);
+		dataLength = sizeof(netmsg_Logout);
 		cmd = CMD_LOGOUT;
 	}
 	char userName[32];
 };
 
-struct LogoutResult : public DataHeader
+struct netmsg_LogoutResult : public netmsg_DataHeader
 {
-	LogoutResult()
+	netmsg_LogoutResult()
 	{
-		dataLength = sizeof(LogoutResult);
+		dataLength = sizeof(netmsg_LogoutResult);
 		cmd = CMD_LOGOUT_RESULT;
 		result = 0;
 	}
 	int result;
 };
 
-struct NewUserJoin : public DataHeader
+struct netmsg_NewUserJoin : public netmsg_DataHeader
 {
-	NewUserJoin()
+	netmsg_NewUserJoin()
 	{
-		dataLength = sizeof(NewUserJoin);
+		dataLength = sizeof(netmsg_NewUserJoin);
 		cmd = CMD_NEW_USER_JOIN;
 		scok = 0;
 	}
 	int scok;
 };
+
+struct netmsg_c2s_Heart : public netmsg_DataHeader
+{
+	netmsg_c2s_Heart()
+	{
+		dataLength = sizeof(netmsg_c2s_Heart);
+		cmd = CMD_C2S_HEART;
+	}
+};
+
+struct netmsg_s2c_Heart : public netmsg_DataHeader
+{
+	netmsg_s2c_Heart()
+	{
+		dataLength = sizeof(netmsg_s2c_Heart);
+		cmd = CMD_S2C_HEART;
+	}
+};
+
+
 
 #endif // !_MessageHeader_hpp_
