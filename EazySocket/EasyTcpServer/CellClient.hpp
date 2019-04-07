@@ -2,6 +2,8 @@
 #define _CellClient_hpp_
 
 #include"Cell.hpp"
+// client heart dead time ,5 seconds
+#define CELIENT_HREAT_DEAD_TIME 5000
 
 typedef std::shared_ptr<netmsg_DataHeader> DataHeaderPtr;
 typedef std::shared_ptr<netmsg_LoginResult> LoginResultPtr;
@@ -19,6 +21,8 @@ public:
 
 		memset(_szSendBuf, 0, SEND_BUFF_SIZE);
 		_lastSendPos = 0;
+
+		resetDTheart();
 	}
 
 	SOCKET sockfd()
@@ -83,6 +87,23 @@ public:
 		return ret;
 	}
 
+	void resetDTheart()
+	{
+		_dtHeart = 0;
+	}
+
+	// check the socket heart
+	bool checkHeart(time_t dt)
+	{
+		_dtHeart += dt;
+		if (_dtHeart >= CELIENT_HREAT_DEAD_TIME)
+		{
+			printf("checkHeart dead:s=%d,time = %d", _sockfd, (int)_dtHeart);
+			return true;
+		}
+		return false;
+	}
+
 private:
 	// socket fd_set  file desc set
 	SOCKET _sockfd;
@@ -95,6 +116,8 @@ private:
 	char _szSendBuf[SEND_BUFF_SIZE];
 	//发送缓冲区的数据尾部位置
 	int _lastSendPos;
+	// the heart time of socket 
+	time_t _dtHeart;
 };
 
 #endif

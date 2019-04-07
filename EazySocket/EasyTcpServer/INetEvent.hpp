@@ -2,6 +2,8 @@
 #define _I_NET_EVENT_HPP_
 
 #include"Cell.hpp"
+#include"CellClient.hpp"
+
 class CellServer;
 
 typedef std::shared_ptr<CellClient> CellClientPtr;

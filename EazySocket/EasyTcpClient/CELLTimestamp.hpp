@@ -5,6 +5,17 @@
 #include<chrono>
 using namespace std::chrono;
 
+class CellTime
+{
+public:
+	// get the current  time. millisec
+	static time_t  getNowInMilliSec()
+	{
+		return duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch()).count();
+	}
+};
+
+
 class CELLTimestamp
 {
 public:
@@ -17,7 +28,7 @@ public:
     ~CELLTimestamp()
     {}
 
-    void    update()
+    void  update()
     {
         //QueryPerformanceCounter(&_startCount);
 		_begin = high_resolution_clock::now();

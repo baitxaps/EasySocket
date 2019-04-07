@@ -55,10 +55,13 @@ void sendThread(int id)
 	{
 		client[n] = new EasyTcpClient();
 	}
+
 	for (int n = begin; n < end; n++)
 	{
 		client[n]->Connect("192.168.0.106", 4567);
 	}
+
+	// ĞÄÌø¼ì²â,ËÀÍö¼ÆÊ±
 	printf("thread<%d>,Connect<begin=%d, end=%d>\n", id, begin, end);
 
 	readyCount++;

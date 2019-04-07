@@ -72,6 +72,17 @@ public:
 			//pClient->SendData(&ret);
 		}
 		break;
+
+		case CMD_C2S_HEART:
+		{
+			pClient->resetDTheart();
+		//	netmsg_C2S_Heart ret;
+		//	pClient->SendData(&ret);
+			auto ret = std::make_shared<netmsg_C2S_Heart>();
+			pCellServer->addSendTask(pClient, (DataHeaderPtr)ret);
+		}
+		break;
+
 		default:
 		{
 			printf("<socket=%d>收到未定义消息,数据长度：%d\n", pClient->sockfd(), header->dataLength);
