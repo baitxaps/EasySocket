@@ -3,4 +3,3 @@ C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,
   test.cpp
   Socket.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\Socket.exe
   Socket.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\Socket.pdb (Full PDB)
-c:\users\huse\documents\cppnet100\git\eazysocket\socket\test.cpp(14): warning C6031: Return value ignored: 'WSAStartup'.
