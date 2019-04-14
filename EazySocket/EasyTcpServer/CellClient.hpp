@@ -13,9 +13,16 @@ typedef std::shared_ptr<netmsg_LoginResult> LoginResultPtr;
 //客户端数据类型
 class CellClient :public ObjectPoolBase<CellClient, 10000>
 {
+	// for test
+public:
+	int id = -1;
+	int serverId = -1;
 public:
 	CellClient(SOCKET sockfd = INVALID_SOCKET)
 	{
+		static int n = 1;
+		id = n++;
+
 		_sockfd = sockfd;
 		memset(_szMsgBuf, 0, RECV_BUFF_SZIE);
 		_lastPos = 0;
@@ -26,6 +33,20 @@ public:
 
 		resetDTheart();
 		resetDTSend();
+	}
+
+	~CellClient()
+	{
+		printf("s=%d,CellClient%d.~CellClient...\n",serverId, id);
+		if (_sockfd != INVALID_SOCKET)
+		{
+#ifdef _WIN32
+			closesocket(_sockfd);
+#else
+			close(_sockfd);
+#endif
+			_sockfd = INVALID_SOCKET;
+		}
 	}
 
 	SOCKET sockfd()

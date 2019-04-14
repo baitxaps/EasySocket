@@ -5,6 +5,7 @@
 #include<thread>
 #include<mutex>
 #include<list>
+#include"CellSemaphore.hpp"
 
 // Task type for base class
 class CellTask
@@ -32,17 +33,21 @@ public:
 typedef std::shared_ptr<CellTask> CellTaskPtr;
 class CellTaskServer
 {
+public:
+	int serverId = -1;// for test
 private:
 	// task data
 	std::list<CellTaskPtr>_tasks;//std::list<CellTask*> _tasks;
-
 	// task cache data 
 	std::list<CellTaskPtr>_tasksBuf;//std::list<CellTask*> _tasksBuf;
 	// 
 	std::mutex _mutex;
 	//
 	std::thread* _thread;
-
+	//
+	bool _isRun = false;
+	//
+	CellSemaphore _sem;
 public:
 	CellTaskServer()
 	{
@@ -53,7 +58,7 @@ public:
 	{
 
 	}
-	
+
 	// to push  list table
 	//void addTask(CellTask* task)
 	void addTask(CellTaskPtr& task)
@@ -64,15 +69,28 @@ public:
 
 	void Start()
 	{
-	  // _thread = std::thread(std::mem_fn(&CellServer::OnRun), this);
+		_isRun = true;
+		// _thread = std::thread(std::mem_fn(&CellServer::OnRun), this);
 		std::thread t(std::mem_fn(&CellTaskServer::OnRun), this);
 		t.detach();
+	}
+
+	void Close()
+	{
+		if (_isRun)
+		{
+			printf("CellTaskServer-%d.close begin\n", serverId);
+			_isRun = true;
+			_sem.wait();
+			printf("CellTaskServer-%d.close end\n", serverId);
+		}
+		
 	}
 
 	// on doing function
 	void OnRun()
 	{
-		while (true)
+		while (_isRun)
 		{
 			if (!_tasksBuf.empty())
 			{
@@ -99,6 +117,8 @@ public:
 			}
 			_tasks.clear();
 		}
+		_sem.wakeup();
+		printf("CellTaskServerId %d.OnRun...\n", serverId);
 	}
 };
 

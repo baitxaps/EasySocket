@@ -4,6 +4,7 @@
 #include"Cell.hpp"
 #include"INetEvent.hpp"
 #include"CellClient.hpp"
+#include"CellSemaphore.hpp"
 
 #include<vector>
 #include<map>
@@ -33,7 +34,6 @@ public:
 class CellServer
 {
 private:
-	SOCKET _sock;
 	//正式客户队列
 	std::map<SOCKET, CellClientPtr> _clients;
 	//缓冲客户队列
@@ -45,17 +45,30 @@ private:
 	INetEvent* _pNetEvent;
 	//
 	CellTaskServer _taskServer;
+	//备份客户socket fd_set
+	fd_set _fdRead_bak;
+	SOCKET _maxSock;
+	// old  timestamp
+	time_t _old_time = CellTime::getNowInMilliSec();
+	//
+	CellSemaphore _sem;
+	//
+	int _id = -1;
+	//客户列表是否有变化
+	bool _clients_change = true;
+	// 是否工作中
+	bool _isRun = false;
 public:
-	CellServer(SOCKET sock = INVALID_SOCKET)
+	CellServer(int id )
 	{
-		_sock = sock;
+		_id = id;
+		_taskServer.serverId = id;
 		_pNetEvent = nullptr;
 	}
 
 	~CellServer()
 	{
 		Close();
-		_sock = INVALID_SOCKET;
 	}
 
 	void addSendTask(CellClientPtr& pClient, DataHeaderPtr& header)
@@ -72,45 +85,46 @@ public:
 	//关闭Socket
 	void Close()
 	{
-		if (_sock != INVALID_SOCKET)
+		if (_isRun)
 		{
-#ifdef _WIN32
-			for (auto iter : _clients)
-			{
-				closesocket(iter.second->sockfd());
-				//delete iter.second;
-			}
-			//关闭套节字closesocket
-			closesocket(_sock);
-#else
-			for (auto iter : _clients)
-			{
-				close(iter.second->sockfd());
-				delete iter.second;
-			}
-			//关闭套节字closesocket
-			close(_sock);
-#endif
-			_clients.clear();
+			_taskServer.Close();
+			_isRun = false;
+			_sem.wait();
 		}
+
+//		if (_sock != INVALID_SOCKET)
+//		{
+//#ifdef _WIN32
+//			for (auto iter : _clients)
+//			{
+//				closesocket(iter.second->sockfd());
+//				//delete iter.second;
+//			}
+//			
+//			closesocket(_sock);
+//#else
+//			for (auto iter : _clients)
+//			{
+//				close(iter.second->sockfd());
+//				delete iter.second;
+//			}
+//			//关闭套节字closesocket
+//			close(_sock);
+//#endif
+//			_clients.clear();
+//		}
 	}
 
 	//是否工作中
-	bool isRun()
-	{
-		return _sock != INVALID_SOCKET;
-	}
+	//bool isRun()
+	//{
+	//	return _sock != INVALID_SOCKET;
+	//}
 
 	//处理网络消息
-	//备份客户socket fd_set
-	fd_set _fdRead_bak;
-	//客户列表是否有变化
-	bool _clients_change;
-	SOCKET _maxSock;
 	void OnRun()
 	{
-		_clients_change = true;
-		while (isRun())
+		while (_isRun)
 		{
 			//从缓冲队列里取出客户数据
 			if (_clientsBuff.empty())
@@ -119,6 +133,9 @@ public:
 				for (auto pClient : _clientsBuff)
 				{
 					_clients[pClient->sockfd()] = pClient;
+					pClient->serverId = _id;
+					if (_pNetEvent)
+						_pNetEvent->OnNetJoin(pClient);
 				}
 				_clientsBuff.clear();
 				_clients_change = true;
@@ -176,10 +193,11 @@ public:
 			ReadData(fdRead);
 			CheckTime();
 		}
+
+		ClearClients();
+		_sem.wakeup();
 	}
 
-	// old  timestamp
-	time_t _old_time = CellTime::getNowInMilliSec();
 	void CheckTime()
 	{
 		// current  timestamp
@@ -220,7 +238,7 @@ public:
 						_pNetEvent->OnNetLeave(iter->second);
 					}
 					_clients_change = true;
-					closesocket(iter->first);
+				//	closesocket(iter->first);
 				//	delete iter->second;
 					_clients.erase(iter);
 				}
@@ -319,14 +337,37 @@ public:
 
 	void Start()
 	{
-		_thread = std::thread(std::mem_fn(&CellServer::OnRun), this);
-		//  std::thread t(std::mem_fun(&CellServer::OnRun), this);
-		_taskServer.Start();
+		if (!_isRun)
+		{
+			_isRun = true;
+			_thread = std::thread(std::mem_fn(&CellServer::OnRun), this);
+			//  std::thread t(std::mem_fun(&CellServer::OnRun), this);
+			_taskServer.Start();
+		}
 	}
 
 	size_t getClientCount()
 	{
 		return _clients.size() + _clientsBuff.size();
+	}
+
+private:
+	void ClearClients()
+	{
+		//关闭套节字closesocket 应该用 EazyTcpServer 互责关闭
+		printf("CellServer%d.close start...\n", _id);
+		for (auto iter : _clients)
+		{
+			//delete iter.second;
+		}
+		_clients.clear();
+
+		for (auto iter : _clientsBuff)
+		{
+			//delete iter;
+		}
+		_clientsBuff.clear();
+		printf("CellServer%d.close end...\n", _id);
 	}
 };
 

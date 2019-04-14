@@ -167,7 +167,7 @@ public:
 		for (int n = 0; n < nCellServer; n++)
 		{
 		//	auto ser = new CellServer(_sock);
-			auto ser = std::make_shared<CellServer>(_sock);
+			auto ser = std::make_shared<CellServer>(n+1);//_sock
 			_cellServers.push_back(ser);
 			//注册网络事件接受对象
 			ser->setEventObj(this);
@@ -179,16 +179,24 @@ public:
 	//关闭Socket
 	void Close()
 	{
+		printf("EasyTcpServer.close start...\n");
+		
 		if (_sock != INVALID_SOCKET)
 		{
+	/*		for (auto s:_cellServers)
+			{
+				delete s;
+			}*/
+			_cellServers.clear();
 #ifdef _WIN32
-			//关闭套节字closesocket
+			//关闭套节字socket
 			closesocket(_sock);
 			//清除Windows socket环境
 			WSACleanup();
 #else
 			close(_sock);
 #endif
+			printf("EasyTcpServer.close end...\n");
 		}
 	}
 	//处理网络消息

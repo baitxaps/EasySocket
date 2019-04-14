@@ -7,7 +7,7 @@
 #endif
 
 bool g_bRun = true;
-void cmdThread() // ctrl+shift+f:find
+void cmdThread() // ctrl+shift+f:find;ctrl+k,ctrl+f:Format alignment  
 {
 	while (true)
 	{
