@@ -40,7 +40,6 @@ private:
 	std::vector<CellClientPtr> _clientsBuff;
 	//缓冲队列的锁
 	std::mutex _mutex;
-	std::thread _thread;
 	//网络事件对象
 	INetEvent* _pNetEvent;
 	//
@@ -51,13 +50,12 @@ private:
 	// old  timestamp
 	time_t _old_time = CellTime::getNowInMilliSec();
 	//
-	CellSemaphore _sem;
+	CellThread _thread;
 	//
 	int _id = -1;
 	//客户列表是否有变化
 	bool _clients_change = true;
-	// 是否工作中
-	bool _isRun = false;
+
 public:
 	CellServer(int id )
 	{
@@ -85,12 +83,10 @@ public:
 	//关闭Socket
 	void Close()
 	{
-		if (_isRun)
-		{
-			_taskServer.Close();
-			_isRun = false;
-			_sem.wait();
-		}
+		printf("CellServer-%d.close begin\n", _id);
+		_taskServer.Close();
+		_thread.Close();
+		printf("CellServer-%d.close end\n", _id);
 
 //		if (_sock != INVALID_SOCKET)
 //		{
@@ -122,9 +118,9 @@ public:
 	//}
 
 	//处理网络消息
-	void OnRun()
+	void OnRun(CellThread* pThead)
 	{
-		while (_isRun)
+		while (pThead->isRun())
 		{
 			//从缓冲队列里取出客户数据
 			if (_clientsBuff.empty())
@@ -181,21 +177,16 @@ public:
 			int ret = select(_maxSock + 1, &fdRead, nullptr, nullptr, &t);
 			if (ret < 0)
 			{
-				printf("select任务结束。\n");
-				Close();
-				return;
+				printf("CellServer.OnRun.select Error.\n");
+				pThead->Exit();
+				break;
 			}
 
-			//else if (ret == 0)
-			//{
-			//	continue;
-			//}
 			ReadData(fdRead);
 			CheckTime();
 		}
-
+		printf("CellServer%d.OnRun.select Error exit\n", _id);
 		ClearClients();
-		_sem.wakeup();
 	}
 
 	void CheckTime()
@@ -337,13 +328,19 @@ public:
 
 	void Start()
 	{
-		if (!_isRun)
-		{
-			_isRun = true;
-			_thread = std::thread(std::mem_fn(&CellServer::OnRun), this);
-			//  std::thread t(std::mem_fun(&CellServer::OnRun), this);
-			_taskServer.Start();
+		_taskServer.Start();
+		_thread.Start(
+			// onCreate
+			nullptr,
+			// onRun
+			[this](CellThread* pThead) {
+			OnRun(pThead);
+		},
+			// onDestory
+			[this](CellThread* pThead) {
+			ClearClients();
 		}
+		);
 	}
 
 	size_t getClientCount()

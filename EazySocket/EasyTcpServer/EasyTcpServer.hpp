@@ -17,12 +17,14 @@ typedef std::shared_ptr<CellServer> CellServerPtr;
 class EasyTcpServer : public INetEvent
 {
 private:
-	SOCKET _sock;
+	CellThread _thread;
 	//消息处理对象，内部会创建线程
 	//std::vector<CellServer*> _cellServers;
 	std::vector<CellServerPtr> _cellServers;
 	//每秒消息计时
 	CELLTimestamp _tTime;
+	// Socket
+	SOCKET _sock;
 protected:
 	//SOCKET recev 函数计数
 	std::atomic_int _recvCount;
@@ -174,13 +176,19 @@ public:
 			//启动消息处理线程
 			ser->Start();
 		}
+
+		_thread.Start(
+			nullptr,
+			[this](CellThread* pThead) {
+			OnRun(pThead);
+		});
 	}
 
 	//关闭Socket
 	void Close()
 	{
 		printf("EasyTcpServer.close start...\n");
-		
+		_thread.Close();
 		if (_sock != INVALID_SOCKET)
 		{
 	/*		for (auto s:_cellServers)
@@ -197,70 +205,6 @@ public:
 			close(_sock);
 #endif
 			printf("EasyTcpServer.close end...\n");
-		}
-	}
-	//处理网络消息
-	bool OnRun()
-	{
-		if (isRun())
-		{
-			time4msg();
-			//伯克利套接字 BSD socket
-			fd_set fdRead;//描述符（socket） 集合
-		    // fd_set	fdWrite;
-			// fd_set	fdExp;
-
-			//清理集合
-			FD_ZERO(&fdRead);
-			// FD_ZERO(&fdWrite);
-			// FD_ZERO(&fdExp);
-
-			//将描述符（socket）加入集合
-			FD_SET(_sock, &fdRead);
-			//FD_SET(_sock, &fdWrite);
-			//FD_SET(_sock, &fdExp);
-
-			// nfds 是一个整数值 是指fd_set集合中所有描述符(socket)的范围，而不是数量
-			// 既是所有文件描述符最大值+1 在Windows中这个参数可以写0
-			timeval t = { 0,10};
-			int ret = select(_sock + 1, &fdRead, 0, 0, &t); //
-		    //int ret = select(_sock + 1, &fdRead, &fdWrite, &fdExp, &t);
-			if (ret < 0)
-			{
-				printf("Accept Select任务结束。\n");
-				Close();
-				return false;
-			}
-			//判断描述符（socket）是否在集合中
-			if (FD_ISSET(_sock, &fdRead))
-			{
-				FD_CLR(_sock, &fdRead);
-				Accept();
-				return true;
-			}
-			return true;
-		}
-		return false;
-	}
-
-	//是否工作中
-	bool isRun()
-	{
-		return _sock != INVALID_SOCKET;
-	}
-
-	//计算并输出每秒收到的网络消息
-	void time4msg()
-	{
-		auto t1 = _tTime.getElapsedSecond();
-		if (t1 >= 1.0)
-		{
-			printf("thread<%d>,time<%lf>,socket<%d>,clients<%d>,recvCount<%d>，msgCount<%d>\n",
-				_cellServers.size(), t1, _sock,(int)_clientCount, (int)(_recvCount/ t1),(int)(_msgCount/t1));
-
-			_recvCount = 0;
-			_msgCount = 0;
-			_tTime.update();
 		}
 	}
 
@@ -286,6 +230,63 @@ public:
 	virtual void OnNetRecv(CellClientPtr& pClient)
 	{
 		_clientCount++;
+	}
+
+private:
+	//处理网络消息
+	void OnRun(CellThread* pThread)
+	{
+		while (pThread->isRun())
+		{
+			time4msg();
+			//伯克利套接字 BSD socket
+			fd_set fdRead;//描述符（socket） 集合
+						  // fd_set	fdWrite;
+						  // fd_set	fdExp;
+
+						  //清理集合
+			FD_ZERO(&fdRead);
+			// FD_ZERO(&fdWrite);
+			// FD_ZERO(&fdExp);
+
+			//将描述符（socket）加入集合
+			FD_SET(_sock, &fdRead);
+			//FD_SET(_sock, &fdWrite);
+			//FD_SET(_sock, &fdExp);
+
+			// nfds 是一个整数值 是指fd_set集合中所有描述符(socket)的范围，而不是数量
+			// 既是所有文件描述符最大值+1 在Windows中这个参数可以写0
+			timeval t = { 0,1 };
+			int ret = select(_sock + 1, &fdRead, 0, 0, &t); //
+															//int ret = select(_sock + 1, &fdRead, &fdWrite, &fdExp, &t);
+			if (ret < 0)
+			{
+				printf("EasyTcpServer.OnRun select exit.\n");
+				pThread->Exit();
+				break;
+			}
+			//判断描述符（socket）是否在集合中
+			if (FD_ISSET(_sock, &fdRead))
+			{
+				FD_CLR(_sock, &fdRead);
+				Accept();
+			}
+		}
+	}
+
+	//计算并输出每秒收到的网络消息
+	void time4msg()
+	{
+		auto t1 = _tTime.getElapsedSecond();
+		if (t1 >= 1.0)
+		{
+			printf("thread<%d>,time<%lf>,socket<%d>,clients<%d>,recvCount<%d>，msgCount<%d>\n",
+				_cellServers.size(), t1, _sock, (int)_clientCount, (int)(_recvCount / t1), (int)(_msgCount / t1));
+
+			_recvCount = 0;
+			_msgCount = 0;
+			_tTime.update();
+		}
 	}
 };
 

@@ -70,7 +70,7 @@ public:
 	}
 
 
-	int SendDataReal(DataHeaderPtr& header)
+	void SendDataReal(DataHeaderPtr& header)
 	{
 		SendData(header);
 		SendDataReal();

@@ -125,15 +125,24 @@ int main()
 	server.Start(4);
 
 	//启动UI线程
-	std::thread t1(cmdThread);
-	t1.detach();
+	//std::thread t1(cmdThread);
+	//t1.detach();
 
-	while (g_bRun)
+	while (true)
 	{
-		server.OnRun();
-		//printf("空闲时间处理其它业务..\n");
+		char cmdBuf[256] = {};
+		scanf("%s", cmdBuf);
+		if (0 == strcmp(cmdBuf, "exit"))
+		{
+			printf("退出cmdThread线程\n");
+			server.Close();
+			break;
+		}
+		else {
+			printf("不支持的命令。\n");
+		}
 	}
-	server.Close();
+	
 #endif
 	printf("已退出。\n");
 	getchar();
