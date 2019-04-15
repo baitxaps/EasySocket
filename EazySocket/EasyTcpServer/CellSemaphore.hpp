@@ -3,6 +3,8 @@
 
 #include<chrono>
 #include<thread>
+#include<mutex>
+#include<condition_variable>
 
 class CellSemaphore
 {
@@ -20,25 +22,34 @@ public:
 	// thread block
 	void wait()
 	{
-		_isWaitExit = true;
-		while (_isWaitExit)
+		std::unique_lock<std::mutex>lock(_mutex);
+		if (--_wait < 0)
 		{
-			std::chrono::milliseconds t(1);
-			std::this_thread::sleep_for(t);
+			_cv.wait(lock, [this] ()->bool {
+				return _wakeup > 0;
+			});
+			--_wakeup;
 		}
 	}
 
 	// thread wakeup
 	void wakeup()
 	{
-		if (_isWaitExit)
-			_isWaitExit = false;
-		else
-			printf("CellSemaphore wakeup error.\n");
+		std::lock_guard<std::mutex> lock(_mutex);
+		if (++_wait <= 0) {
+			++_wakeup;
+			_cv.notify_one();
+		}
 	}
 
 private:
-	bool _isWaitExit = false;
+	std::mutex _mutex;
+	// block variable
+	std::condition_variable _cv;
+	// wait for count 
+	int _wait = 0;
+	// wakeup for count
+	int _wakeup = 0;
 };
 
 
