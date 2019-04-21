@@ -29,8 +29,8 @@
 
 //缓冲区最小单元大小
 #ifndef RECV_BUFF_SZIE
-#define RECV_BUFF_SZIE 10240 * 5
-#define SEND_BUFF_SIZE RECV_BUFF_SZIE
+#define RECV_BUFF_SZIE 8192		//10240 * 5
+#define SEND_BUFF_SIZE 10240	//RECV_BUFF_SZIE
 #endif 
 
 

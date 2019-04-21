@@ -52,16 +52,21 @@ public:
 		case CMD_LOGIN:
 		{
 			pClient->resetDTheart();
-
 			netmsg_Login* login = (netmsg_Login*)header;
 			printf("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
 			//忽略判断用户密码是否正确的过程
 			//netmsg_LoginResult ret;
 			//pClient->SendData(&ret);
 
-			//netmsg_LoginResult *ret = new netmsg_LoginResult();
 			auto ret = std::make_shared<netmsg_LoginResult>();
-			pCellServer->addSendTask(pClient,(DataHeaderPtr)ret);
+			if (SOCKET_ERROR == pClient->SendData((DataHeaderPtr)ret))
+			{
+			// cache is full
+			}
+
+			//netmsg_LoginResult *ret = new netmsg_LoginResult();
+			//auto ret = std::make_shared<netmsg_LoginResult>();
+			//pCellServer->addSendTask(pClient,(DataHeaderPtr)ret);
 		}
 		break;
 		case CMD_LOGOUT:
@@ -108,7 +113,6 @@ int main()
 	server2.InitSocket();
 	server2.Bind(nullptr, 4568);
 	server2.Listen(5);
-
 	while (server1.isRun() || server2.isRun())
 	{
 		server1.OnRun();
@@ -117,7 +121,6 @@ int main()
 	server1.Close();
 	server2.Close();
 #else
-
 	MyServer server;
 	server.InitSocket();
 	server.Bind(nullptr, 4567);

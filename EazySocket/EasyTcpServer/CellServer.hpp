@@ -5,7 +5,6 @@
 #include"INetEvent.hpp"
 #include"CellClient.hpp"
 #include"CellSemaphore.hpp"
-
 #include<vector>
 #include<map>
 
@@ -149,11 +148,13 @@ public:
 
 			//伯克利套接字 BSD socket
 			fd_set fdRead;//描述符（socket） 集合
-						  //清理集合
-			FD_ZERO(&fdRead);
+			fd_set fdWrite;
+			//fd_set fdExcept;
 			if (_clients_change)
 			{
 				_clients_change = false;
+				//清理集合
+				FD_ZERO(&fdRead);
 				//将描述符（socket）加入集合
 				_maxSock = _clients.begin()->second->sockfd();
 				for (auto iter : _clients)
@@ -169,12 +170,14 @@ public:
 			else {
 				memcpy(&fdRead, &_fdRead_bak, sizeof(fd_set));
 			}
+			memcpy(&fdWrite, &_fdRead_bak, sizeof(fd_set));
+			//memcpy(&fdExcept, &_fdRead_bak, sizeof(fd_set));
 
 			// nfds 是一个整数值 是指fd_set集合中所有描述符(socket)的范围，而不是数量
 			// 既是所有文件描述符最大值+1 在Windows中这个参数可以写0
 			// t:是0 查询没有立即返回，不阻塞 timeval t = { 0,0 };
 			timeval t = { 0,1 };
-			int ret = select(_maxSock + 1, &fdRead, nullptr, nullptr, &t);
+			int ret = select(_maxSock + 1, &fdRead, &fdWrite, nullptr, &t);
 			if (ret < 0)
 			{
 				printf("CellServer.OnRun.select Error.\n");
@@ -183,6 +186,12 @@ public:
 			}
 
 			ReadData(fdRead);
+			WriteData(fdWrite);
+			//WriteData(fdExcept);
+			//if (fdExcept.fd_count>0)
+			//{
+			//	printf("### fdExc= %d\n", fdExcept.fd_count);
+			//}
 			CheckTime();
 		}
 		printf("CellServer%d.OnRun.select Error exit\n", _id);
@@ -208,10 +217,69 @@ public:
 				_clients.erase(iterOld);
 				continue;
 			}
-			// send data to check
-			iter->second->checkSend(dt);
+			//per minte to check to send data 
+			//iter->second->checkSend(dt);
 			iter++;
 		}
+	}
+
+	void WriteData(fd_set& fdWrite)
+	{
+#ifdef _WIN32
+		for (u_int n = 0; n < fdWrite.fd_count; n++)
+		{
+			auto iter = _clients.find(fdWrite.fd_array[n]);
+			if (iter != _clients.end())
+			{
+				if (-1 == iter->second->SendDataReal())
+				{
+					if (_pNetEvent)
+					{
+						_pNetEvent->OnNetLeave(iter->second);
+					}
+					_clients_change = true;
+					//	closesocket(iter->first);
+					//	delete iter->second;
+					_clients.erase(iter);
+				}
+			}
+			else {
+				printf("error. iter != _clients.end()...\n");
+			}
+		}
+#else
+		std::vector<CellClientPtr> temp;
+		for (auto iter : _clients)
+		{
+			if (FD_ISSET(iter.second->sockfd(), &fdRead))
+			{
+				if (-1 == RecvData(iter.second))
+				{
+					if (_pNetEvent)
+					{
+						_pNetEvent->OnNetLeave(iter.second);
+					}
+					_clients_change = true;
+					close(iter->first);
+					temp.push_back(iter.second);
+				}
+			}
+		}
+		for (auto pClient : temp)
+		{
+			_clients.erase(pClient->sockfd());
+			delete pClient;
+		}
+#endif
+	}
+
+	void OnClientLeave(CellClientPtr& iter)
+	{
+		if (_pNetEvent)
+			_pNetEvent->OnNetLeave(iter);
+		_clients_change = true;
+		//	closesocket(iter->first);
+		//	delete iter->second;
 	}
 
 	void ReadData(fd_set& fdRead)
@@ -224,13 +292,12 @@ public:
 			{
 				if (-1 == RecvData(iter->second))
 				{
+					//OnClientLeave(iter->second);
 					if (_pNetEvent)
 					{
 						_pNetEvent->OnNetLeave(iter->second);
 					}
 					_clients_change = true;
-				//	closesocket(iter->first);
-				//	delete iter->second;
 					_clients.erase(iter);
 				}
 			}

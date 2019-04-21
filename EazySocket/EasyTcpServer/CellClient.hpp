@@ -77,14 +77,16 @@ public:
 	}
 
 	// the cache data  send to client just now
+	// business requirement to change
 	int SendDataReal()
 	{
-		int ret = SOCKET_ERROR;
+		int ret = 0;
 		// cache data >0
-		if (_lastSendPos > 0 && SOCKET_ERROR != _sockfd)
+		if (_lastSendPos > 0 && INVALID_SOCKET != _sockfd)
 		{
 			ret = send(_sockfd, _szSendBuf, _lastSendPos, 0);
 			_lastSendPos = 0;
+			_sendBuffFullCount = 0;
 			resetDTSend();
 		}
 		return ret;
@@ -99,37 +101,20 @@ public:
 		// 要发送的数据
 		const char *pSendData = (const char*)header.get();
 
-		while (true)
+		if (_lastSendPos + nSendLen <= SEND_BUFF_SIZE)
 		{
-			if (_lastSendPos + nSendLen >= SEND_BUFF_SIZE)
+			//将发送的数据 拷贝到发送缓冲区尾部
+			memcpy(_szSendBuf + _lastSendPos, pSendData, nSendLen);
+			// 数据尾部位置
+			_lastSendPos += nSendLen;
+			if (_lastSendPos == SEND_BUFF_SIZE)
 			{
-				// 可拷贝的数据长度
-				int nCopyLen = SEND_BUFF_SIZE - _lastSendPos;
-				// 拷贝数据
-				memcpy(_szSendBuf + _lastSendPos, pSendData, nCopyLen);
-				// 指针偏移，计算数据位置
-				pSendData += nCopyLen;
-				// 计算剩余数据长度
-				nSendLen -= nCopyLen;
-
-				ret = send(_sockfd, _szSendBuf, SEND_BUFF_SIZE, 0);
-
-				// ret = send(_sockfd, (const char*)header, header->dataLength, 0);
-				
-				_lastSendPos = 0;
-
-				resetDTSend();
-				if (SOCKET_ERROR == ret)
-				{
-					return ret;
-				}
+				_sendBuffFullCount++;
 			}
-			else {
-				memcpy(_szSendBuf + _lastSendPos, pSendData, nSendLen);
-				// 数据尾部位置
-				_lastSendPos += nSendLen;
-				break;
-			}
+
+			return nSendLen;
+		}else {
+			_sendBuffFullCount++;
 		}
 		return ret;
 	}
@@ -172,19 +157,20 @@ public:
 private:
 	// socket fd_set  file desc set
 	SOCKET _sockfd;
-	//第二缓冲区 消息缓冲区
+	// 第二缓冲区 消息缓冲区
 	char _szMsgBuf[RECV_BUFF_SZIE];
-	//消息缓冲区的数据尾部位置
+	// 消息缓冲区的数据尾部位置
 	int _lastPos;
-
-	//第二缓冲区 发送缓冲区
+	// 第二缓冲区 发送缓冲区
 	char _szSendBuf[SEND_BUFF_SIZE];
-	//发送缓冲区的数据尾部位置
+	// 发送缓冲区的数据尾部位置
 	int _lastSendPos;
 	// the heart time of socket 
 	time_t _dtHeart;
-	//  send data timeStamp 
+	// send data timeStamp 
 	time_t _dtSend;
+	// cachebuff data was full
+	int _sendBuffFullCount=0;
 };
 
 #endif

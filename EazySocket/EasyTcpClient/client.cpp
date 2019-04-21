@@ -1,5 +1,5 @@
 #include"EasyTcpClient.hpp"
-#include"CELLTimestamp.hpp"
+#include"CellTimestamp.hpp"
 #include<thread>
 #include<atomic>
 
@@ -23,21 +23,26 @@ void cmdThread()
 }
 
 //客户端数量
-const int cCount = 1;//100
+const int cCount = 10;//100
 //发送线程数量
 const int tCount = 1;//4
 //客户端数组
 EasyTcpClient* client[cCount];
-
+//
 std::atomic_int sendCount = 0;
 std::atomic_int readyCount = 0;
 
 void recvThread(int begin, int end)
 {
+	CellTimestamp t;
 	while (g_bRun)
 	{
 		for (int n = begin; n < end; n++)
 		{
+			if (t.getElapsedSecond()>3.0 && n==begin)
+			{
+				continue;
+			}
 			client[n]->OnRun();
 		}
 	}
@@ -75,7 +80,6 @@ void sendThread(int id)
 	std::thread t1(recvThread, begin,end);
 	t1.detach();
 //
-
 	netmsg_Login login[1];//10
 	for (int n = 0; n < 10; n++)
 	{
@@ -83,10 +87,8 @@ void sendThread(int id)
 		strcpy(login[n].PassWord, "123456");
 	}
 
-
-
 	const int nLen = sizeof(login);
-	CELLTimestamp tTime;
+	CellTimestamp tTime;
 	while (g_bRun)
 	{
 		tTime.update();
@@ -126,7 +128,7 @@ int main()
 		t1.detach();
 	}
 
-	CELLTimestamp tTime;
+	CellTimestamp tTime;
 	while (g_bRun)
 	{
 		auto t = tTime.getElapsedSecond();
