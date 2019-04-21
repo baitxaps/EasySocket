@@ -124,7 +124,7 @@ public:
 			assert(0 == pReturn->nRef);
 			pReturn->nRef = 1;
 		}
-		xPrintf("allocMem: %x, id=%d, size=%d\n", pReturn, pReturn->nID, nSize);
+		xCellLog::Info("allocMem: %x, id=%d, size=%d\n", pReturn, pReturn->nID, nSize);
 		return (char*)pReturn + sizeof(NodeHeader);
 	}
 

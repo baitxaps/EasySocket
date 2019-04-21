@@ -82,10 +82,10 @@ public:
 	//关闭Socket
 	void Close()
 	{
-		printf("CellServer-%d.close begin\n", _id);
+		CellLog::Info("CellServer-%d.close begin\n", _id);
 		_taskServer.Close();
 		_thread.Close();
-		printf("CellServer-%d.close end\n", _id);
+		CellLog::Info("CellServer-%d.close end\n", _id);
 
 //		if (_sock != INVALID_SOCKET)
 //		{
@@ -180,7 +180,7 @@ public:
 			int ret = select(_maxSock + 1, &fdRead, &fdWrite, nullptr, &t);
 			if (ret < 0)
 			{
-				printf("CellServer.OnRun.select Error.\n");
+				CellLog::Info("CellServer.OnRun.select Error.\n");
 				pThead->Exit();
 				break;
 			}
@@ -190,11 +190,11 @@ public:
 			//WriteData(fdExcept);
 			//if (fdExcept.fd_count>0)
 			//{
-			//	printf("### fdExc= %d\n", fdExcept.fd_count);
+			//	CellLog::Info("### fdExc= %d\n", fdExcept.fd_count);
 			//}
 			CheckTime();
 		}
-		printf("CellServer%d.OnRun.select Error exit\n", _id);
+		CellLog::Info("CellServer%d.OnRun.select Error exit\n", _id);
 		ClearClients();
 	}
 
@@ -244,7 +244,7 @@ public:
 				}
 			}
 			else {
-				printf("error. iter != _clients.end()...\n");
+				CellLog::Info("error. iter != _clients.end()...\n");
 			}
 		}
 #else
@@ -302,7 +302,7 @@ public:
 				}
 			}
 			else {
-				printf("error. iter != _clients.end()...\n");
+				CellLog::Info("error. iter != _clients.end()...\n");
 			}
 		}
 #else
@@ -338,7 +338,7 @@ public:
 		int nLen = pClient->RecvData();
 		if (nLen <= 0)
 		{
-			//printf("客户端<Socket=%d>已退出，任务结束。\n", pClient->sockfd());
+			//CellLog::Info("客户端<Socket=%d>已退出，任务结束。\n", pClient->sockfd());
 			return -1;
 		}
 		// 接<收到网络数据>事件
@@ -396,7 +396,7 @@ private:
 	void ClearClients()
 	{
 		//关闭套节字closesocket 应该用 EazyTcpServer 互责关闭
-		printf("CellServer%d.close start...\n", _id);
+		CellLog::Info("CellServer%d.close start...\n", _id);
 		for (auto iter : _clients)
 		{
 			//delete iter.second;
@@ -408,7 +408,7 @@ private:
 			//delete iter;
 		}
 		_clientsBuff.clear();
-		printf("CellServer%d.close end...\n", _id);
+		CellLog::Info("CellServer%d.close end...\n", _id);
 	}
 };
 

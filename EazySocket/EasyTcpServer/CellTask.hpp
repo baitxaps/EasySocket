@@ -8,6 +8,8 @@
 #include"CellSemaphore.hpp"
 #include"CellThread.hpp"
 
+//#include"CellLog.hpp"
+
 // Task type for base class
 class CellTask
 {
@@ -51,12 +53,10 @@ private:
 public:
 	CellTaskServer()
 	{
-
 	}
 
 	virtual ~CellTaskServer()
 	{
-
 	}
 
 	// to push  list table
@@ -76,9 +76,9 @@ public:
 
 	void Close()
 	{
-		printf("CellTaskServer-%d.close begin\n", serverId);
+		//CellLog::Info("CellTaskServer-%d.close begin\n", serverId);
 		_thread.Close();
-		printf("CellTaskServer-%d.close end\n", serverId);
+		//CellLog::Info("CellTaskServer-%d.close end\n", serverId);
 	}
 
 	// on doing function
@@ -103,16 +103,25 @@ public:
 				continue;
 			}
 
-			// To do task...
-			for (auto pTask : _tasksBuf)
+			// To do task... 
+			for (auto pTask : _tasks)//for (auto pTask : _tasksBuf)
 			{
 				pTask->doTask();
 			//	delete pTask;
 			}
 			_tasks.clear();
 		}
-		printf("CellTaskServerId %d.OnRun...\n", serverId);
+
+		// do for cache queue task
+		for (auto pTask : _tasksBuf)
+		{
+			pTask->doTask();
+			//	delete pTask;
+		}
+
+		//CellLog::Info("CellTaskServerId %d.OnRun...\n", serverId);
 	}
+
 };
 
 #endif // !_CELL_TASK_H_

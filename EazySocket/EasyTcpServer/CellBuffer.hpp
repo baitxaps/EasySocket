@@ -99,7 +99,7 @@ public:
 
 			if (nLen <= 0)
 			{
-				//printf("客户端<Socket=%d>已退出，任务结束。\n", pClient->sockfd());
+				//CellLog::Info("客户端<Socket=%d>已退出，任务结束。\n", pClient->sockfd());
 				return nLen;
 			}
 			_nLast += nLen;

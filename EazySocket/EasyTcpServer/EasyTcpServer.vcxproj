@@ -164,6 +164,7 @@
     <ClInclude Include="Cell.hpp" />
     <ClInclude Include="CellBuffer.hpp" />
     <ClInclude Include="CellClient.hpp" />
+    <ClInclude Include="CellLog.hpp" />
     <ClInclude Include="CellObjectPool.hpp" />
     <ClInclude Include="CellSemaphore.hpp" />
     <ClInclude Include="CellServer.hpp" />

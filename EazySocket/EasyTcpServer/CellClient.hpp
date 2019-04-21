@@ -4,6 +4,8 @@
 #include"Cell.hpp"
 #include"CellBuffer.hpp"
 
+#include"CellLog.hpp"
+
 // 60 seconds client heart dead time 
 #define CELIENT_HREAT_DEAD_TIME 60000
 // 200ms send cache data to client
@@ -32,7 +34,7 @@ public:
 
 	~CellClient()
 	{
-		printf("s=%d,CellClient%d.~CellClient...\n",serverId, id);
+		CellLog::Info("s=%d,CellClient%d.~CellClient...\n",serverId, id);
 		if (_sockfd != INVALID_SOCKET)
 		{
 #ifdef _WIN32
@@ -115,7 +117,7 @@ public:
 		_dtHeart += dt;
 		if (_dtHeart >= CELIENT_HREAT_DEAD_TIME)
 		{
-			printf("checkHeart dead:s=%d,time = %d", _sockfd, (int)_dtHeart);
+			CellLog::Info("checkHeart dead:s=%d,time = %d", _sockfd, (int)_dtHeart);
 			return true;
 		}
 		return false;
@@ -127,7 +129,7 @@ public:
 		_dtSend += dt;
 		if (_dtSend >= CLIENT_SEND_BUFF_TIME)
 		{
-			printf("checkSend:s=%d,time = %d", _sockfd, (int)_dtSend);
+			CellLog::Info("checkSend:s=%d,time = %d", _sockfd, (int)_dtSend);
 			SendDataReal();
 			resetDTSend();
 		}

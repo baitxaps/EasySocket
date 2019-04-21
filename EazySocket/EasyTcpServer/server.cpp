@@ -1,6 +1,7 @@
 #include "EasyTcpServer.hpp"
 #include<thread>
 #include"Alloctor.h"
+#include"CellLog.hpp"
 
 #if 0
 #define kAllServers
@@ -20,11 +21,11 @@ void cmdThread()
 		if (0 == strcmp(cmdBuf, "exit"))
 		{
 			g_bRun = false;
-			printf("退出cmdThread线程\n");
+			CellLog::Info("退出cmdThread线程\n");
 			break;
 		}
 		else {
-			printf("不支持的命令。\n");
+			CellLog::Info("不支持的命令。\n");
 		}
 	}
 }
@@ -38,13 +39,13 @@ public:
 	virtual void OnNetJoin(CellClientPtr& pClient)
 	{
 		EasyTcpServer::OnNetJoin(pClient);
-	 // printf("client<%d> join\n", pClient->sockfd());
+	 // CellLog::Info("client<%d> join\n", pClient->sockfd());
 	}
 	//cellServer 多个线程触发 不安全
 	virtual void OnNetLeave(CellClientPtr& pClient)
 	{
 		EasyTcpServer::OnNetLeave(pClient);
-	 // printf("client<%d> leave\n", pClient->sockfd());
+	 // CellLog::Info("client<%d> leave\n", pClient->sockfd());
 	}
 
 	//cellServer 多个线程触发 不安全
@@ -57,7 +58,7 @@ public:
 		{
 			pClient->resetDTheart();
 			netmsg_Login* login = (netmsg_Login*)header;
-			printf("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
+			CellLog::Info("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
 			//忽略判断用户密码是否正确的过程
 			//netmsg_LoginResult ret;
 			//pClient->SendData(&ret);
@@ -65,6 +66,7 @@ public:
 			auto ret = std::make_shared<netmsg_LoginResult>();
 			if (SOCKET_ERROR == pClient->SendData((DataHeaderPtr)ret))
 			{
+				CellLog::Info("<Socket=%d> Send Full \n",pClient->sockfd());
 			// cache is full
 			}
 
@@ -76,7 +78,7 @@ public:
 		case CMD_LOGOUT:
 		{
 			netmsg_Logout* logout = (netmsg_Logout*)header;
-			printf("收到客户端<Socket=%d>请求：CMD_LOGOUT,数据长度：%d,userName=%s \n", pClient->sockfd(),logout->dataLength, logout->userName);
+			CellLog::Info("收到客户端<Socket=%d>请求：CMD_LOGOUT,数据长度：%d,userName=%s \n", pClient->sockfd(),logout->dataLength, logout->userName);
 			//忽略判断用户密码是否正确的过程
 			netmsg_LogoutResult ret;
 			//pClient->SendData(&ret);
@@ -95,7 +97,7 @@ public:
 
 		default:
 		{
-			printf("<socket=%d>收到未定义消息,数据长度：%d\n", pClient->sockfd(), header->dataLength);
+			CellLog::Info("<socket=%d>收到未定义消息,数据长度：%d\n", pClient->sockfd(), header->dataLength);
 			netmsg_DataHeader ret;
 		//	pClient->SendData(&ret);
 		}
@@ -106,7 +108,7 @@ public:
 
 int main()
 {
-
+	CellLog::Instance().setLogPath("serverLog.txt","w");
 #ifdef kAllServers
 	EasyTcpServer server1;
 	server1.InitSocket();
@@ -141,17 +143,17 @@ int main()
 		scanf("%s", cmdBuf);
 		if (0 == strcmp(cmdBuf, "exit"))
 		{
-			printf("退出cmdThread线程\n");
+			CellLog::Info("退出cmdThread线程\n");
 			server.Close();
 			break;
 		}
 		else {
-			printf("不支持的命令。\n");
+			CellLog::Info("不支持的命令。\n");
 		}
 	}
 	
 #endif
-	printf("已退出。\n");
+	CellLog::Info("已退出。\n");
 	getchar();
 	return 0;
 }
