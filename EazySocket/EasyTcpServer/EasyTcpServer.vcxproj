@@ -162,6 +162,7 @@
   <ItemGroup>
     <ClInclude Include="Alloctor.h" />
     <ClInclude Include="Cell.hpp" />
+    <ClInclude Include="CellBuffer.hpp" />
     <ClInclude Include="CellClient.hpp" />
     <ClInclude Include="CellObjectPool.hpp" />
     <ClInclude Include="CellSemaphore.hpp" />

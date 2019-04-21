@@ -2,6 +2,8 @@
 #define _CellClient_hpp_
 
 #include"Cell.hpp"
+#include"CellBuffer.hpp"
+
 // 60 seconds client heart dead time 
 #define CELIENT_HREAT_DEAD_TIME 60000
 // 200ms send cache data to client
@@ -18,19 +20,12 @@ public:
 	int id = -1;
 	int serverId = -1;
 public:
-	CellClient(SOCKET sockfd = INVALID_SOCKET)
+	CellClient(SOCKET sockfd = INVALID_SOCKET):_sendBuff(SEND_BUFF_SIZE),_recvBuf(RECV_BUFF_SZIE)
 	{
 		static int n = 1;
 		id = n++;
 
 		_sockfd = sockfd;
-		memset(_szMsgBuf, 0, RECV_BUFF_SZIE);
-		_lastPos = 0;
-		//memset(_szMsgBuf, 0, sizeof(_szMsgBuf));
-
-		memset(_szSendBuf, 0, SEND_BUFF_SIZE);
-		_lastSendPos = 0;
-
 		resetDTheart();
 		resetDTSend();
 	}
@@ -54,21 +49,26 @@ public:
 		return _sockfd;
 	}
 
-	char* msgBuf()
+	int RecvData()
 	{
-		return _szMsgBuf;
+		return _recvBuf.readForSocket(_sockfd);
 	}
 
-	int getLastPos()
+	bool hasMsg()
 	{
-		return _lastPos;
+		return _recvBuf.hasMsg();
 	}
 
-	void setLastPos(int pos)
+	netmsg_DataHeader* front_msg()
 	{
-		_lastPos = pos;
+		return (netmsg_DataHeader*)_recvBuf.data();
 	}
 
+	void pop_front_msg()
+	{
+		if(hasMsg())
+		 _recvBuf.pop(front_msg()->dataLength);
+	}
 
 	void SendDataReal(DataHeaderPtr& header)
 	{
@@ -76,47 +76,27 @@ public:
 		SendDataReal();
 	}
 
-	// the cache data  send to client just now
-	// business requirement to change
+	// 立即将发送缓冲区的数据发送给客户端
 	int SendDataReal()
 	{
-		int ret = 0;
-		// cache data >0
-		if (_lastSendPos > 0 && INVALID_SOCKET != _sockfd)
-		{
-			ret = send(_sockfd, _szSendBuf, _lastSendPos, 0);
-			_lastSendPos = 0;
-			_sendBuffFullCount = 0;
-			resetDTSend();
-		}
+		resetDTSend();
+		int ret = _sendBuff.wireteTosocket(_sockfd);
 		return ret;
 	}
 
 	//发送数据, 定时定量
 	int SendData(DataHeaderPtr& header)
 	{
-		int ret = SOCKET_ERROR;
 		// 要发送的长度
 		int nSendLen = header->dataLength;
 		// 要发送的数据
 		const char *pSendData = (const char*)header.get();
 
-		if (_lastSendPos + nSendLen <= SEND_BUFF_SIZE)
+		if (_sendBuff.push(pSendData, nSendLen))
 		{
-			//将发送的数据 拷贝到发送缓冲区尾部
-			memcpy(_szSendBuf + _lastSendPos, pSendData, nSendLen);
-			// 数据尾部位置
-			_lastSendPos += nSendLen;
-			if (_lastSendPos == SEND_BUFF_SIZE)
-			{
-				_sendBuffFullCount++;
-			}
-
-			return nSendLen;
-		}else {
-			_sendBuffFullCount++;
+			return header->dataLength;
 		}
-		return ret;
+		return SOCKET_ERROR;
 	}
 
 	void resetDTheart()
@@ -157,14 +137,10 @@ public:
 private:
 	// socket fd_set  file desc set
 	SOCKET _sockfd;
-	// 第二缓冲区 消息缓冲区
-	char _szMsgBuf[RECV_BUFF_SZIE];
-	// 消息缓冲区的数据尾部位置
-	int _lastPos;
-	// 第二缓冲区 发送缓冲区
-	char _szSendBuf[SEND_BUFF_SIZE];
-	// 发送缓冲区的数据尾部位置
-	int _lastSendPos;
+	// 第二缓冲区 接收消息缓冲区
+	CellBuffer _recvBuf;
+	// 发送缓冲区
+	CellBuffer _sendBuff;
 	// the heart time of socket 
 	time_t _dtHeart;
 	// send data timeStamp 
