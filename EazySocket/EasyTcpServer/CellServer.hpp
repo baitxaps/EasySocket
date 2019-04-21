@@ -251,9 +251,9 @@ public:
 		std::vector<CellClientPtr> temp;
 		for (auto iter : _clients)
 		{
-			if (FD_ISSET(iter.second->sockfd(), &fdRead))
+			if (FD_ISSET(iter.second->sockfd(), &fdWrite))
 			{
-				if (-1 == RecvData(iter.second))
+				if (-1 == iter->second->SendDataReal())
 				{
 					if (_pNetEvent)
 					{

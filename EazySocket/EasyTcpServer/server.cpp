@@ -6,8 +6,12 @@
 #define kAllServers
 #endif
 
+// !<<<NOTE>>>
+// ctrl+shift+f:find;ctrl+k,ctrl+f:Format alignment  
+// g++ -std=c++11 -pthread server.cpp -o server
+
 bool g_bRun = true;
-void cmdThread() // ctrl+shift+f:find;ctrl+k,ctrl+f:Format alignment  
+void cmdThread()
 {
 	while (true)
 	{
