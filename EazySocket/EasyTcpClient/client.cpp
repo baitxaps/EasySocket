@@ -94,12 +94,9 @@ void sendThread(int id)
 		tTime.update();
 		for (int n = begin; n < end; n++)
 		{
-			if (tTime.getElapsedSecond()>=1.0)
+			if (client[n]->SendData(login, nLen) != SOCKET_ERROR)
 			{
-				if (client[n]->SendData(login, nLen) != SOCKET_ERROR)
-				{
-					sendCount++;
-				}
+				sendCount++;
 			}
 			std::chrono::microseconds t(10);
 			std::this_thread::sleep_for(t);
@@ -135,10 +132,9 @@ int main()
 		if (t >= 1.0)
 		{
 			printf("thread<%d>,clients<%d>,time<%lf>,sendCount<%d>\n",tCount,cCount,t,sendCount);
-			tTime.update();
 			sendCount = 0;
+			tTime.update();
 		}
-
 		Sleep(1);
 	}
 	

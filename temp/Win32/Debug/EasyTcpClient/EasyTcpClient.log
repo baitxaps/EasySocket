@@ -9,6 +9,6 @@ c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(86): w
   c:\program files\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
 c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(87): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(137): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'std::atomic_int'
+c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(134): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'std::atomic_int'
   EasyTcpClient.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpClient.exe
   EasyTcpClient.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpClient.pdb (Full PDB)

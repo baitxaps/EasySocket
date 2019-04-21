@@ -12,11 +12,11 @@
 class CellSToCTask :public CellTask
 {
 private:
-	CellClientPtr _pClient;
-	DataHeaderPtr	_pHeader;
+	CellClient _pClient;
+	netmsg_DataHeader	_pHeader;
 
 public:
-	CellSToCTask(CellClientPtr pClient, DataHeaderPtr& pHeader)
+	CellSToCTask(CellClient& pClient, netmsg_DataHeader& pHeader)
 	{
 		_pClient = pClient;
 		_pHeader = pHeader;
@@ -24,7 +24,7 @@ public:
 
 	virtual void doTask()
 	{
-		_pClient->SendData(_pHeader);
+		//_pClient->SendData(_pHeader);
 		//delete _pHeader;
 	}
 };
@@ -34,9 +34,9 @@ class CellServer
 {
 private:
 	//正式客户队列
-	std::map<SOCKET, CellClientPtr> _clients;
+	std::map<SOCKET, CellClient*> _clients;
 	//缓冲客户队列
-	std::vector<CellClientPtr> _clientsBuff;
+	std::vector<CellClient*> _clientsBuff;
 	//缓冲队列的锁
 	std::mutex _mutex;
 	//网络事件对象
@@ -68,11 +68,12 @@ public:
 		Close();
 	}
 
-	void addSendTask(CellClientPtr& pClient, DataHeaderPtr& header)
-	{
-		auto task = std::make_shared<CellSToCTask>(pClient, header);//CellSToCTask* task = new CellSToCTask(pClient, header);
-		_taskServer.addTask((CellTaskPtr)task);
-	}
+	//void addSendTask(CellClient& pClient, netmsg_DataHeader& header)
+	//{
+	//	//auto task = std::make_shared<CellSToCTask>(pClient, header);//
+	//	CellSToCTask* task = new CellSToCTask(pClient, header);
+	//	_taskServer.addTask((CellSToCTask)task);
+	//}
 
 	void setEventObj(INetEvent* event)
 	{
@@ -86,35 +87,7 @@ public:
 		_taskServer.Close();
 		_thread.Close();
 		CellLog::Info("CellServer-%d.close end\n", _id);
-
-//		if (_sock != INVALID_SOCKET)
-//		{
-//#ifdef _WIN32
-//			for (auto iter : _clients)
-//			{
-//				closesocket(iter.second->sockfd());
-//				//delete iter.second;
-//			}
-//			
-//			closesocket(_sock);
-//#else
-//			for (auto iter : _clients)
-//			{
-//				close(iter.second->sockfd());
-//				delete iter.second;
-//			}
-//			//关闭套节字closesocket
-//			close(_sock);
-//#endif
-//			_clients.clear();
-//		}
 	}
-
-	//是否工作中
-	//bool isRun()
-	//{
-	//	return _sock != INVALID_SOCKET;
-	//}
 
 	//处理网络消息
 	void OnRun(CellThread* pThead)
@@ -273,13 +246,12 @@ public:
 #endif
 	}
 
-	void OnClientLeave(CellClientPtr& iter)
+	void OnClientLeave(CellClient* pClient)
 	{
 		if (_pNetEvent)
-			_pNetEvent->OnNetLeave(iter);
+			_pNetEvent->OnNetLeave(pClient);
 		_clients_change = true;
-		//	closesocket(iter->first);
-		//	delete iter->second;
+		delete pClient;
 	}
 
 	void ReadData(fd_set& fdRead)
@@ -292,17 +264,9 @@ public:
 			{
 				if (-1 == RecvData(iter->second))
 				{
-					//OnClientLeave(iter->second);
-					if (_pNetEvent)
-					{
-						_pNetEvent->OnNetLeave(iter->second);
-					}
-					_clients_change = true;
+					OnClientLeave(iter->second);
 					_clients.erase(iter);
 				}
-			}
-			else {
-				CellLog::Info("error. iter != _clients.end()...\n");
 			}
 		}
 #else
@@ -313,13 +277,11 @@ public:
 			{
 				if (-1 == RecvData(iter.second))
 				{
-					if (_pNetEvent)
-					{
-						_pNetEvent->OnNetLeave(iter.second);
-					}
+					OnClientLeave(iter->second);
+					auto iterOld = iter;
+					iter++;
+					_clients.erase(iterOld);
 					_clients_change = true;
-					close(iter->first);
-					temp.push_back(iter.second);
 				}
 			}
 		}
@@ -332,7 +294,7 @@ public:
 	}
 
 	//接收数据 处理粘包 拆分包
-	int RecvData(CellClientPtr pClient)
+	int RecvData(CellClient* pClient)
 	{
 		//  接收客户端数据
 		int nLen = pClient->RecvData();
@@ -357,12 +319,12 @@ public:
 	}
 
 	//响应网络消息
-	virtual void OnNetMsg(CellClientPtr pClient, netmsg_DataHeader* header)
+	virtual void OnNetMsg(CellClient* pClient, netmsg_DataHeader* header)
 	{
 		_pNetEvent->OnNetMsg(this, pClient, header);
 	}
 
-	void addClient(CellClientPtr pClient)
+	void addClient(CellClient* pClient)
 	{
 		std::lock_guard<std::mutex> lock(_mutex);
 		//_mutex.lock();

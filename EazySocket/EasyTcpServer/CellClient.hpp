@@ -72,12 +72,6 @@ public:
 		 _recvBuf.pop(front_msg()->dataLength);
 	}
 
-	void SendDataReal(DataHeaderPtr& header)
-	{
-		SendData(header);
-		SendDataReal();
-	}
-
 	// 立即将发送缓冲区的数据发送给客户端
 	int SendDataReal()
 	{
@@ -87,12 +81,12 @@ public:
 	}
 
 	//发送数据, 定时定量
-	int SendData(DataHeaderPtr& header)
+	int SendData(netmsg_DataHeader* header)
 	{
 		// 要发送的长度
 		int nSendLen = header->dataLength;
 		// 要发送的数据
-		const char *pSendData = (const char*)header.get();
+		const char *pSendData = (const char*)header;
 
 		if (_sendBuff.push(pSendData, nSendLen))
 		{

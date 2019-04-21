@@ -32,24 +32,22 @@ void cmdThread()
 
 class MyServer : public EasyTcpServer
 {
-private:
-
 public:
 	//只会被一个线程触发 安全
-	virtual void OnNetJoin(CellClientPtr& pClient)
+	virtual void OnNetJoin(CellClient* pClient)
 	{
 		EasyTcpServer::OnNetJoin(pClient);
 	 // CellLog::Info("client<%d> join\n", pClient->sockfd());
 	}
 	//cellServer 多个线程触发 不安全
-	virtual void OnNetLeave(CellClientPtr& pClient)
+	virtual void OnNetLeave(CellClient* pClient)
 	{
 		EasyTcpServer::OnNetLeave(pClient);
 	 // CellLog::Info("client<%d> leave\n", pClient->sockfd());
 	}
 
 	//cellServer 多个线程触发 不安全
-	virtual void OnNetMsg(CellServer* pCellServer, CellClientPtr& pClient, netmsg_DataHeader* header)
+	virtual void OnNetMsg(CellServer* pCellServer, CellClient *pClient, netmsg_DataHeader* header)
 	{
 		EasyTcpServer::OnNetMsg(pCellServer,pClient,header);
 		switch (header->cmd)
@@ -60,11 +58,8 @@ public:
 			netmsg_Login* login = (netmsg_Login*)header;
 			CellLog::Info("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
 			//忽略判断用户密码是否正确的过程
-			//netmsg_LoginResult ret;
-			//pClient->SendData(&ret);
-
-			auto ret = std::make_shared<netmsg_LoginResult>();
-			if (SOCKET_ERROR == pClient->SendData((DataHeaderPtr)ret))
+			netmsg_LoginResult ret;
+			if (SOCKET_ERROR == pClient->SendData(&ret))
 			{
 				CellLog::Info("<Socket=%d> Send Full \n",pClient->sockfd());
 			// cache is full
@@ -90,8 +85,12 @@ public:
 			pClient->resetDTheart();
 		//	netmsg_c2s_Heart ret;
 		//	pClient->SendData(&ret);
-			auto ret = std::make_shared<netmsg_c2s_Heart>();
-			pCellServer->addSendTask(pClient, (DataHeaderPtr)ret);
+
+		//	auto ret = std::make_shared<netmsg_c2s_Heart>();
+		//	pCellServer->addSendTask(pClient, (DataHeaderPtr)ret);
+
+			netmsg_s2c_Heart ret;
+			pClient->SendData(&ret);
 		}
 		break;
 

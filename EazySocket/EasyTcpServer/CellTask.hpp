@@ -33,7 +33,7 @@ public:
 	}
 };
 
-typedef std::shared_ptr<CellTask> CellTaskPtr;
+//typedef std::shared_ptr<CellTask> CellTaskPtr;
 class CellTaskServer
 {
 public:
@@ -43,9 +43,9 @@ private:
 	typedef std::function<void()> CellTask;
 private:
 	// task data
-	std::list<CellTaskPtr>_tasks;//std::list<CellTask*> _tasks;
+	std::list<CellTask> _tasks;//std::list<CellTaskPtr>_tasks;
 	// task cache data 
-	std::list<CellTaskPtr>_tasksBuf;//std::list<CellTask*> _tasksBuf;
+	std::list<CellTask> _tasksBuf;//std::list<CellTaskPtr>_tasksBuf;
 	// 
 	std::mutex _mutex;
 	//
@@ -60,8 +60,8 @@ public:
 	}
 
 	// to push  list table
-	//void addTask(CellTask* task)
-	void addTask(CellTaskPtr& task)
+	void addTask(CellTask task)
+	//void addTask(CellTaskPtr& task)
 	{
 		std::lock_guard<std::mutex> lock(_mutex);
 		_tasks.push_back(task);
@@ -106,8 +106,7 @@ public:
 			// To do task... 
 			for (auto pTask : _tasks)//for (auto pTask : _tasksBuf)
 			{
-				pTask->doTask();
-			//	delete pTask;
+				pTask();
 			}
 			_tasks.clear();
 		}
@@ -115,13 +114,11 @@ public:
 		// do for cache queue task
 		for (auto pTask : _tasksBuf)
 		{
-			pTask->doTask();
-			//	delete pTask;
+			pTask();
+			//delete pTask;
 		}
-
 		//CellLog::Info("CellTaskServerId %d.OnRun...\n", serverId);
 	}
-
 };
 
 #endif // !_CELL_TASK_H_

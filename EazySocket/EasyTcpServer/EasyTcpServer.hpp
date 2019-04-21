@@ -5,20 +5,20 @@
 #include"CellClient.hpp"
 #include"INetEvent.hpp"
 #include"CellServer.hpp"
+#include"CellNetWork.hpp"
 
 #include<thread>
 #include<mutex>
 #include<atomic>
 #include<memory>
 
-typedef std::shared_ptr<CellServer> CellServerPtr;
 class EasyTcpServer : public INetEvent
 {
 private:
 	CellThread _thread;
 	//消息处理对象，内部会创建线程
 	//std::vector<CellServer*> _cellServers;
-	std::vector<CellServerPtr> _cellServers;
+	std::vector<CellServer*> _cellServers;
 	//每秒消息计时
 	CELLTimestamp _tTime;
 	// Socket
@@ -46,27 +46,14 @@ public:
 
 	SOCKET InitSocket()
 	{
-#ifdef _WIN32
-		//启动Windows socket 2.x环境
-		WORD ver = MAKEWORD(2, 2);
-		WSADATA dat;
-		WSAStartup(ver, &dat);
-#endif
-
-#ifndef _WIN32
-		// 忽略异常信号，默认情况会导致进程终止
-		//if (signal(SIGPIPE,SIG_IGN)== SIG_ERR)
-		//{
-		//	return (1);
-		//}
-		signal(SIGPIPE, SIG_IGN);
-#endif 
+		CellNetWork::Init();
 
 		if (INVALID_SOCKET != _sock)
 		{
 			CellLog::Info("warning,initSocket close old socket<%d>...\n", (int)_sock);
 			Close();
 		}
+
 		_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 		if (INVALID_SOCKET == _sock)
 		{
@@ -150,14 +137,14 @@ public:
 		else
 		{
 			//将新客户端分配给客户数量最少的cellServer
-			addClientToCellServer(std::make_shared<CellClient>(cSock));
-			//addClientToCellServer(new CellClient(cSock));
+			//addClientToCellServer(std::make_shared<CellClient>(cSock));
+			addClientToCellServer(new CellClient(cSock));
 			//获取IP地址 inet_ntoa(clientAddr.sin_addr)
 		}
 		return cSock;
 	}
 	
-	void addClientToCellServer(CellClientPtr pClient)
+	void addClientToCellServer(CellClient* pClient)
 	{
 		//查找客户数量最少的CellServer消息处理对象
 		auto pMinServer = _cellServers[0];
@@ -176,8 +163,8 @@ public:
 	{
 		for (int n = 0; n < nCellServer; n++)
 		{
-		//	auto ser = new CellServer(_sock);
-			auto ser = std::make_shared<CellServer>(n+1);//_sock
+			auto ser = new CellServer(_sock);
+		//	auto ser = std::make_shared<CellServer>(n+1);//_sock
 			_cellServers.push_back(ser);
 			//注册网络事件接受对象
 			ser->setEventObj(this);
@@ -199,16 +186,14 @@ public:
 		_thread.Close();
 		if (_sock != INVALID_SOCKET)
 		{
-	/*		for (auto s:_cellServers)
+			for (auto s:_cellServers)
 			{
 				delete s;
-			}*/
+			}
 			_cellServers.clear();
 #ifdef _WIN32
 			//关闭套节字socket
 			closesocket(_sock);
-			//清除Windows socket环境
-			WSACleanup();
 #else
 			close(_sock);
 #endif
@@ -217,25 +202,25 @@ public:
 	}
 
 	// 只会被一个线程触发 安全
-	virtual void OnNetJoin(CellClientPtr& pClient)
+	virtual void OnNetJoin(CellClient* pClient)
 	{
 		_clientCount++;
 	}
 
 	//cellServer  多个线程触发 不安全	
-	virtual void OnNetLeave(CellClientPtr& pClient)
+	virtual void OnNetLeave(CellClient* pClient)
 	{
 		_clientCount--;
 	}
 
 	//cellServer  多个线程触发 不安全
-	virtual void OnNetMsg(CellServer* pCellServe,CellClientPtr& pClient, netmsg_DataHeader* header)
+	virtual void OnNetMsg(CellServer* pCellServe,CellClient* pClient, netmsg_DataHeader* header)
 	{
 		_msgCount++;
 	}
 
 	//recv 事件
-	virtual void OnNetRecv(CellClientPtr& pClient)
+	virtual void OnNetRecv(CellClient* pClient)
 	{
 		_clientCount++;
 	}
