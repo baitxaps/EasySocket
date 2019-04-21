@@ -11,7 +11,7 @@ class CellLog
 	//2 Debug
 	//3 warning
 	//4 Error
-public:
+private:
 	CellLog()
 	{
 		_taskServer.Start();

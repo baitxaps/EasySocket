@@ -5,6 +5,7 @@
 #include"CellClient.hpp"
 #include"INetEvent.hpp"
 #include"CellServer.hpp"
+#include"CellNetWork.hpp"
 
 #include<thread>
 #include<mutex>
@@ -46,27 +47,14 @@ public:
 
 	SOCKET InitSocket()
 	{
-#ifdef _WIN32
-		//启动Windows socket 2.x环境
-		WORD ver = MAKEWORD(2, 2);
-		WSADATA dat;
-		WSAStartup(ver, &dat);
-#endif
-
-#ifndef _WIN32
-		// 忽略异常信号，默认情况会导致进程终止
-		//if (signal(SIGPIPE,SIG_IGN)== SIG_ERR)
-		//{
-		//	return (1);
-		//}
-		signal(SIGPIPE, SIG_IGN);
-#endif 
+		CellNetWork::Init();
 
 		if (INVALID_SOCKET != _sock)
 		{
 			CellLog::Info("warning,initSocket close old socket<%d>...\n", (int)_sock);
 			Close();
 		}
+
 		_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 		if (INVALID_SOCKET == _sock)
 		{
@@ -207,8 +195,6 @@ public:
 #ifdef _WIN32
 			//关闭套节字socket
 			closesocket(_sock);
-			//清除Windows socket环境
-			WSACleanup();
 #else
 			close(_sock);
 #endif
