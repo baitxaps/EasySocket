@@ -27,6 +27,19 @@ public:
 
 	bool push(const char* pData,int nLen)
 	{
+		// 写入大量数据库不一定要放到内存中，也可以存储到数据库或者磁盘存储器中
+		// 需要写入的数据大于可用空间
+		if (_nLast + nLen > _nSize)
+		{
+			// 扩展buff,8KB
+			int n = _nLast = nLen - _nSize;
+			if (n < 8192) n = 8192;
+			char *buff = new char[_nSize + n];
+			memcpy(buff, _pBuff, _nLast);
+			delete[] _pBuff;
+			_pBuff = buff;
+		}
+
 		if (_nLast + nLen <= _nSize)
 		{
 			//将发送的数据 拷贝到发送缓冲区尾部
@@ -44,7 +57,7 @@ public:
 		}
 		return false;
 	}
-
+	
 	void pop(int nLen)
 	{
 		int n = _nLast - nLen;
@@ -111,7 +124,8 @@ public:
 
 private:
 	// 第二缓冲区 发送缓冲区
-	char* _pBuff = nullptr;
+	char* _pBuff = nullptr; 
+	//list<char*> _puBuffer;
 	// 发送缓冲区的数据尾部位置
 	int _nLast;
 	// 缓冲区总的空间大小，字节长度
