@@ -20,7 +20,7 @@ private:
 	//std::vector<CellServer*> _cellServers;
 	std::vector<CellServer*> _cellServers;
 	//每秒消息计时
-	CELLTimestamp _tTime;
+	CellTimestamp _tTime;
 	// Socket
 	SOCKET _sock;
 protected:

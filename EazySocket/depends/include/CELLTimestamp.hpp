@@ -15,16 +15,16 @@ public:
 	}
 };
 
-class CELLTimestamp
+class CellTimestamp
 {
 public:
-    CELLTimestamp()
+	CellTimestamp()
     {
         //QueryPerformanceFrequency(&_frequency);
         //QueryPerformanceCounter(&_startCount);
 		update();
     }
-    ~CELLTimestamp()
+    ~CellTimestamp()
     {}
 
     void    update()

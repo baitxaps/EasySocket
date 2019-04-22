@@ -1,10 +1,9 @@
-Info [2019-4-21 16:3:57]CellLog::setLogPath sucess,<serverLog.txt,w>
-Info [2019-4-21 16:3:57]create socket=<92>success...
-Info [2019-4-21 16:3:57]绑定网络端口<4567>成功...
-Info [2019-4-21 16:3:57]socket=<92>监听网络端口成功...
-Info [2019-4-21 16:3:58]thread<4>,time<1.175672>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-21 16:3:59]thread<4>,time<1.000051>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-21 16:4:0]thread<4>,time<1.000989>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-21 16:4:1]thread<4>,time<1.000054>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-21 16:4:2]thread<4>,time<1.000974>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-21 16:4:3]thread<4>,time<1.033763>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-4-22 13:10:42]CellLog::setLogPath sucess,<serverLog.txt,w>
+Info [2019-4-22 13:10:44]create socket=<92>success...
+Info [2019-4-22 13:10:44]绑定网络端口<4567>成功...
+Info [2019-4-22 13:10:44]socket=<92>监听网络端口成功...
+Info [2019-4-22 13:10:45]thread<4>,time<2.765668>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-4-22 13:10:46]thread<4>,time<1.000265>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-4-22 13:10:47]thread<4>,time<1.001017>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-4-22 13:10:48]thread<4>,time<1.000052>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-4-22 13:10:49]thread<4>,time<1.085305>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
