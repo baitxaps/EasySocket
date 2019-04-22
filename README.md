@@ -17,7 +17,6 @@ Socket uses C++ and Socket API to build a network communication engine with mill
 - Select, IOCP, epoll network communication model, choose the most appropriate model for different scenarios.
 - Network Communication Using C++ TCP on Mainstream Platform
 - Using C++ TCP to communicate with server in mainstream game engine
-- The mainstream platform uses C++ TCP for network communication.
 - Server development performance optimization techniques.
 - Implementation and application of multi-threading, thread pool and memory pool under different platforms.
 - Develop a high performance communication engine with millions of processing power in C++.
@@ -48,7 +47,6 @@ iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2015 + NDK + JDK + A
 - select、IOCP、epoll网络通信模型，不同场景选择最合适的模型。
 - 主流平台下使用C++ TCP进行网络通信
 - 主流游戏引擎中使用C++ TCP与服务端通信
-- 主流平台下使用C++ TCP进行网络通信。
 - 服务器开发性能优化技巧。
 - 不同平台下多线程、线程池、内存池的实现和运用。
 - 用C++开发具有百万级处理能力的高性能通信引擎。
