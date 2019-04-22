@@ -97,6 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\huse\Documents\CppNet100\git\EazySocket\depends\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,6 +112,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\huse\Documents\CppNet100\git\EazySocket\depends\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,25 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Alloctor.cpp" />
-    <ClCompile Include="CellTask.hpp" />
-    <ClCompile Include="EasyTcpServer.hpp" />
     <ClCompile Include="server.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Alloctor.h" />
-    <ClInclude Include="Cell.hpp" />
-    <ClInclude Include="CellBuffer.hpp" />
-    <ClInclude Include="CellClient.hpp" />
-    <ClInclude Include="CellLog.hpp" />
-    <ClInclude Include="CellObjectPool.hpp" />
-    <ClInclude Include="CellSemaphore.hpp" />
-    <ClInclude Include="CellServer.hpp" />
-    <ClInclude Include="CellThread.hpp" />
-    <ClInclude Include="CellTimestamp.hpp" />
-    <ClInclude Include="INetEvent.hpp" />
-    <ClInclude Include="MemoryMgr.hpp" />
-    <ClInclude Include="MessageHeader.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,8 +8,14 @@
 #endif
 
 // !<<<NOTE>>>
+// formater IDE 
 // ctrl+shift+f:find;ctrl+k,ctrl+f:Format alignment  
+
+// complier tools
 // g++ -std=c++11 -pthread server.cpp -o server
+
+// common libiary
+// properties -> c/c++ ->general -> additoinal include directories
 
 bool g_bRun = true;
 void cmdThread()
