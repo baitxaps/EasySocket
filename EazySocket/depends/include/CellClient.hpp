@@ -72,6 +72,12 @@ public:
 		 _recvBuf.pop(front_msg()->dataLength);
 	}
 
+	// 是否有数据需要写
+	bool needWrite()
+	{
+		return _sendBuff.needWrite();
+	}
+
 	// 立即将发送缓冲区的数据发送给客户端
 	int SendDataReal()
 	{

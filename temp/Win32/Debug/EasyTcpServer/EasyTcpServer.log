@@ -35,7 +35,5 @@ c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.
 c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(75): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files\windows kits\10\include\10.0.10240.0\ucrt\time.h(495): note: see declaration of 'gmtime'
   c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(90): note: see reference to function template instantiation 'void CellLog::Info<const char*,const char*>(const char *,const char *,const char *)' being compiled
-  Alloctor.cpp
-  Generating Code...
   EasyTcpServer.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpServer.exe
   EasyTcpServer.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpServer.pdb (Full PDB)

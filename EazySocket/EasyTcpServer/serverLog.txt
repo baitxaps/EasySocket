@@ -1,17 +1,10 @@
-Info [2019-4-22 13:59:52]CellLog::setLogPath sucess,<serverLog.txt,w>
-Info [2019-4-22 13:59:52]create socket=<92>success...
-Info [2019-4-22 13:59:52]绑定网络端口<4567>成功...
-Info [2019-4-22 13:59:52]socket=<92>监听网络端口成功...
-Info [2019-4-22 13:59:54]thread<4>,time<3.248246>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 13:59:55]thread<4>,time<1.000364>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 13:59:56]thread<4>,time<1.001037>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 13:59:57]thread<4>,time<1.000080>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 13:59:58]thread<4>,time<1.000887>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 13:59:59]thread<4>,time<1.000994>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 14:0:0]thread<4>,time<1.000996>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 14:0:1]thread<4>,time<1.000022>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 14:0:2]thread<4>,time<1.000623>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 14:0:3]thread<4>,time<1.000364>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 14:0:4]thread<4>,time<1.000040>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 14:0:5]thread<4>,time<1.000990>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-4-22 14:0:6]thread<4>,time<1.000016>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-1 9:8:6]CellLog::setLogPath sucess,<serverLog.txt,w>
+Info [2019-5-1 9:8:6]create socket=<92>success...
+Info [2019-5-1 9:8:6]绑定网络端口<4567>成功...
+Info [2019-5-1 9:8:6]socket=<92>监听网络端口成功...
+Info [2019-5-1 9:8:7]thread<4>,time<1.001002>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-1 9:8:8]thread<4>,time<1.000913>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-1 9:8:9]thread<4>,time<1.000051>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-1 9:8:10]thread<4>,time<1.001080>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-1 9:8:11]thread<4>,time<1.000901>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-1 9:8:12]thread<4>,time<1.000039>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
