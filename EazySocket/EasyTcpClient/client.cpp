@@ -68,14 +68,14 @@ void cmdThread()
 }
 
 //客户端数量
-const int cCount = 10;//100
+const int cCount = 4;//100
 //发送线程数量
 const int tCount = 4;//4
 //客户端数组
 EasyTcpClient* client[cCount];
 //
 std::atomic_int sendCount = 0;
-std::atomic_int readCount = 0;
+std::atomic_int readyCount = 0;
 
 void recvThread(int begin, int end)
 {
@@ -114,11 +114,12 @@ void sendThread(int id)
 	// 心跳检测,死亡计时
 	CellLog::Info("thread<%d>,Connect<begin=%d, end=%d>\n", id, begin, end);
 
-	readCount++;
-	while (readCount < tCount)
+	readyCount++;
+	while (readyCount < tCount)
 	{
-		std::chrono::milliseconds t(10);
-		std::this_thread::sleep_for(t);
+		CellThread::Sleep(10);
+		//std::chrono::milliseconds t(10);
+		//std::this_thread::sleep_for(t);
 	}
 
 // start recv Thread
@@ -126,25 +127,24 @@ void sendThread(int id)
 	t1.detach();
 //
 	netmsg_Login login[1];//10
-	for (int n = 0; n < 10; n++)
+	for (int n = 0; n < 1; n++)
 	{
 		strcpy(login[n].userName, "rhc");
 		strcpy(login[n].PassWord, "123456");
 	}
 
 	const int nLen = sizeof(login);
-	CellTimestamp tTime;
 	while (g_bRun)
 	{
-		tTime.update();
 		for (int n = begin; n < end; n++)
 		{
 			if (client[n]->SendData(login, nLen) != SOCKET_ERROR)
 			{
 				sendCount++;
 			}
-			std::chrono::microseconds t(10);
-			std::this_thread::sleep_for(t);
+			CellThread::Sleep(10);
+			//std::chrono::microseconds t(10);
+			//std::this_thread::sleep_for(t);
 		}
 	}
 
@@ -177,7 +177,7 @@ int main()
 		auto t = tTime.getElapsedSecond();
 		if (t >= 1.0)
 		{
-			printf("thread<%d>,clients<%d>,time<%lf>,sendCount<%d>\n",tCount,cCount,t,sendCount);
+			printf("thread<%d>,clients<%d>,time<%lf>,sendCount<%d>\n",tCount,cCount,t, (int)(sendCount / t));
 			sendCount = 0;
 			tTime.update();
 		}

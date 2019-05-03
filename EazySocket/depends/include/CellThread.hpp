@@ -10,6 +10,12 @@ private:
 	typedef std::function<void(CellThread*)> EventCall;
 
 public:
+	static void Sleep(time_t dt)
+	{
+		std::chrono::microseconds t(dt);
+		std::this_thread::sleep_for(t);
+	}
+
 	// thread start  
 	void Start(EventCall onCreate = nullptr, EventCall onRun= nullptr, EventCall onDestory = nullptr)
 	{

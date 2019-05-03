@@ -16,6 +16,7 @@ typedef std::shared_ptr<netmsg_LoginResult> LoginResultPtr;
 
 //客户端数据类型
 class CellClient :public ObjectPoolBase<CellClient, 10000>
+//class CellClient 
 {
 	// for test
 public:
@@ -90,13 +91,22 @@ public:
 	int SendData(netmsg_DataHeader* header)
 	{
 		// 要发送的长度
-		int nSendLen = header->dataLength;
-		// 要发送的数据
-		const char *pSendData = (const char*)header;
+		//int nSendLen = header->dataLength;
+		//// 要发送的数据
+		//const char *pSendData = (const char*)header;
+		//if (_sendBuff.push(pSendData, nSendLen))
+		//{
+		//	return header->dataLength;
+		//}
+		//return SOCKET_ERROR;
+		return SendData((const char*)header, header->dataLength);
+	}
 
-		if (_sendBuff.push(pSendData, nSendLen))
+	int SendData(const char* pData, int len)
+	{
+		if (_sendBuff.push(pData, len))
 		{
-			return header->dataLength;
+			return len;
 		}
 		return SOCKET_ERROR;
 	}
