@@ -8,7 +8,6 @@
 
 //#pragma comment(lib,"ws2_32.lib")
 using namespace std;
-
 void funT()
 {
 	printf("funT\n");

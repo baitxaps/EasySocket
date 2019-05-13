@@ -7,36 +7,9 @@ c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(87)
   c:\program files\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
 c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(57): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
-c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(131): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(141): error C2664: 'int EasyTcpClient::SendData(const char *,int)': cannot convert argument 1 from 'netmsg_Login [1]' to 'const char *'
+  c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(141): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
 c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(132): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(180): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'std::atomic_int'
-c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(127): warning C4477: 'printf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'CELLObjectPool<T,10000>::NodeHeader *'
-          with
-          [
-              T=CellClient
-          ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(104): note: while compiling class template member function 'void *CELLObjectPool<T,10000>::allocObjMemory(std::size_t)'
-          with
-          [
-              T=CellClient
-          ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(151): note: see reference to function template instantiation 'void *CELLObjectPool<T,10000>::allocObjMemory(std::size_t)' being compiled
-          with
-          [
-              T=CellClient
-          ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(156): note: see reference to class template instantiation 'CELLObjectPool<T,10000>' being compiled
-          with
-          [
-              T=CellClient
-          ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(155): note: while compiling class template member function 'void ObjectPoolBase<CellClient,10000>::operator delete(void *)'
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\easytcpclient.hpp(47): note: see reference to function template instantiation 'void ObjectPoolBase<CellClient,10000>::operator delete(void *)' being compiled
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellclient.hpp(19): note: see reference to class template instantiation 'ObjectPoolBase<CellClient,10000>' being compiled
-c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(75): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\time.h(495): note: see declaration of 'gmtime'
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(90): note: see reference to function template instantiation 'void CellLog::Info<const char*,const char*>(const char *,const char *,const char *)' being compiled
-  EasyTcpClient.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpClient.exe
-  EasyTcpClient.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpClient.pdb (Full PDB)
+c:\users\huse\documents\cppnet100\git\eazysocket\easytcpclient\client.cpp(133): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'

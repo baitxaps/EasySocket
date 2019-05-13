@@ -158,30 +158,47 @@ public:
 	//接收数据 处理粘包 拆分包
 	int RecvData(SOCKET cSock)
 	{
-		//  接收客户端数据
-		int nLen = _pClient->RecvData();
-		if (nLen >= 0)
+		if (isRun())
 		{
-			// 循环 判断是否有消息需处理
-			while (_pClient->hasMsg())
+			//  接收客户端数据
+			int nLen = _pClient->RecvData();
+			if (nLen >= 0)
 			{
-				//处理网络消息
-				OnNetMsg(_pClient->front_msg());
-				// 移除消息队列（缓冲区）最前的一条数据
-				_pClient->pop_front_msg();
+				// 循环 判断是否有消息需处理
+				while (_pClient->hasMsg())
+				{
+					//处理网络消息
+					OnNetMsg(_pClient->front_msg());
+					// 移除消息队列（缓冲区）最前的一条数据
+					_pClient->pop_front_msg();
+				}
 			}
+			return nLen;
 		}
-		return nLen;
+		return 0;
 	}
 
 	//响应网络消息
 	virtual void OnNetMsg(netmsg_DataHeader* header) = 0;
+
+	int SendData(netmsg_DataHeader* header)
+	{
+		if (isRun())
+		{
+			return _pClient->SendData(header);
+		}
+		return 0;
+	}
 	
 	//发送数据
-	int SendData(netmsg_DataHeader* header,int nLen)
+	int SendData(const char* pData,int nLen)
 	{
-		int ret = _pClient->SendData(header);
-		return ret;
+		if (isRun())
+		{
+			int ret = _pClient->SendData(pData,nLen);
+			return ret;
+		}
+		return 0;
 	}
 };
 

@@ -1,5 +1,9 @@
 ﻿C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   main.cpp
+c:\users\huse\documents\cppnet100\git\eazysocket\sthread\main.cpp(61): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
+c:\users\huse\documents\cppnet100\git\eazysocket\sthread\main.cpp(66): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
   SThread.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\SThread.exe
   SThread.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\SThread.pdb (Full PDB)
