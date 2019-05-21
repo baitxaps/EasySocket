@@ -1,10 +1,17 @@
-Info [2019-5-1 9:8:6]CellLog::setLogPath sucess,<serverLog.txt,w>
-Info [2019-5-1 9:8:6]create socket=<92>success...
-Info [2019-5-1 9:8:6]绑定网络端口<4567>成功...
-Info [2019-5-1 9:8:6]socket=<92>监听网络端口成功...
-Info [2019-5-1 9:8:7]thread<4>,time<1.001002>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-5-1 9:8:8]thread<4>,time<1.000913>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-5-1 9:8:9]thread<4>,time<1.000051>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-5-1 9:8:10]thread<4>,time<1.001080>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-5-1 9:8:11]thread<4>,time<1.000901>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
-Info [2019-5-1 9:8:12]thread<4>,time<1.000039>,socket<92>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:11]CellLog::setLogPath sucess,<serverLog.txt,w>
+Info [2019-5-21 14:20:11]create socket=<296>success...
+Info [2019-5-21 14:20:11]绑定网络端口<4567>成功...
+Info [2019-5-21 14:20:11]socket=<296>监听网络端口成功...
+Info [2019-5-21 14:20:12]thread<4>,time<1.000648>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:13]thread<4>,time<1.000342>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:14]thread<4>,time<1.000342>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:15]thread<4>,time<1.000335>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:16]thread<4>,time<1.000355>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:17]thread<4>,time<1.000333>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:18]thread<4>,time<1.000353>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:19]thread<4>,time<1.000345>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:20]thread<4>,time<1.000346>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:21]thread<4>,time<1.000355>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:22]thread<4>,time<1.000348>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:23]thread<4>,time<1.000345>,socket<296>,clients<0>,recvCount<0>，msgCount<0>
+Info [2019-5-21 14:20:24]thread<4>,time<1.000341>,socket<296>,clients<0>,recvCount<0>，msgCount<0>

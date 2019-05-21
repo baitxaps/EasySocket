@@ -3,50 +3,47 @@
 #include<thread>
 #include<atomic>
 
-class MyClient :public EasyTcpClient
+class MyClient : public EasyTcpClient
 {
 public:
+	//响应网络消息
 	virtual void OnNetMsg(netmsg_DataHeader* header)
 	{
 		switch (header->cmd)
 		{
-			case CMD_LOGIN_RESULT:
-			{
-				netmsg_LoginResult* login = (netmsg_LoginResult*)header;
-				CellLog::Info("<socket=%d>收到服务端消息：CMD_LOGIN_RESULT,数据长度：%d\n", _pClient->sockfd(), login->dataLength);
-			}
-			break;
-
-			case CMD_LOGOUT_RESULT:
-			{
-				netmsg_LogoutResult* logout = (netmsg_LogoutResult*)header;
-				CellLog::Info("<socket=%d>收到服务端消息：CMD_LOGOUT_RESULT,数据长度：%d\n", _pClient->sockfd(), logout->dataLength);
-			}
-			break;
-
-			case CMD_NEW_USER_JOIN:
-			{
-				netmsg_NewUserJoin* userJoin = (netmsg_NewUserJoin*)header;
-				CellLog::Info("<socket=%d>收到服务端消息：CMD_NEW_USER_JOIN,数据长度：%d\n", _pClient->sockfd(), userJoin->dataLength);
-			}
-			break;
-
-			case CMD_ERROR:
-			{
-				CellLog::Info("<Socket=%d> recv msgType:CMD_ERROR \n", _pClient->sockfd());
-				//CellLog::Info("<socket=%d>收到服务端消息：CMD_ERROR,数据长度：%d\n", _pClient->sockfd(), header->dataLength);
-			}
-			break;
-
-			default:
-			{
-				CellLog::Info("error, <socket=%d> recv underine msgType\n",(int)_pClient->sockfd());
-			}
+		case CMD_LOGIN_RESULT:
+		{
+			netmsg_LoginResult* login = (netmsg_LoginResult*)header;
+			//CellLog::Info("<socket=%d> recv msgType：CMD_LOGIN_RESULT\n", (int)_pClient->sockfd());
+		}
+		break;
+		case CMD_LOGOUT_RESULT:
+		{
+			netmsg_LogoutResult* logout = (netmsg_LogoutResult*)header;
+			//CellLog::Info("<socket=%d> recv msgType：CMD_LOGOUT_RESULT\n", (int)_pClient->sockfd());
+		}
+		break;
+		case CMD_NEW_USER_JOIN:
+		{
+			netmsg_NewUserJoin* userJoin = (netmsg_NewUserJoin*)header;
+			//CellLog::Info("<socket=%d> recv msgType：CMD_NEW_USER_JOIN\n", (int)_pClient->sockfd());
+		}
+		break;
+		case CMD_ERROR:
+		{
+			CellLog::Info("<socket=%d> recv msgType：CMD_ERROR\n", (int)_pClient->sockfd());
+		}
+		break;
+		default:
+		{
+			CellLog::Info("error, <socket=%d> recv undefine msgType\n", (int)_pClient->sockfd());
+		}
 		}
 	}
 private:
 
 };
+
 
 bool g_bRun = true;
 void cmdThread()
@@ -68,14 +65,13 @@ void cmdThread()
 }
 
 //客户端数量
-const int cCount = 4;//100
+const int cCount = 1000;//1000
 //发送线程数量
-const int tCount = 4;//4
+const int tCount = 4;
 //客户端数组
 EasyTcpClient* client[cCount];
-//
-std::atomic_int sendCount = 0;
-std::atomic_int readyCount = 0;
+std::atomic_int sendCount(0);
+std::atomic_int readyCount(0);
 
 void recvThread(int begin, int end)
 {
@@ -84,10 +80,8 @@ void recvThread(int begin, int end)
 	{
 		for (int n = begin; n < end; n++)
 		{
-			if (t.getElapsedSecond()>3.0 && n==begin)
-			{
+			if (t.getElapsedSecond() > 3.0 && n == begin)
 				continue;
-			}
 			client[n]->OnRun();
 		}
 	}
@@ -105,47 +99,48 @@ void sendThread(int id)
 	{
 		client[n] = new MyClient();
 	}
-
 	for (int n = begin; n < end; n++)
 	{
-		client[n]->Connect("192.168.0.106", 4567);
+		//win10 "192.168.1.102" i5 6300
+		//win7 "192.168.1.114" i7 2670qm
+		//127.0.0.1
+		//39.108.13.69
+		//ubuntu vm 192.168.74.141
+		//macOS vm 192.168.74.134
+		client[n]->Connect("192.168.0.107", 4567);
 	}
-
-	// 心跳检测,死亡计时
+	//心跳检测 死亡计时 
 	CellLog::Info("thread<%d>,Connect<begin=%d, end=%d>\n", id, begin, end);
 
 	readyCount++;
 	while (readyCount < tCount)
-	{
-		CellThread::Sleep(10);
-		//std::chrono::milliseconds t(10);
-		//std::this_thread::sleep_for(t);
+	{//等待其它线程准备好发送数据
+		std::chrono::milliseconds t(10);
+		std::this_thread::sleep_for(t);
 	}
-
-// start recv Thread
-	std::thread t1(recvThread, begin,end);
+	//
+	std::thread t1(recvThread, begin, end);
 	t1.detach();
-//
-	netmsg_Login login[1];//10
+	//
+	netmsg_Login login[1];
 	for (int n = 0; n < 1; n++)
 	{
 		strcpy(login[n].userName, "rhc");
 		strcpy(login[n].PassWord, "123456");
 	}
-
 	const int nLen = sizeof(login);
+
 	while (g_bRun)
 	{
 		for (int n = begin; n < end; n++)
 		{
-			if (client[n]->SendData(login, nLen) != SOCKET_ERROR)
+			if (SOCKET_ERROR != client[n]->SendData(login))
 			{
 				sendCount++;
 			}
-			CellThread::Sleep(10);
-			//std::chrono::microseconds t(10);
-			//std::this_thread::sleep_for(t);
 		}
+		std::chrono::milliseconds t(99);
+		std::this_thread::sleep_for(t);
 	}
 
 	for (int n = begin; n < end; n++)
@@ -159,7 +154,7 @@ void sendThread(int id)
 
 int main()
 {
-	CellLog::Instance().setLogPath("clientLog.txt","w");
+	CellLog::Instance().setLogPath("clientLog.txt", "w");
 	//启动UI线程
 	std::thread t1(cmdThread);
 	t1.detach();
@@ -167,23 +162,25 @@ int main()
 	//启动发送线程
 	for (int n = 0; n < tCount; n++)
 	{
-		std::thread t1(sendThread,n+1);
+		std::thread t1(sendThread, n + 1);
 		t1.detach();
 	}
 
 	CellTimestamp tTime;
+
 	while (g_bRun)
 	{
 		auto t = tTime.getElapsedSecond();
 		if (t >= 1.0)
 		{
-			printf("thread<%d>,clients<%d>,time<%lf>,sendCount<%d>\n",tCount,cCount,t, (int)(sendCount / t));
+			CellLog::Info("thread<%d>,clients<%d>,time<%lf>,send<%d>\n", tCount, cCount, t, (int)(sendCount / t));
 			sendCount = 0;
 			tTime.update();
 		}
-		Sleep(1);
+		std::chrono::milliseconds ts(1);
+		std::this_thread::sleep_for(ts);
 	}
-	
+
 	CellLog::Info("已退出。\n");
 	return 0;
 }

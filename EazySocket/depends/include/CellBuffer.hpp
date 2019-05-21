@@ -29,16 +29,16 @@ public:
 	{
 		// 写入大量数据库不一定要放到内存中，也可以存储到数据库或者磁盘存储器中
 		// 需要写入的数据大于可用空间
-		if (_nLast + nLen > _nSize)
-		{
-			// 扩展buff,8KB
-			int n = _nLast = nLen - _nSize;
-			if (n < 8192) n = 8192;
-			char *buff = new char[_nSize + n];
-			memcpy(buff, _pBuff, _nLast);
-			delete[] _pBuff;
-			_pBuff = buff;
-		}
+		//if (_nLast + nLen > _nSize)
+		//{
+		//	// 扩展buff,8KB
+		//	int n = _nLast = nLen - _nSize;
+		//	if (n < 8192) n = 8192;
+		//	char *buff = new char[_nSize + n];
+		//	memcpy(buff, _pBuff, _nLast);
+		//	delete[] _pBuff;
+		//	_pBuff = buff;
+		//}
 
 		if (_nLast + nLen <= _nSize)
 		{
@@ -132,7 +132,7 @@ private:
 	char* _pBuff = nullptr; 
 	//list<char*> _puBuffer;
 	// 发送缓冲区的数据尾部位置
-	int _nLast;
+	int _nLast=0;
 	// 缓冲区总的空间大小，字节长度
 	int _nSize = 0;
 	// 缓冲区写满字数的计数

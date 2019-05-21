@@ -90,15 +90,6 @@ public:
 	//发送数据, 定时定量
 	int SendData(netmsg_DataHeader* header)
 	{
-		// 要发送的长度
-		//int nSendLen = header->dataLength;
-		//// 要发送的数据
-		//const char *pSendData = (const char*)header;
-		//if (_sendBuff.push(pSendData, nSendLen))
-		//{
-		//	return header->dataLength;
-		//}
-		//return SOCKET_ERROR;
 		return SendData((const char*)header, header->dataLength);
 	}
 

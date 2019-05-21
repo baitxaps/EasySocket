@@ -1,39 +1,38 @@
-﻿C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Intermediate 目录。
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
   server.cpp
-c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(47): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\time.h(495): note: see declaration of 'gmtime'
-c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(87): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-c:\users\huse\documents\cppnet100\git\eazysocket\easytcpserver\server.cpp(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
-c:\users\huse\documents\cppnet100\git\eazysocket\easytcpserver\server.cpp(148): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: see declaration of 'scanf'
-c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(127): warning C4477: 'printf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 1 has type 'CELLObjectPool<T,10000>::NodeHeader *'
+c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(47): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\time.h(496): note: 参见“gmtime”的声明
+c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(87): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
+c:\users\chenhairong\documents\cppnet100\git\eazysocket\easytcpserver\server.cpp(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 参见“scanf”的声明
+c:\users\chenhairong\documents\cppnet100\git\eazysocket\easytcpserver\server.cpp(148): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 参见“scanf”的声明
+c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(127): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“CELLObjectPool<T,10000>::NodeHeader *”
           with
           [
               T=CellClient
           ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(104): note: while compiling class template member function 'void *CELLObjectPool<T,10000>::allocObjMemory(std::size_t)'
+  c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(104): note: 编译 类 模板 成员函数 "void *CELLObjectPool<T,10000>::allocObjMemory(size_t)" 时
           with
           [
               T=CellClient
           ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(151): note: see reference to function template instantiation 'void *CELLObjectPool<T,10000>::allocObjMemory(std::size_t)' being compiled
+  c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(151): note: 参见对正在编译的函数 模板 实例化“void *CELLObjectPool<T,10000>::allocObjMemory(size_t)”的引用
           with
           [
               T=CellClient
           ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(156): note: see reference to class template instantiation 'CELLObjectPool<T,10000>' being compiled
+  c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(156): note: 参见对正在编译的 类 模板 实例化 "CELLObjectPool<T,10000>" 的引用
           with
           [
               T=CellClient
           ]
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(155): note: while compiling class template member function 'void ObjectPoolBase<CellClient,10000>::operator delete(void *)'
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellserver.hpp(375): note: see reference to function template instantiation 'void ObjectPoolBase<CellClient,10000>::operator delete(void *)' being compiled
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\cellclient.hpp(19): note: see reference to class template instantiation 'ObjectPoolBase<CellClient,10000>' being compiled
-c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(75): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files\windows kits\10\include\10.0.10240.0\ucrt\time.h(495): note: see declaration of 'gmtime'
-  c:\users\huse\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(90): note: see reference to function template instantiation 'void CellLog::Info<const char*,const char*>(const char *,const char *,const char *)' being compiled
-  EasyTcpServer.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpServer.exe
-  EasyTcpServer.vcxproj -> C:\Users\huse\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpServer.pdb (Full PDB)
+  c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\cellobjectpool.hpp(155): note: 编译 类 模板 成员函数 "void ObjectPoolBase<CellClient,10000>::operator delete(void *)" 时
+  c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\cellserver.hpp(375): note: 参见对正在编译的函数 模板 实例化“void ObjectPoolBase<CellClient,10000>::operator delete(void *)”的引用
+  c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\cellclient.hpp(20): note: 参见对正在编译的 类 模板 实例化 "ObjectPoolBase<CellClient,10000>" 的引用
+c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(67): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\time.h(496): note: 参见“gmtime”的声明
+  c:\users\chenhairong\documents\cppnet100\git\eazysocket\depends\include\celllog.hpp(90): note: 参见对正在编译的函数 模板 实例化“void CellLog::Info<const char*,const char*>(const char *,const char *,const char *)”的引用
+  EasyTcpServer.vcxproj -> C:\Users\chenhairong\Documents\CppNet100\git\EazySocket\../bin/Win32/Debug\EasyTcpServer.exe
