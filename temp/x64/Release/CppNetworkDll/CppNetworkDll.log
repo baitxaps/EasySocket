@@ -3,6 +3,6 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCT
   main.cpp
     正在创建库 C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Release\CppNetworkDll.lib 和对象 C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Release\CppNetworkDll.exp
   正在生成代码
-  All 1 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 64 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   CppNetworkDll.vcxproj -> C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Release\CppNetworkDll.dll
