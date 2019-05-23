@@ -1,4 +1,3 @@
-
 #ifndef _CPP_NETDLL_H_
 
 extern "C"
@@ -10,5 +9,3 @@ extern "C"
 }
 
 #endif // !_CPP_NETDLL_H_
-
-
