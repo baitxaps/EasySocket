@@ -3,22 +3,11 @@
 
 #include<chrono>
 #include<thread>
-#include<mutex>
 #include<condition_variable>
 
 class CellSemaphore
 {
 public:
-	CellSemaphore()
-	{
-
-	}
-
-	~CellSemaphore()
-	{
-
-	}
-
 	// thread block
 	void wait()
 	{

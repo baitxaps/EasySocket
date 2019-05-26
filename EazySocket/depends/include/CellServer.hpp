@@ -65,7 +65,9 @@ public:
 
 	~CellServer()
 	{
+		CellLog::Info("CELLServer%d.~CELLServer exit begin\n", _id);
 		Close();
+		CellLog::Info("CELLServer%d.~CELLServer exit end\n", _id);
 	}
 
 	//void addSendTask(CellClient& pClient, netmsg_DataHeader& header)
@@ -95,7 +97,7 @@ public:
 		while (pThead->isRun())
 		{
 			//从缓冲队列里取出客户数据
-			if (_clientsBuff.empty())
+			if (!_clientsBuff.empty())
 			{
 				std::lock_guard<std::mutex> lock(_mutex);
 				for (auto pClient : _clientsBuff)
@@ -168,7 +170,6 @@ public:
 			CheckTime();
 		}
 		CellLog::Info("CellServer%d.OnRun.select Error exit\n", _id);
-		ClearClients();
 	}
 
 	void CheckTime()
@@ -206,42 +207,28 @@ public:
 			{
 				if (-1 == iter->second->SendDataReal())
 				{
-					if (_pNetEvent)
-					{
-						_pNetEvent->OnNetLeave(iter->second);
-					}
-					_clients_change = true;
+					_pNetEvent->OnNetLeave(iter->second);
 					//	closesocket(iter->first);
 					//	delete iter->second;
 					_clients.erase(iter);
 				}
 			}
-			else {
-				CellLog::Info("error. iter != _clients.end()...\n");
-			}
 		}
 #else
-		std::vector<CellClientPtr> temp;
-		for (auto iter : _clients)
+		for (auto iter = _clients.begin(); iter != _clients.end(); )
 		{
-			if (FD_ISSET(iter.second->sockfd(), &fdWrite))
+			if (FD_ISSET(iter->second->sockfd(), &fdWrite))
 			{
 				if (-1 == iter->second->SendDataReal())
 				{
-					if (_pNetEvent)
-					{
-						_pNetEvent->OnNetLeave(iter.second);
-					}
-					_clients_change = true;
-					close(iter->first);
-					temp.push_back(iter.second);
+					OnClientLeave(iter->second);
+					auto iterOld = iter;
+					iter++;
+					_clients.erase(iterOld);
+					continue;
 				}
 			}
-		}
-		for (auto pClient : temp)
-		{
-			_clients.erase(pClient->sockfd());
-			delete pClient;
+			iter++;
 		}
 #endif
 	}
@@ -270,25 +257,20 @@ public:
 			}
 		}
 #else
-		std::vector<CellClientPtr> temp;
-		for (auto iter : _clients)
+		for (auto iter = _clients.begin(); iter != _clients.end(); )
 		{
-			if (FD_ISSET(iter.second->sockfd(), &fdRead))
+			if (FD_ISSET(iter->second->sockfd(), &fdRead))
 			{
-				if (-1 == RecvData(iter.second))
+				if (-1 == RecvData(iter->second))
 				{
 					OnClientLeave(iter->second);
 					auto iterOld = iter;
 					iter++;
 					_clients.erase(iterOld);
-					_clients_change = true;
+					continue;
 				}
 			}
-		}
-		for (auto pClient : temp)
-		{
-			_clients.erase(pClient->sockfd());
-			delete pClient;
+			iter++;
 		}
 #endif
 	}
@@ -361,16 +343,15 @@ private:
 		CellLog::Info("CellServer%d.close start...\n", _id);
 		for (auto iter : _clients)
 		{
-			//delete iter.second;
+			delete iter.second;
 		}
 		_clients.clear();
 
 		for (auto iter : _clientsBuff)
 		{
-			//delete iter;
+			delete iter;
 		}
 		_clientsBuff.clear();
-		CellLog::Info("CellServer%d.close end...\n", _id);
 	}
 };
 

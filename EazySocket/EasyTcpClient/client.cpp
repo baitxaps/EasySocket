@@ -65,7 +65,7 @@ void cmdThread()
 }
 
 //客户端数量
-const int cCount = 10;//1000
+const int cCount = 100;//1000
 //发送线程数量
 const int tCount = 4;
 //客户端数组
@@ -80,8 +80,8 @@ void recvThread(int begin, int end)
 	{
 		for (int n = begin; n < end; n++)
 		{
-			if (t.getElapsedSecond() > 3.0 && n == begin)
-				continue;
+			//if (t.getElapsedSecond() > 3.0 && n == begin)
+			//	continue;
 			client[n]->OnRun();
 		}
 	}
@@ -101,12 +101,6 @@ void sendThread(int id)
 	}
 	for (int n = begin; n < end; n++)
 	{
-		//win10 "192.168.1.102" i5 6300
-		//win7 "192.168.1.114" i7 2670qm
-		//127.0.0.1
-		//39.108.13.69
-		//ubuntu vm 192.168.74.141
-		//macOS vm 192.168.74.134
 		client[n]->Connect("192.168.0.107", 4567);
 	}
 	//心跳检测 死亡计时 

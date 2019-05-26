@@ -1,7 +1,5 @@
 #include "EasyTcpServer.hpp"
-#include<thread>
-#include"Alloctor.h"
-#include"CellLog.hpp"
+#include"CellMsgStream.hpp"
 
 #if 0
 #define kAllServers
@@ -62,7 +60,7 @@ public:
 		{
 			pClient->resetDTheart();
 			netmsg_Login* login = (netmsg_Login*)header;
-			CellLog::Info("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
+		   //CellLog::Info("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
 			//忽略判断用户密码是否正确的过程
 			netmsg_LoginResult ret;
 			if (SOCKET_ERROR == pClient->SendData(&ret))
@@ -78,11 +76,33 @@ public:
 		break;
 		case CMD_LOGOUT:
 		{
-			netmsg_Logout* logout = (netmsg_Logout*)header;
-			CellLog::Info("收到客户端<Socket=%d>请求：CMD_LOGOUT,数据长度：%d,userName=%s \n", pClient->sockfd(),logout->dataLength, logout->userName);
-			//忽略判断用户密码是否正确的过程
-			netmsg_LogoutResult ret;
-			//pClient->SendData(&ret);
+			CellRecvStream r(header);
+			auto n1 = r.ReadInt8();
+			auto n2 = r.ReadInt16();
+			auto n3 = r.ReadInt32();
+			auto n4 = r.ReadFloat();
+			auto n5 = r.ReadDouble();
+			uint32_t n = 0;
+			r.onlyRead(n);
+			char name[32] = {};
+			auto n6 = r.ReadArray(name, 32);
+			char pw[32] = {};
+			auto n7 = r.ReadArray(pw, 32);
+			int ata[10] = {};
+			auto n8 = r.ReadArray(ata, 10);
+			///
+			CellSendStream s(128);
+			s.setNetCmd(CMD_LOGOUT_RESULT);
+			s.WriteInt8(n1);
+			s.WriteInt16(n2);
+			s.WriteInt32(n3);
+			s.WriteFloat(n4);
+			s.WriteDouble(n5);
+			s.WriteArray(name, strlen(name));
+			s.WriteArray(pw, strlen(pw));
+			s.WriteArray(ata, n8);
+			s.finsh();
+			pClient->SendData(s.data(), s.length());
 		}
 		break;
 
@@ -148,17 +168,16 @@ int main()
 		scanf("%s", cmdBuf);
 		if (0 == strcmp(cmdBuf, "exit"))
 		{
-			CellLog::Info("退出cmdThread线程\n");
 			server.Close();
 			break;
 		}
 		else {
-			CellLog::Info("不支持的命令。\n");
+			CellLog::Info("undefine cmd\n");
 		}
 	}
 	
 #endif
-	CellLog::Info("已退出。\n");
+	CellLog::Info("exit.\n");
 	getchar();
 	return 0;
 }
