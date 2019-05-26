@@ -7,8 +7,8 @@ c:\users\chenhairong\documents\git\eazysocket\depends\include\celllog.hpp(87): w
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellserver.hpp(155): warning C4244: “参数”: 从“SOCKET”转换到“int”，可能丢失数据
 c:\users\chenhairong\documents\git\eazysocket\depends\include\easytcpserver.hpp(237): warning C4244: “参数”: 从“SOCKET”转换到“int”，可能丢失数据
-c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(59): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
-c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(64): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(65): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(70): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
 c:\users\chenhairong\documents\git\eazysocket\easytcpserver\server.cpp(24): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 参见“scanf”的声明
 c:\users\chenhairong\documents\git\eazysocket\easytcpserver\server.cpp(101): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
@@ -66,20 +66,20 @@ c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(79)
               T=int8_t
           ]
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(85): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(161): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(192): note: 参见对正在编译的函数 模板 实例化“bool CellStream::Write<int8_t>(T)”的引用
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(192): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(223): note: 参见对正在编译的函数 模板 实例化“bool CellStream::Write<int8_t>(T)”的引用
           with
           [
               T=int8_t
           ]
-c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(166): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(177): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(54): note: 参见对正在编译的函数 模板 实例化“bool CellStream::WriteArray<const char>(T *,uint32_t)”的引用
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(197): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(208): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(60): note: 参见对正在编译的函数 模板 实例化“bool CellStream::WriteArray<const char>(T *,uint32_t)”的引用
           with
           [
               T=const char
           ]
-c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(184): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(215): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(109): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
   c:\users\chenhairong\documents\git\eazysocket\easytcpserver\server.cpp(88): note: 参见对正在编译的函数 模板 实例化“uint32_t CellStream::ReadArray<char>(T *,uint32_t)”的引用
           with

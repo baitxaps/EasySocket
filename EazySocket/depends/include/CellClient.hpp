@@ -23,7 +23,9 @@ public:
 	int id = -1;
 	int serverId = -1;
 public:
-	CellClient(SOCKET sockfd = INVALID_SOCKET):_sendBuff(SEND_BUFF_SIZE),_recvBuf(RECV_BUFF_SZIE)
+	CellClient(SOCKET sockfd = INVALID_SOCKET,int sendSize = SEND_BUFF_SIZE,int recvSize = RECV_BUFF_SZIE):
+		_sendBuff(SEND_BUFF_SIZE),
+		_recvBuf(RECV_BUFF_SZIE)
 	{
 		static int n = 1;
 		id = n++;

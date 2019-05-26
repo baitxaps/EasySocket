@@ -36,7 +36,7 @@ public class CellTcpClient : MonoBehaviour
     }
 
     [DllImport("CppNetworkDll")]
-    private static extern IntPtr CellClient_Create(IntPtr csObj, OnNetMsgCallBack cb);
+    private static extern IntPtr CellClient_Create(IntPtr csObj, OnNetMsgCallBack cb,int sendSize,int recvSize);
 
     [DllImport("CppNetworkDll")]
     private static extern bool CellClient_Connect(IntPtr cppClientObj, string ip, short port);
@@ -60,7 +60,7 @@ public class CellTcpClient : MonoBehaviour
     {
         _handleThis = GCHandle.Alloc(this);
         _csThisObj = GCHandle.ToIntPtr(_handleThis);
-        _cppClientObj = CellClient_Create(_csThisObj, OnNetMsgCallBack1);
+        _cppClientObj = CellClient_Create(_csThisObj, OnNetMsgCallBack1, 10240, 10240);//10K
     }
 
     public bool Connect(string ip, short port)

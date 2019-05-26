@@ -76,7 +76,7 @@ public:
 		break;
 		case CMD_LOGOUT:
 		{
-			CellRecvStream r(header);
+			CellReadStream r(header);
 			auto n1 = r.ReadInt8();
 			auto n2 = r.ReadInt16();
 			auto n3 = r.ReadInt32();
@@ -91,7 +91,7 @@ public:
 			int ata[10] = {};
 			auto n8 = r.ReadArray(ata, 10);
 			///
-			CellSendStream s(128);
+			CellWriteStream s(128);
 			s.setNetCmd(CMD_LOGOUT_RESULT);
 			s.WriteInt8(n1);
 			s.WriteInt16(n2);
