@@ -5,6 +5,18 @@ using System.Runtime.InteropServices;
 using System;
 using AOT;
 
+public enum NetCMD
+{
+   LOGIN,
+   LOGIN_RESULT,
+   LOGOUT,
+   LOGOUT_RESULT,
+   NEW_USER_JOIN,
+   C2S_HEART,
+   S2C_HEART,
+   ERROR
+};
+
 public class CellTcpClient : MonoBehaviour
 {
     public delegate void OnNetMsgCallBack(IntPtr csObj, IntPtr data, int len);
@@ -13,6 +25,14 @@ public class CellTcpClient : MonoBehaviour
     private static void OnNetMsgCallBack1(IntPtr csObj, IntPtr data, int len)
     {
         Debug.Log("OnNetMsgCallBack1:" + len);
+        GCHandle h = GCHandle.FromIntPtr(csObj);
+        CellTcpClient obj = h.Target as CellTcpClient;
+        if (obj)
+        {
+            byte[] buffer = new byte[len];
+            Marshal.Copy(data,buffer,0,len);
+            obj.OnNetMsgBytes(buffer);
+        }
     }
 
     [DllImport("CppNetworkDll")]
@@ -53,7 +73,7 @@ public class CellTcpClient : MonoBehaviour
 
     public bool OnRun()
     {
-        Debug.Log("OnRun");
+       // Debug.Log("OnRun");
         if (_cppClientObj == IntPtr.Zero)
             return false;
 
@@ -67,15 +87,22 @@ public class CellTcpClient : MonoBehaviour
 
         CellClient_Close(_cppClientObj);
         _cppClientObj = IntPtr.Zero;
-        Debug.Log("Close");
+        _handleThis.Free();
+
+      //  Debug.Log("Close");
     }
 
     public int SendData(byte[] data)
     {
         if (_cppClientObj == IntPtr.Zero)
             return 0;
-        Debug.Log("SendData");
+       // Debug.Log("SendData");
         return CellClient_SendData(_cppClientObj, data, data.Length);
+    }
+
+    public virtual void OnNetMsgBytes(byte[] data)
+    {
+       
     }
 
     ////////////

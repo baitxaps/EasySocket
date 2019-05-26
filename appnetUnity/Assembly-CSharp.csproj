@@ -60,8 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CellClientNode.cs" />
+    <Compile Include="Assets\CellSendStream.cs" />
     <Compile Include="Assets\CellTcpClient.cs" />
-    <Compile Include="Assets\cSharpTest.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/chenhairong/Documents/git/appnetUnity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
