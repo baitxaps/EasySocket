@@ -30,6 +30,12 @@ public class CellClientNode : CellTcpClient
 
         this.Create();
         this.Connect(IP, PORT);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        this.OnRun();
 
         CellSendStream s = new CellSendStream(64);
         s.setNetCmd(NetCMD.LOGOUT);
@@ -38,18 +44,12 @@ public class CellClientNode : CellTcpClient
         s.WriteInt32(3);
         s.WriteFloat(4.5f);
         s.WriteDouble(6.7);
-        s.WriteString("client");
-        s.WriteString("hello");
-        int [] b = { 1, 2, 3, 4, 5 };
-        s.WriteInts(b);
+        s.WriteString("ÒýÇæ client...");
+        s.WriteString("hello ÒýÇæ...");
+        int[] b = { 1, 2, 3, 4, 5 };
+        s.WriteInt32s(b);
         s.finsh();
         this.SendData(s.Array);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        this.OnRun();
     }
 
     void OnDestroy()
@@ -59,6 +59,23 @@ public class CellClientNode : CellTcpClient
 
     public override void OnNetMsgBytes(byte[] data)
     {
+        CellRecvStream r = new CellRecvStream(data);
+        // msg length
+        Debug.Log(r.ReadUInt16());
+        // msg Type
+        Debug.Log(r.ReadNetCmd());
 
+        Debug.Log(r.ReadInt8());
+        Debug.Log(r.ReadInt16());
+        Debug.Log(r.ReadInt32());
+        Debug.Log(r.ReadFloat());
+        Debug.Log(r.ReadDouble());
+        Debug.Log(r.ReadString());
+        Debug.Log(r.ReadString());
+        Int32[] arr = r.ReadInt32s();
+        for(int n = 0;n<arr.Length;n ++)
+        {
+            Debug.Log(arr[n]);
+        }
     }
 }

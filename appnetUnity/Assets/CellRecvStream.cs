@@ -21,7 +21,12 @@ public class CellRecvStream {
 
     private bool canRead(int n)
     {
-      return  _buffer.Length - _nReadPos > 0;
+      return  _buffer.Length - _nReadPos >= n;
+    }
+
+    public NetCMD ReadNetCmd()
+    {
+       return (NetCMD)ReadUInt16();
     }
 
     // int
