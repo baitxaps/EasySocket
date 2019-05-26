@@ -29,9 +29,9 @@ public class CellTcpClient : MonoBehaviour
         CellTcpClient obj = h.Target as CellTcpClient;
         if (obj)
         {
-            byte[] buffer = new byte[len];
-            Marshal.Copy(data,buffer,0,len);
-            obj.OnNetMsgBytes(buffer);
+            //byte[] buffer = new byte[len];
+            //marshal.copy(data, buffer, 0, len);
+            obj.OnNetMsgBytes(data, len);
         }
     }
 
@@ -50,13 +50,12 @@ public class CellTcpClient : MonoBehaviour
     [DllImport("CppNetworkDll")]
     private static extern int CellClient_SendData(IntPtr cppClientObj, byte[] data, int len);
 
-    ////////////
     private GCHandle _handleThis;
     // this对象的指针 在C++消息回调中传回
     IntPtr _csThisObj = IntPtr.Zero;
     //C++ NativeTCPClient 对象的指针
     IntPtr _cppClientObj = IntPtr.Zero;
-    //
+
     public void Create()
     {
         _handleThis = GCHandle.Alloc(this);
@@ -100,12 +99,10 @@ public class CellTcpClient : MonoBehaviour
         return CellClient_SendData(_cppClientObj, data, data.Length);
     }
 
-    public virtual void OnNetMsgBytes(byte[] data)
+    public virtual void OnNetMsgBytes(IntPtr data, int len)
     {
        
     }
-
-    ////////////
 
     // Use this for initialization
     void Start()

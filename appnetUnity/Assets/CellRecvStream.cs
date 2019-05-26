@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
+﻿using System;
 using System.Text;
+using System.Runtime.InteropServices;
 
 public class CellRecvStream {
 
@@ -9,9 +8,12 @@ public class CellRecvStream {
 
     private int _nReadPos = 0;
 
-    public CellRecvStream(byte[] data)
+    public CellRecvStream(IntPtr data,int len)
     {
-        _buffer = data;
+        // C++ 传入的数据转为C#的字节数组
+        byte[] buffer = new byte[len];
+        Marshal.Copy(data, buffer, 0, len);
+        _buffer = buffer;
     }
 
     private void pop(int n)
