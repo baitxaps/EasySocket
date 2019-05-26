@@ -7,7 +7,7 @@
 	#define EXPORT_DLL _declspec(dllexport)
 #else
 	#define EXPORT_DLL
-#endif 
+#endif // 
 
 extern "C"
 {
