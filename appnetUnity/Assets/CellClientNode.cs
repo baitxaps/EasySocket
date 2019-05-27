@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
@@ -36,20 +36,20 @@ public class CellClientNode : CellTcpClient
     void Update()
     {
         this.OnRun();
-
-        CellSendStream s = new CellSendStream(64);
+        CellWriteStream s = new CellWriteStream(256);
+       // CellSendStream s = new CellSendStream(256);
         s.setNetCmd(NetCMD.LOGOUT);
         s.WriteInt8(1);
         s.WriteInt16(2);
         s.WriteInt32(3);
         s.WriteFloat(4.5f);
         s.WriteDouble(6.7);
-        s.WriteString("ÒýÇæ client...");
-        s.WriteString("hello ÒýÇæ...");
+        s.WriteString("å¼•æ“Ž client...");
+        s.WriteString("hello å¼•æ“Ž...");
         int[] b = { 1, 2, 3, 4, 5 };
         s.WriteInt32s(b);
         s.finsh();
-        this.SendData(s.Array);
+        this.SendData(s);
     }
 
     void OnDestroy()
@@ -59,7 +59,7 @@ public class CellClientNode : CellTcpClient
 
     public override void OnNetMsgBytes(IntPtr data, int len)
     {
-        CellRecvStream r = new CellRecvStream(data,len);
+        CellRecvStream r = new CellRecvStream(data, len);
         // msg length
         Debug.Log(r.ReadUInt16());
         // msg Type
@@ -72,8 +72,9 @@ public class CellClientNode : CellTcpClient
         Debug.Log(r.ReadDouble());
         Debug.Log(r.ReadString());
         Debug.Log(r.ReadString());
+
         Int32[] arr = r.ReadInt32s();
-        for(int n = 0;n<arr.Length;n ++)
+        for (int n = 0; n < arr.Length; n++)
         {
             Debug.Log(arr[n]);
         }

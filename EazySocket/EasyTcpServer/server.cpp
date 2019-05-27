@@ -7,7 +7,7 @@
 
 // !<<<NOTE>>>
 // formater IDE 
-// ctrl+shift+f:find;ctrl+k,ctrl+f:Format alignment  
+// ctrl+shift+f:find;ctrl+k,ctrl+f:Format alignment  ctrl+M :layer 
 
 // complier tools
 // g++ -std=c++11 -pthread server.cpp -o server

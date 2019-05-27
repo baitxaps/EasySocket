@@ -50,6 +50,10 @@ public class CellTcpClient : MonoBehaviour
     [DllImport("CppNetworkDll")]
     private static extern int CellClient_SendData(IntPtr cppClientObj, byte[] data, int len);
 
+
+    [DllImport("CppNetworkDll")]
+    private static extern int CellClient_SendWriteStream(IntPtr cppClientObj, IntPtr cppStreamObj);
+
     private GCHandle _handleThis;
     // this对象的指针 在C++消息回调中传回
     IntPtr _csThisObj = IntPtr.Zero;
@@ -87,16 +91,26 @@ public class CellTcpClient : MonoBehaviour
         CellClient_Close(_cppClientObj);
         _cppClientObj = IntPtr.Zero;
         _handleThis.Free();
-
-      //  Debug.Log("Close");
     }
 
     public int SendData(byte[] data)
     {
         if (_cppClientObj == IntPtr.Zero)
             return 0;
-       // Debug.Log("SendData");
         return CellClient_SendData(_cppClientObj, data, data.Length);
+    }
+
+    public int SendData(CellSendStream ss)
+    {
+        return SendData(ss.Array);
+    }
+
+    public int SendData(CellWriteStream ws)
+    {
+        if (_cppClientObj == IntPtr.Zero)
+            return 0;
+       
+        return CellClient_SendWriteStream(_cppClientObj,ws.cppObj);
     }
 
     public virtual void OnNetMsgBytes(IntPtr data, int len)

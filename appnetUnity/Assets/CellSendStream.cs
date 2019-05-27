@@ -57,18 +57,17 @@ public class CellSendStream {
 
     public void WriteInt16(Int16 n)
     {
-        _byteList.AddRange(BitConverter.GetBytes(n));
+        Write(BitConverter.GetBytes(n));
     }
 
     public void WriteInt32(Int32 n)
     {
-        _byteList.AddRange(BitConverter.GetBytes(n));
+        Write(BitConverter.GetBytes(n));
     }
 
     public void WriteInt64(Int64 n)
     {
-        byte[] data = BitConverter.GetBytes(n);
-        _byteList.AddRange(data);
+        Write(BitConverter.GetBytes(n));
     }
 
     // uint 
@@ -79,29 +78,30 @@ public class CellSendStream {
 
     public void WriteUInt16(UInt16 n)
     {
-        _byteList.AddRange(BitConverter.GetBytes(n));
+        Write(BitConverter.GetBytes(n));
     }
 
     public void WriteUInt32(UInt32 n)
     {
-        _byteList.AddRange(BitConverter.GetBytes(n));
+        Write(BitConverter.GetBytes(n));
     }
 
     public void WriteUInt64(UInt64 n)
     {
-        byte[] data = BitConverter.GetBytes(n);
-        _byteList.AddRange(data);
+        Write(BitConverter.GetBytes(n));
+        //byte[] data = BitConverter.GetBytes(n);
+        //_byteList.AddRange(data);
     }
 
     // float
     public void WriteFloat(float n)
     {
-        _byteList.AddRange(BitConverter.GetBytes(n));
+        Write(BitConverter.GetBytes(n));
     }
 
     public void WriteDouble(double n)
     {
-        _byteList.AddRange(BitConverter.GetBytes(n));
+        Write(BitConverter.GetBytes(n));
     }
 
     //  string

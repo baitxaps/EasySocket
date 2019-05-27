@@ -187,7 +187,7 @@ extern "C"
 		return false;
 	}
 
-	// char
+	// string
 	EXPORT_DLL bool CellWriteStream_WriteString(CellWriteStream* wStream, char* n)
 	{
 		if (wStream)

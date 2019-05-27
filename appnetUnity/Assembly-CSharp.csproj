@@ -64,6 +64,7 @@
     <Compile Include="Assets\CellRecvStream.cs" />
     <Compile Include="Assets\CellSendStream.cs" />
     <Compile Include="Assets\CellTcpClient.cs" />
+    <Compile Include="Assets\CellWriteStream.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/chenhairong/Documents/git/appnetUnity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
