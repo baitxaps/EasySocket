@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CellClientNode.cs" />
+    <Compile Include="Assets\CellReadStream.cs" />
     <Compile Include="Assets\CellRecvStream.cs" />
     <Compile Include="Assets\CellSendStream.cs" />
     <Compile Include="Assets\CellTcpClient.cs" />

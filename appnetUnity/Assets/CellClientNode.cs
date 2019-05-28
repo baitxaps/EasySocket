@@ -59,7 +59,8 @@ public class CellClientNode : CellTcpClient
 
     public override void OnNetMsgBytes(IntPtr data, int len)
     {
-        CellRecvStream r = new CellRecvStream(data, len);
+        // CellRecvStream r = new CellRecvStream(data, len);
+        CellReadStream r = new CellReadStream(data, len);
         // msg length
         Debug.Log(r.ReadUInt16());
         // msg Type
