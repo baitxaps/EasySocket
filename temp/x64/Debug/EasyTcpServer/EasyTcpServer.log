@@ -1,4 +1,5 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Intermediate 目录。
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppClean.targets(76,5): warning : 对路径“c:\users\chenhairong\documents\git\bin\x64\debug\easytcpserver.exe”的访问被拒绝。
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Intermediate 目录。
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
   server.cpp
 c:\users\chenhairong\documents\git\eazysocket\depends\include\celllog.hpp(47): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -87,4 +88,4 @@ c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(109
               T=char
           ]
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(116): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  EasyTcpServer.vcxproj -> C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Debug\EasyTcpServer.exe
+LINK : fatal error LNK1104: 无法打开文件“C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Debug\EasyTcpServer.exe”

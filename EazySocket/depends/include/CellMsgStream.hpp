@@ -19,9 +19,9 @@ public:
 	{
 		push(nSize);
 		//预先读取消息长度
-		ReadInt16();
+		//ReadInt16();
 		//预先读取消息命令
-		getNetCmd();
+		//getNetCmd();
 	}
 
 	uint16_t getNetCmd()

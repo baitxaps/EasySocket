@@ -1,12 +1,13 @@
-#include"EasyTcpClient.hpp"
+ï»¿#include"EasyTcpClient.hpp"
 #include"CellTimestamp.hpp"
 #include<thread>
 #include<atomic>
+#include"CELLMsgStream.hpp"
 
 class MyClient : public EasyTcpClient
 {
 public:
-	//ÏìÓ¦ÍøÂçÏûÏ¢
+	//å“åº”ç½‘ç»œæ¶ˆæ¯
 	virtual void OnNetMsg(netmsg_DataHeader* header)
 	{
 		switch (header->cmd)
@@ -14,24 +15,44 @@ public:
 		case CMD_LOGIN_RESULT:
 		{
 			netmsg_LoginResult* login = (netmsg_LoginResult*)header;
-			//CellLog::Info("<socket=%d> recv msgType£ºCMD_LOGIN_RESULT\n", (int)_pClient->sockfd());
+			//CellLog::Info("<socket=%d> recv msgTypeï¼šCMD_LOGIN_RESULT\n", (int)_pClient->sockfd());
 		}
 		break;
 		case CMD_LOGOUT_RESULT:
 		{
 			netmsg_LogoutResult* logout = (netmsg_LogoutResult*)header;
-			//CellLog::Info("<socket=%d> recv msgType£ºCMD_LOGOUT_RESULT\n", (int)_pClient->sockfd());
+			//CellLog::Info("<socket=%d> recv msgTypeï¼šCMD_LOGOUT_RESULT\n", (int)_pClient->sockfd());
+			CellReadStream r(header);
+			//è¯»å–æ¶ˆæ¯é•¿åº¦
+			r.ReadInt16();
+			//è¯»å–æ¶ˆæ¯å‘½ä»¤
+			r.getNetCmd();
+			auto n1 = r.ReadInt8();
+			auto n2 = r.ReadInt16();
+			auto n3 = r.ReadInt32();
+			auto n4 = r.ReadFloat();
+			auto n5 = r.ReadDouble();
+			uint32_t n = 0;
+			r.onlyRead(n);
+			char name[32] = {};
+			auto n6 = r.ReadArray(name, 32);
+			char pw[32] = {};
+			auto n7 = r.ReadArray(pw, 32);
+			int ata[10] = {};
+			auto n8 = r.ReadArray(ata, 10);
+			CellLog::Info("<socket=%d> recv msgTypeï¼šCMD_LOGOUT_RESULT\n", (int)_pClient->sockfd());
+
 		}
 		break;
 		case CMD_NEW_USER_JOIN:
 		{
 			netmsg_NewUserJoin* userJoin = (netmsg_NewUserJoin*)header;
-			//CellLog::Info("<socket=%d> recv msgType£ºCMD_NEW_USER_JOIN\n", (int)_pClient->sockfd());
+			//CellLog::Info("<socket=%d> recv msgTypeï¼šCMD_NEW_USER_JOIN\n", (int)_pClient->sockfd());
 		}
 		break;
 		case CMD_ERROR:
 		{
-			CellLog::Info("<socket=%d> recv msgType£ºCMD_ERROR\n", (int)_pClient->sockfd());
+			CellLog::Info("<socket=%d> recv msgTypeï¼šCMD_ERROR\n", (int)_pClient->sockfd());
 		}
 		break;
 		default:
@@ -55,20 +76,20 @@ void cmdThread()
 		if (0 == strcmp(cmdBuf, "exit"))
 		{
 			g_bRun = false;
-			CellLog::Info("ÍË³öcmdThreadÏß³Ì\n");
+			CellLog::Info("é€€å‡ºcmdThreadçº¿ç¨‹\n");
 			break;
 		}
 		else {
-			CellLog::Info("²»Ö§³ÖµÄÃüÁî¡£\n");
+			CellLog::Info("ä¸æ”¯æŒçš„å‘½ä»¤ã€‚\n");
 		}
 	}
 }
 
-//¿Í»§¶ËÊıÁ¿
+//å®¢æˆ·ç«¯æ•°é‡
 const int cCount = 100;//1000
-//·¢ËÍÏß³ÌÊıÁ¿
+//å‘é€çº¿ç¨‹æ•°é‡
 const int tCount = 4;
-//¿Í»§¶ËÊı×é
+//å®¢æˆ·ç«¯æ•°ç»„
 EasyTcpClient* client[cCount];
 std::atomic_int sendCount(0);
 std::atomic_int readyCount(0);
@@ -90,7 +111,7 @@ void recvThread(int begin, int end)
 void sendThread(int id)
 {
 	CellLog::Info("thread<%d>,start\n", id);
-	//4¸öÏß³Ì ID 1~4
+	//4ä¸ªçº¿ç¨‹ ID 1~4
 	int c = cCount / tCount;
 	int begin = (id - 1)*c;
 	int end = id*c;
@@ -103,12 +124,12 @@ void sendThread(int id)
 	{
 		client[n]->Connect("192.168.0.107", 4567);
 	}
-	//ĞÄÌø¼ì²â ËÀÍö¼ÆÊ± 
+	//å¿ƒè·³æ£€æµ‹ æ­»äº¡è®¡æ—¶ 
 	CellLog::Info("thread<%d>,Connect<begin=%d, end=%d>\n", id, begin, end);
 
 	readyCount++;
 	while (readyCount < tCount)
-	{//µÈ´ıÆäËüÏß³Ì×¼±¸ºÃ·¢ËÍÊı¾İ
+	{//ç­‰å¾…å…¶å®ƒçº¿ç¨‹å‡†å¤‡å¥½å‘é€æ•°æ®
 		std::chrono::milliseconds t(10);
 		std::this_thread::sleep_for(t);
 	}
@@ -148,12 +169,37 @@ void sendThread(int id)
 
 int main()
 {
+	/*
+	CellWriteStream s(128);
+	s.setNetCmd(CMD_LOGOUT);
+	s.WriteInt8(1);
+	s.WriteInt16(2);
+	s.WriteInt32(3);
+	s.WriteFloat(4.5f);
+	s.WriteDouble(6.7);
+	s.WriteString("client...");
+	char a[] = "socket å¼•æ“...";
+	s.WriteArray(a, strlen(a));
+	int b[] = { 1,2,3,4,5 };
+	s.WriteArray(b, 5);
+	s.finsh();
+	MyClient client;
+	client.Connect("192.168.0.107", 4567);
+	
+
+	while (client.OnRun())
+	{
+		client.SendData(s.data(), s.length());
+		CellThread::Sleep(5);
+	}
+	*/
+
 	CellLog::Instance().setLogPath("clientLog.txt", "w");
-	//Æô¶¯UIÏß³Ì
+	//å¯åŠ¨UIçº¿ç¨‹
 	std::thread t1(cmdThread);
 	t1.detach();
 
-	//Æô¶¯·¢ËÍÏß³Ì
+	//å¯åŠ¨å‘é€çº¿ç¨‹
 	for (int n = 0; n < tCount; n++)
 	{
 		std::thread t1(sendThread, n + 1);
@@ -171,10 +217,10 @@ int main()
 			sendCount = 0;
 			tTime.update();
 		}
-		std::chrono::milliseconds ts(1);
-		std::this_thread::sleep_for(ts);
+	std::chrono::milliseconds ts(1);
+	std::this_thread::sleep_for(ts);
 	}
 
-	CellLog::Info("ÒÑÍË³ö¡£\n");
+	CellLog::Info("å·²é€€å‡ºã€‚\n");
 	return 0;
 }

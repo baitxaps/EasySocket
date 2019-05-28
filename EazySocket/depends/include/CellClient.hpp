@@ -1,4 +1,4 @@
-#ifndef _CellClient_hpp_
+ï»¿#ifndef _CellClient_hpp_
 #define _CellClient_hpp_
 
 #include"Cell.hpp"
@@ -14,7 +14,7 @@
 typedef std::shared_ptr<netmsg_DataHeader> DataHeaderPtr;
 typedef std::shared_ptr<netmsg_LoginResult> LoginResultPtr;
 
-//¿Í»§¶ËÊı¾İÀàĞÍ
+//å®¢æˆ·ç«¯æ•°æ®ç±»å‹
 class CellClient :public ObjectPoolBase<CellClient, 10000>
 //class CellClient 
 {
@@ -75,13 +75,13 @@ public:
 		 _recvBuf.pop(front_msg()->dataLength);
 	}
 
-	// ÊÇ·ñÓĞÊı¾İĞèÒªĞ´
+	// æ˜¯å¦æœ‰æ•°æ®éœ€è¦å†™
 	bool needWrite()
 	{
 		return _sendBuff.needWrite();
 	}
 
-	// Á¢¼´½«·¢ËÍ»º³åÇøµÄÊı¾İ·¢ËÍ¸ø¿Í»§¶Ë
+	// ç«‹å³å°†å‘é€ç¼“å†²åŒºçš„æ•°æ®å‘é€ç»™å®¢æˆ·ç«¯
 	int SendDataReal()
 	{
 		resetDTSend();
@@ -89,7 +89,7 @@ public:
 		return ret;
 	}
 
-	//·¢ËÍÊı¾İ, ¶¨Ê±¶¨Á¿
+	//å‘é€æ•°æ®, å®šæ—¶å®šé‡
 	int SendData(netmsg_DataHeader* header)
 	{
 		return SendData((const char*)header, header->dataLength);
@@ -142,9 +142,9 @@ public:
 private:
 	// socket fd_set  file desc set
 	SOCKET _sockfd;
-	// µÚ¶ş»º³åÇø ½ÓÊÕÏûÏ¢»º³åÇø
+	// ç¬¬äºŒç¼“å†²åŒº æ¥æ”¶æ¶ˆæ¯ç¼“å†²åŒº
 	CellBuffer _recvBuf;
-	// ·¢ËÍ»º³åÇø
+	// å‘é€ç¼“å†²åŒº
 	CellBuffer _sendBuff;
 	// the heart time of socket 
 	time_t _dtHeart;

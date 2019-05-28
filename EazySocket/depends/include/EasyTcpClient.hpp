@@ -1,4 +1,4 @@
-#ifndef _EasyTcpClient_hpp_
+ï»¿#ifndef _EasyTcpClient_hpp_
 #define _EasyTcpClient_hpp_
 
 #include"Cell.hpp"
@@ -6,7 +6,7 @@
 #include"MessageHeader.hpp"
 #include"CellClient.hpp"
 
-//»º³åÇø×îĞ¡µ¥Ôª´óĞ¡
+//ç¼“å†²åŒºæœ€å°å•å…ƒå¤§å°
 #ifndef RECV_BUFF_SZIE
 #define RECV_BUFF_SZIE 1024 
 #endif 
@@ -28,7 +28,7 @@ public:
 		Close();
 	}
 
-	//³õÊ¼»¯socket
+	//åˆå§‹åŒ–socket
 	void InitSocket(int sendSize = SEND_BUFF_SIZE, int recvSize = RECV_BUFF_SZIE)
 	{
 		CellNetWork::Init();
@@ -40,7 +40,7 @@ public:
 		SOCKET sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 		if (INVALID_SOCKET == sock)
 		{
-			CellLog::Info("error£¬create socket failure...\n");
+			CellLog::Info("errorï¼Œcreate socket failure...\n");
 		}
 		else {
 			CellLog::Info("create socket=<%d>success...\n", (int)sock);
@@ -48,14 +48,14 @@ public:
 		}
 	}
 
-	//Á¬½Ó·şÎñÆ÷
+	//è¿æ¥æœåŠ¡å™¨
 	int Connect(const char* ip,unsigned short port)
 	{
 		if (!_pClient)
 		{
 			InitSocket();
 		}
-		// 2 Á¬½Ó·şÎñÆ÷ connect
+		// 2 è¿æ¥æœåŠ¡å™¨ connect
 		sockaddr_in _sin = {};
 		_sin.sin_family = AF_INET;
 		_sin.sin_port = htons(port);
@@ -77,7 +77,7 @@ public:
 		return ret;
 	}
 
-	//¹Ø±ÕÌ×½Ú×Öclosesocket
+	//å…³é—­å¥—èŠ‚å­—closesocket
 	void Close()
 	{
 		if (_pClient)
@@ -88,7 +88,7 @@ public:
 		_isConnect = false;
 	}
 
-	//´¦ÀíÍøÂçÏûÏ¢
+	//å¤„ç†ç½‘ç»œæ¶ˆæ¯
 	bool OnRun()
 	{
 		if (isRun())
@@ -142,34 +142,34 @@ public:
 		return false;
 	}
 
-	//ÊÇ·ñ¹¤×÷ÖĞ
+	//æ˜¯å¦å·¥ä½œä¸­
 	bool isRun()
 	{
 		return _pClient && _isConnect;
 	}
 
-	//µÚ¶ş»º³åÇø ÏûÏ¢»º³åÇø
+	//ç¬¬äºŒç¼“å†²åŒº æ¶ˆæ¯ç¼“å†²åŒº
 	char _szMsgBuf[RECV_BUFF_SZIE] = {};
-	//ÏûÏ¢»º³åÇøµÄÊı¾İÎ²²¿Î»ÖÃ
+	//æ¶ˆæ¯ç¼“å†²åŒºçš„æ•°æ®å°¾éƒ¨ä½ç½®
 	int _lastPos = 0;
 
-	//½ÓÊÕ»º³åÇøchar _szRecv[RECV_BUFF_SZIE] = {};
+	//æ¥æ”¶ç¼“å†²åŒºchar _szRecv[RECV_BUFF_SZIE] = {};
 
-	//½ÓÊÕÊı¾İ ´¦ÀíÕ³°ü ²ğ·Ö°ü
+	//æ¥æ”¶æ•°æ® å¤„ç†ç²˜åŒ… æ‹†åˆ†åŒ…
 	int RecvData(SOCKET cSock)
 	{
 		if (isRun())
 		{
-			//  ½ÓÊÕ¿Í»§¶ËÊı¾İ
+			//  æ¥æ”¶å®¢æˆ·ç«¯æ•°æ®
 			int nLen = _pClient->RecvData();
 			if (nLen >= 0)
 			{
-				// Ñ­»· ÅĞ¶ÏÊÇ·ñÓĞÏûÏ¢Ğè´¦Àí
+				// å¾ªç¯ åˆ¤æ–­æ˜¯å¦æœ‰æ¶ˆæ¯éœ€å¤„ç†
 				while (_pClient->hasMsg())
 				{
-					//´¦ÀíÍøÂçÏûÏ¢
+					//å¤„ç†ç½‘ç»œæ¶ˆæ¯
 					OnNetMsg(_pClient->front_msg());
-					// ÒÆ³ıÏûÏ¢¶ÓÁĞ£¨»º³åÇø£©×îÇ°µÄÒ»ÌõÊı¾İ
+					// ç§»é™¤æ¶ˆæ¯é˜Ÿåˆ—ï¼ˆç¼“å†²åŒºï¼‰æœ€å‰çš„ä¸€æ¡æ•°æ®
 					_pClient->pop_front_msg();
 				}
 			}
@@ -178,7 +178,7 @@ public:
 		return 0;
 	}
 
-	//ÏìÓ¦ÍøÂçÏûÏ¢
+	//å“åº”ç½‘ç»œæ¶ˆæ¯
 	virtual void OnNetMsg(netmsg_DataHeader* header) = 0;
 
 	int SendData(netmsg_DataHeader* header)
@@ -190,7 +190,7 @@ public:
 		return 0;
 	}
 	
-	//·¢ËÍÊı¾İ
+	//å‘é€æ•°æ®
 	int SendData(const char* pData,int nLen)
 	{
 		if (isRun())

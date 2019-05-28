@@ -1,4 +1,4 @@
-#include "EasyTcpServer.hpp"
+ï»¿#include "EasyTcpServer.hpp"
 #include"CellMsgStream.hpp"
 
 #if 0
@@ -25,11 +25,11 @@ void cmdThread()
 		if (0 == strcmp(cmdBuf, "exit"))
 		{
 			g_bRun = false;
-			CellLog::Info("ÍË³öcmdThreadÏß³Ì\n");
+			CellLog::Info("é€€å‡ºcmdThreadçº¿ç¨‹\n");
 			break;
 		}
 		else {
-			CellLog::Info("²»Ö§³ÖµÄÃüÁî¡£\n");
+			CellLog::Info("ä¸æ”¯æŒçš„å‘½ä»¤ã€‚\n");
 		}
 	}
 }
@@ -37,20 +37,20 @@ void cmdThread()
 class MyServer : public EasyTcpServer
 {
 public:
-	//Ö»»á±»Ò»¸öÏß³Ì´¥·¢ °²È«
+	//åªä¼šè¢«ä¸€ä¸ªçº¿ç¨‹è§¦å‘ å®‰å…¨
 	virtual void OnNetJoin(CellClient* pClient)
 	{
 		EasyTcpServer::OnNetJoin(pClient);
 	 // CellLog::Info("client<%d> join\n", pClient->sockfd());
 	}
-	//cellServer ¶à¸öÏß³Ì´¥·¢ ²»°²È«
+	//cellServer å¤šä¸ªçº¿ç¨‹è§¦å‘ ä¸å®‰å…¨
 	virtual void OnNetLeave(CellClient* pClient)
 	{
 		EasyTcpServer::OnNetLeave(pClient);
 	 // CellLog::Info("client<%d> leave\n", pClient->sockfd());
 	}
 
-	//cellServer ¶à¸öÏß³Ì´¥·¢ ²»°²È«
+	//cellServer å¤šä¸ªçº¿ç¨‹è§¦å‘ ä¸å®‰å…¨
 	virtual void OnNetMsg(CellServer* pCellServer, CellClient *pClient, netmsg_DataHeader* header)
 	{
 		EasyTcpServer::OnNetMsg(pCellServer,pClient,header);
@@ -60,8 +60,8 @@ public:
 		{
 			pClient->resetDTheart();
 			netmsg_Login* login = (netmsg_Login*)header;
-		   //CellLog::Info("ÊÕµ½¿Í»§¶Ë<Socket=%d>ÇëÇó£ºCMD_LOGIN,Êı¾İ³¤¶È£º%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
-			//ºöÂÔÅĞ¶ÏÓÃ»§ÃÜÂëÊÇ·ñÕıÈ·µÄ¹ı³Ì
+		   //CellLog::Info("æ”¶åˆ°å®¢æˆ·ç«¯<Socket=%d>è¯·æ±‚ï¼šCMD_LOGIN,æ•°æ®é•¿åº¦ï¼š%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
+			//å¿½ç•¥åˆ¤æ–­ç”¨æˆ·å¯†ç æ˜¯å¦æ­£ç¡®çš„è¿‡ç¨‹
 			netmsg_LoginResult ret;
 			if (SOCKET_ERROR == pClient->SendData(&ret))
 			{
@@ -122,7 +122,7 @@ public:
 
 		default:
 		{
-			CellLog::Info("<socket=%d>ÊÕµ½Î´¶¨ÒåÏûÏ¢,Êı¾İ³¤¶È£º%d\n", pClient->sockfd(), header->dataLength);
+			CellLog::Info("<socket=%d>æ”¶åˆ°æœªå®šä¹‰æ¶ˆæ¯,æ•°æ®é•¿åº¦ï¼š%d\n", pClient->sockfd(), header->dataLength);
 			netmsg_DataHeader ret;
 		//	pClient->SendData(&ret);
 		}
@@ -158,7 +158,7 @@ int main()
 	server.Listen(5);
 	server.Start(4);
 
-	//Æô¶¯UIÏß³Ì
+	//å¯åŠ¨UIçº¿ç¨‹
 	//std::thread t1(cmdThread);
 	//t1.detach();
 

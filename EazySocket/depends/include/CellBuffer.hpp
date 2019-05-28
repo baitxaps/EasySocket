@@ -1,4 +1,4 @@
-#ifndef _CELL_BUFFER_HPP_
+ï»¿#ifndef _CELL_BUFFER_HPP_
 #define _CELL_BUFFER_HPP_
 #include"Cell.hpp"
 
@@ -27,11 +27,11 @@ public:
 
 	bool push(const char* pData,int nLen)
 	{
-		// Ğ´Èë´óÁ¿Êı¾İ¿â²»Ò»¶¨Òª·Åµ½ÄÚ´æÖĞ£¬Ò²¿ÉÒÔ´æ´¢µ½Êı¾İ¿â»òÕß´ÅÅÌ´æ´¢Æ÷ÖĞ
-		// ĞèÒªĞ´ÈëµÄÊı¾İ´óÓÚ¿ÉÓÃ¿Õ¼ä
+		// å†™å…¥å¤§é‡æ•°æ®åº“ä¸ä¸€å®šè¦æ”¾åˆ°å†…å­˜ä¸­ï¼Œä¹Ÿå¯ä»¥å­˜å‚¨åˆ°æ•°æ®åº“æˆ–è€…ç£ç›˜å­˜å‚¨å™¨ä¸­
+		// éœ€è¦å†™å…¥çš„æ•°æ®å¤§äºå¯ç”¨ç©ºé—´
 		//if (_nLast + nLen > _nSize)
 		//{
-		//	// À©Õ¹buff,8KB
+		//	// æ‰©å±•buff,8KB
 		//	int n = _nLast = nLen - _nSize;
 		//	if (n < 8192) n = 8192;
 		//	char *buff = new char[_nSize + n];
@@ -42,9 +42,9 @@ public:
 
 		if (_nLast + nLen <= _nSize)
 		{
-			//½«·¢ËÍµÄÊı¾İ ¿½±´µ½·¢ËÍ»º³åÇøÎ²²¿
+			//å°†å‘é€çš„æ•°æ® æ‹·è´åˆ°å‘é€ç¼“å†²åŒºå°¾éƒ¨
 			memcpy(_pBuff + _nLast, pData, nLen);
-			// Êı¾İÎ²²¿Î»ÖÃ
+			// æ•°æ®å°¾éƒ¨ä½ç½®
 			_nLast += nLen;
 			if (_nLast == SEND_BUFF_SIZE)
 			{
@@ -92,14 +92,14 @@ public:
 	{
 		if (_nSize - _nLast > 0)
 		{
-			// »º³åÇø
+			// ç¼“å†²åŒº
 			char *szRecv = _pBuff + _nLast;
-			//  ½ÓÊÕ¿Í»§¶ËÊı¾İ
+			//  æ¥æ”¶å®¢æˆ·ç«¯æ•°æ®
 			int nLen = (int)recv(sockfd, szRecv, _nSize - _nLast, 0);
 
 			if (nLen <= 0)
 			{
-				//CellLog::Info("¿Í»§¶Ë<Socket=%d>ÒÑÍË³ö£¬ÈÎÎñ½áÊø¡£\n", pClient->sockfd());
+				//CellLog::Info("å®¢æˆ·ç«¯<Socket=%d>å·²é€€å‡ºï¼Œä»»åŠ¡ç»“æŸã€‚\n", pClient->sockfd());
 				return nLen;
 			}
 			_nLast += nLen;
@@ -110,12 +110,12 @@ public:
 
 	bool hasMsg()
 	{
-		// ÅĞ¶ÏÏûÏ¢»º³åÇøµÄÊı¾İ³¤¶È´óÓÚÏûÏ¢Í·netmsg_DataHeader³¤¶È
+		// åˆ¤æ–­æ¶ˆæ¯ç¼“å†²åŒºçš„æ•°æ®é•¿åº¦å¤§äºæ¶ˆæ¯å¤´netmsg_DataHeaderé•¿åº¦
 		if (_nLast >= sizeof(netmsg_DataHeader))
 		{
-			// ÕâÊ±¾Í¿ÉÒÔÖªµÀµ±Ç°ÏûÏ¢µÄ³¤¶È
+			// è¿™æ—¶å°±å¯ä»¥çŸ¥é“å½“å‰æ¶ˆæ¯çš„é•¿åº¦
 			netmsg_DataHeader* header = (netmsg_DataHeader*)_pBuff;
-			// ÅĞ¶ÏÏûÏ¢»º³åÇøµÄÊı¾İ³¤¶È´óÓÚÏûÏ¢³¤¶È
+			// åˆ¤æ–­æ¶ˆæ¯ç¼“å†²åŒºçš„æ•°æ®é•¿åº¦å¤§äºæ¶ˆæ¯é•¿åº¦
 			bool fc = _nLast >= header->dataLength;
 			return fc;
 		}
@@ -128,14 +128,14 @@ public:
 	}
 
 private:
-	// µÚ¶ş»º³åÇø ·¢ËÍ»º³åÇø
+	// ç¬¬äºŒç¼“å†²åŒº å‘é€ç¼“å†²åŒº
 	char* _pBuff = nullptr; 
 	//list<char*> _puBuffer;
-	// ·¢ËÍ»º³åÇøµÄÊı¾İÎ²²¿Î»ÖÃ
+	// å‘é€ç¼“å†²åŒºçš„æ•°æ®å°¾éƒ¨ä½ç½®
 	int _nLast=0;
-	// »º³åÇø×ÜµÄ¿Õ¼ä´óĞ¡£¬×Ö½Ú³¤¶È
+	// ç¼“å†²åŒºæ€»çš„ç©ºé—´å¤§å°ï¼Œå­—èŠ‚é•¿åº¦
 	int _nSize = 0;
-	// »º³åÇøĞ´Âú×ÖÊıµÄ¼ÆÊı
+	// ç¼“å†²åŒºå†™æ»¡å­—æ•°çš„è®¡æ•°
 	int _buffFullCount = 0;
 };
 
