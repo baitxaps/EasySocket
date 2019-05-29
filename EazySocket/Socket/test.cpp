@@ -38,8 +38,8 @@ public:
 			auto n1 = r.ReadInt8();
 			auto n2 = r.ReadInt16();
 			auto n3 = r.ReadInt32();
-			//auto n4 = r.ReadFloat();
-			//auto n5 = r.ReadDouble();
+			auto n4 = r.ReadFloat();
+			auto n5 = r.ReadDouble();
 			uint32_t n = 0;
 			r.onlyRead(n);
 			char name[32] = {};
@@ -74,8 +74,8 @@ int main()
 	s.WriteInt8(1);
 	s.WriteInt16(2);
 	s.WriteInt32(3);
-	//s.WriteFloat(4.5f);
-	//s.WriteDouble(6.7);
+	s.WriteFloat(4.5f);
+	s.WriteDouble(6.7);
 	s.WriteString("client");
 	
 	char a[] = "ahah";

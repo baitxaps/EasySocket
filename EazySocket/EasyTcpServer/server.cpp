@@ -85,8 +85,8 @@ public:
 			auto n1 = r.ReadInt8();
 			auto n2 = r.ReadInt16();
 			auto n3 = r.ReadInt32();
-			//auto n4 = r.ReadFloat();
-			//auto n5 = r.ReadDouble();
+			auto n4 = r.ReadFloat();
+			auto n5 = r.ReadDouble();
 			uint32_t n = 0;
 			r.onlyRead(n);
 			char name[32] = {};
@@ -101,8 +101,8 @@ public:
 			s.WriteInt8(n1);
 			s.WriteInt16(n2);
 			s.WriteInt32(n3);
-			//s.WriteFloat(n4);
-			//s.WriteDouble(n5);
+			s.WriteFloat(n4);
+			s.WriteDouble(n5);
 			s.WriteArray(name, strlen(name));
 			s.WriteArray(pw, strlen(pw));
 			s.WriteArray(ata, n8);
