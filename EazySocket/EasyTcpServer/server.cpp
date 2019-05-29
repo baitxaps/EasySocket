@@ -51,9 +51,9 @@ public:
 	}
 
 	//cellServer 多个线程触发 不安全
-	virtual void OnNetMsg(CellServer* pCellServer, CellClient *pClient, netmsg_DataHeader* header)
+	virtual void OnNetMsg(CellServer* pServer, CellClient *pClient, netmsg_DataHeader* header)
 	{
-		EasyTcpServer::OnNetMsg(pCellServer,pClient,header);
+		EasyTcpServer::OnNetMsg(pServer,pClient,header);
 		switch (header->cmd)
 		{
 		case CMD_LOGIN:
@@ -76,12 +76,17 @@ public:
 		break;
 		case CMD_LOGOUT:
 		{
+			pClient->resetDTheart();
 			CellReadStream r(header);
+			//读取消息长度
+			r.ReadInt16();
+			//读取消息命令
+			r.getNetCmd();
 			auto n1 = r.ReadInt8();
 			auto n2 = r.ReadInt16();
 			auto n3 = r.ReadInt32();
-			auto n4 = r.ReadFloat();
-			auto n5 = r.ReadDouble();
+			//auto n4 = r.ReadFloat();
+			//auto n5 = r.ReadDouble();
 			uint32_t n = 0;
 			r.onlyRead(n);
 			char name[32] = {};
@@ -96,8 +101,8 @@ public:
 			s.WriteInt8(n1);
 			s.WriteInt16(n2);
 			s.WriteInt32(n3);
-			s.WriteFloat(n4);
-			s.WriteDouble(n5);
+			//s.WriteFloat(n4);
+			//s.WriteDouble(n5);
 			s.WriteArray(name, strlen(name));
 			s.WriteArray(pw, strlen(pw));
 			s.WriteArray(ata, n8);
@@ -122,7 +127,7 @@ public:
 
 		default:
 		{
-			CellLog::Info("<socket=%d>收到未定义消息,数据长度：%d\n", pClient->sockfd(), header->dataLength);
+			CellLog::Info("recv <socket=%d> undefine msgType,dataLen：%d\n", pClient->sockfd(), header->dataLength);
 			netmsg_DataHeader ret;
 		//	pClient->SendData(&ret);
 		}

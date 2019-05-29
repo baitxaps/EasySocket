@@ -52,7 +52,7 @@ public:
 
 	void setNetCmd(uint16_t cmd)
 	{
-		Write<uint16_t>(cmd);
+		//Write<uint16_t>(cmd);
 	}
 
 	bool WriteString(const char* str, int len)

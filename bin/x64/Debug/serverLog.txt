@@ -1,1080 +1,245 @@
-Info [2019-5-29 14:32:39]CellLog::setLogPath sucess,<serverLog.txt,w>
-Info [2019-5-29 14:32:39]create socket<184> success...
-Info [2019-5-29 14:32:39]bind port<4567> success...
-Info [2019-5-29 14:32:39]listen port<184> success...
-Info [2019-5-29 14:32:40]thread<4>,time<1.000409>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:41]thread<4>,time<1.000329>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:42]thread<4>,time<1.000335>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:43]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:44]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:45]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:46]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:32:47]thread<4>,time<1.000367>,socket<184>,clients<1>,recv<80>,msg<37>
-Info [2019-5-29 14:32:48]s=1,CellClient1.~CellClient...
-Info [2019-5-29 14:32:48]thread<4>,time<1.000286>,socket<184>,clients<0>,recv<82>,msg<0>
-Info [2019-5-29 14:32:49]thread<4>,time<1.000336>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:50]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:51]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:52]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:53]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:54]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:55]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:56]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:57]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:58]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:32:59]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:0]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:1]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:2]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:3]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:4]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:5]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:6]thread<4>,time<1.000332>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:7]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:8]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:9]thread<4>,time<1.000356>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:10]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:11]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:12]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:13]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:14]thread<4>,time<1.000353>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:15]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:16]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:17]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:18]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:19]thread<4>,time<1.000353>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:20]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:21]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:22]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:23]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:24]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:25]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:26]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:27]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:28]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:29]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:30]thread<4>,time<1.000351>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:31]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:32]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:33]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:34]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:35]thread<4>,time<1.000359>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:36]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:37]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:38]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:39]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:40]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:41]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:42]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:43]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:44]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:45]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:46]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:47]thread<4>,time<1.000351>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:48]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:49]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:50]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:51]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:52]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:53]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:54]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:55]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:56]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:57]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:58]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:33:59]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:0]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:1]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:2]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:3]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:4]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:5]thread<4>,time<1.000359>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:6]thread<4>,time<1.000335>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:7]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:8]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:9]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:10]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:11]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:12]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:13]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:14]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:15]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:16]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:17]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:18]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:19]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:20]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:21]thread<4>,time<1.000351>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:22]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:23]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:24]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:25]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:26]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:27]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:28]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:29]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:30]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:31]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:32]thread<4>,time<1.000351>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:33]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:34]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:35]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:36]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:37]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:38]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:39]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:40]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:41]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:42]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:43]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:44]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:45]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:46]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:47]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:48]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:49]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:50]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:51]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:52]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:53]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:54]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:55]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:56]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:57]thread<4>,time<1.000353>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:58]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:34:59]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:0]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:1]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:2]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:3]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:4]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:5]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:6]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:7]thread<4>,time<1.000307>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:8]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:9]thread<4>,time<1.000320>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:10]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:11]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:12]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:13]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:14]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:15]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:16]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:17]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:18]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:19]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:20]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:21]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:22]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:23]thread<4>,time<1.000353>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:24]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:25]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:26]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:27]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:28]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:29]thread<4>,time<1.000352>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:30]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:31]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:32]thread<4>,time<1.000350>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:33]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:34]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:35]thread<4>,time<1.000150>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:36]thread<4>,time<1.000595>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:37]thread<4>,time<1.000073>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:38]thread<4>,time<1.000057>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:39]thread<4>,time<1.000558>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:40]thread<4>,time<1.000597>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:41]thread<4>,time<1.000570>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:42]thread<4>,time<1.000578>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:43]thread<4>,time<1.000570>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:44]thread<4>,time<1.000566>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:45]thread<4>,time<1.000555>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:46]thread<4>,time<1.000537>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:47]thread<4>,time<1.000571>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:48]thread<4>,time<1.000556>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:49]thread<4>,time<1.000558>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:50]thread<4>,time<1.000554>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:51]thread<4>,time<1.000541>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:52]thread<4>,time<1.000536>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:53]thread<4>,time<1.000542>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:54]thread<4>,time<1.000057>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:55]thread<4>,time<1.000074>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:56]thread<4>,time<1.000058>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:57]thread<4>,time<1.000554>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:58]thread<4>,time<1.000538>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:35:59]thread<4>,time<1.000539>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:0]thread<4>,time<1.000569>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:1]thread<4>,time<1.000593>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:2]thread<4>,time<1.000561>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:3]thread<4>,time<1.000563>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:4]thread<4>,time<1.000585>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:5]thread<4>,time<1.000554>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:6]thread<4>,time<1.000551>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:7]thread<4>,time<1.000570>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:8]thread<4>,time<1.000568>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:9]thread<4>,time<1.000613>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:10]thread<4>,time<1.000563>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:11]thread<4>,time<1.000534>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:12]thread<4>,time<1.000027>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:13]thread<4>,time<1.000522>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:14]thread<4>,time<1.000518>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:15]thread<4>,time<1.000553>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:16]thread<4>,time<1.000544>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:17]thread<4>,time<1.000508>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:18]thread<4>,time<1.000580>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:19]thread<4>,time<1.000484>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:20]thread<4>,time<1.000546>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:21]thread<4>,time<1.000044>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:22]thread<4>,time<1.000037>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:23]thread<4>,time<1.000049>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:24]thread<4>,time<1.000552>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:25]thread<4>,time<1.000553>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:26]thread<4>,time<1.000555>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:27]thread<4>,time<1.000551>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 14:36:28]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:28]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:28]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:28]thread<4>,time<1.000557>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]thread<4>,time<1.000621>,socket<184>,clients<1>,recv<9>,msg<9>
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:29]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]thread<4>,time<1.000645>,socket<184>,clients<1>,recv<27>,msg<27>
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:30]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]thread<4>,time<1.000623>,socket<184>,clients<1>,recv<27>,msg<27>
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:31]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]thread<4>,time<1.000676>,socket<184>,clients<1>,recv<25>,msg<25>
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:32]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]thread<4>,time<1.000659>,socket<184>,clients<1>,recv<24>,msg<24>
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:33]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]thread<4>,time<1.000170>,socket<184>,clients<1>,recv<27>,msg<27>
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:34]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]thread<4>,time<1.000699>,socket<184>,clients<1>,recv<27>,msg<27>
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:35]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]thread<4>,time<1.000652>,socket<184>,clients<1>,recv<28>,msg<28>
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:36]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]thread<4>,time<1.000637>,socket<184>,clients<1>,recv<27>,msg<27>
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:37]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:38]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:38]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:38]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:38]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:38]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:38]error, CellStream::ReadArray failed.
-Info [2019-5-29 14:36:38]thread<4>,time<1.000660>,socket<184>,clients<1>,recv<3>,msg<3>
-Info [2019-5-29 14:36:39]thread<4>,time<1.000626>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:40]thread<4>,time<1.000656>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:41]thread<4>,time<1.000654>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:42]thread<4>,time<1.000102>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:43]thread<4>,time<1.000053>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:44]thread<4>,time<1.000161>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:45]thread<4>,time<1.000657>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:46]thread<4>,time<1.000640>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:47]thread<4>,time<1.000661>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:48]thread<4>,time<1.000650>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:49]thread<4>,time<1.000598>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:50]thread<4>,time<1.000672>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:51]thread<4>,time<1.000646>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:52]thread<4>,time<1.000149>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:53]thread<4>,time<1.000664>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:54]thread<4>,time<1.000668>,socket<184>,clients<1>,recv<0>,msg<0>
-Info [2019-5-29 14:36:55]thread<4>,time<1.000690>,socket<184>,clients<1>,recv<0>,msg<0>
+Info [2019-5-29 16:12:18]CellLog::setLogPath sucess,<serverLog.txt,w>
+Info [2019-5-29 16:12:18]create socket<184> success...
+Info [2019-5-29 16:12:18]bind port<4567> success...
+Info [2019-5-29 16:12:18]listen port<184> success...
+Info [2019-5-29 16:12:19]thread<4>,time<1.000439>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:20]thread<4>,time<1.000330>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:21]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:22]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:23]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:24]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:25]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:26]thread<4>,time<1.000335>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:27]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:28]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:29]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:30]thread<4>,time<1.000353>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:31]thread<4>,time<1.000327>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:32]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:33]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:34]thread<4>,time<1.000337>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:35]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:36]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:37]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:38]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:39]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:40]thread<4>,time<1.000328>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:41]thread<4>,time<1.000337>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:42]thread<4>,time<1.000316>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:43]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:44]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:45]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:46]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:47]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:48]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:49]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:50]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:51]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:52]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:53]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:54]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:55]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:56]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:57]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:58]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:12:59]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:0]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:1]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:2]thread<4>,time<1.000337>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:3]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:4]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:5]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:6]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:7]thread<4>,time<1.000848>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:8]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:9]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:10]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:11]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:12]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:13]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:14]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:15]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:16]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:17]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:18]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:19]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:20]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:21]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:22]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:23]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:24]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:25]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:26]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:27]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:28]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:29]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:30]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:31]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:32]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:33]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:34]thread<4>,time<1.000316>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:35]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:36]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:37]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:38]thread<4>,time<1.000358>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:39]thread<4>,time<1.000330>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:40]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:41]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:42]thread<4>,time<1.000337>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:43]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:44]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:45]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:46]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:47]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:48]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:49]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:50]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:51]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:52]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:53]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:54]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:55]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:56]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:57]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:58]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:13:59]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:0]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:1]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:2]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:3]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:4]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:5]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:6]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:7]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:8]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:9]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:10]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:11]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:12]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:13]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:14]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:15]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:16]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:17]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:18]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:19]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:20]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:21]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:22]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:23]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:24]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:25]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:26]thread<4>,time<1.000351>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:27]thread<4>,time<1.000336>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:28]thread<4>,time<1.000322>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:29]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:30]thread<4>,time<1.000333>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:31]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:32]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:33]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:34]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:35]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:36]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:37]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:38]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:39]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:40]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:41]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:42]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:43]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:44]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:45]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:46]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:47]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:48]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:49]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:50]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:51]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:52]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:53]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:54]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:55]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:56]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:57]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:58]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:14:59]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:0]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:1]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:2]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:3]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:4]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:5]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:6]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:7]thread<4>,time<1.000349>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:8]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:9]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:10]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:11]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:12]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:13]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:14]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:15]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:16]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:17]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:18]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:19]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:20]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:21]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:22]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:23]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:24]thread<4>,time<1.000275>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:25]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:26]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:27]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:28]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:29]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:30]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:31]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:32]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:33]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:34]thread<4>,time<1.000351>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:35]thread<4>,time<1.000336>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:36]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:37]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:38]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:39]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:40]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:41]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:42]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:43]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:44]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:45]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:46]thread<4>,time<1.000338>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:47]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:48]thread<4>,time<1.000347>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:49]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:50]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:51]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:52]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:53]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:54]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:55]thread<4>,time<1.000348>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:56]thread<4>,time<1.000339>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:57]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:58]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:15:59]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:0]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:1]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:2]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:3]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:4]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:5]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:6]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:7]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:8]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:9]thread<4>,time<1.000342>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:10]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:11]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:12]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:13]thread<4>,time<1.000344>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:14]thread<4>,time<1.000340>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:15]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:16]thread<4>,time<1.000346>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:17]thread<4>,time<1.000341>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:18]thread<4>,time<1.000345>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-5-29 16:16:19]thread<4>,time<1.000343>,socket<184>,clients<0>,recv<0>,msg<0>
