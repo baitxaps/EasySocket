@@ -22,9 +22,10 @@
 
 // Customer Class
 #include"MessageHeader.hpp"
-#include"CellObjectPool.hpp"
+//#include"CellObjectPool.hpp"
 #include"CellTimestamp.hpp"
 #include"CellTask.hpp"
+#include"CELLLog.hpp"
 //
 #include<stdio.h>
 

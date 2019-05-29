@@ -2,6 +2,7 @@
 #define _CELL_STREAM_HPP_
 
 #include<cstdint>
+//#include"CELLLog.hpp"
 
 //字节流BYTE
 class CellStream
@@ -117,6 +118,7 @@ public:
 				return len1;
 			}
 		}
+		CellLog::Info("error, CellStream::ReadArray failed.\n");
 		return 0;
 	}
 
@@ -146,10 +148,10 @@ public:
 	}
 
 	//uint
-	uint8_t ReadUInt8(uint8_t def = 0)
+	uint8_t ReadUInt8(uint8_t n = 0)
 	{
-		Read(def);
-		return def;
+		Read(n);
+		return n;
 	}
 	
 	uint16_t ReadUInt16(uint16_t n = 0)
@@ -182,6 +184,27 @@ public:
 		return n;
 	}
 
+	bool ReadString(std::string& str)
+	{
+		uint32_t nLen = 0;
+		Read(nLen, false);
+		if (nLen > 0)
+		{
+			//判断能不能读出
+			if (canRead(nLen + sizeof(uint32_t)))
+			{
+				//计算已读位置+数组长度所占有空间
+				pop(sizeof(uint32_t));
+				//将要读取的数据 拷贝出来
+				str.insert(0, _pBuff + _nReadPos, nLen);
+				//计算已读数据位置
+				pop(nLen);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	//Write
 	template<typename T>
 	bool Write(T n)
@@ -197,6 +220,7 @@ public:
 			push(nLen);
 			return true;
 		}
+		CellLog::Info("error, CellStream::Write failed.\n");
 		return false;
 	}
 	template<typename T>
@@ -215,6 +239,7 @@ public:
 			push(nLen);
 			return true;
 		}
+		CellLog::Info("error, CellStream::WriteArray failed.\n");
 		return false;
 	}
 	//char
@@ -238,6 +263,27 @@ public:
 		return Write(n);
 	}
 
+	// uint 
+	bool WriteUInt8(uint8_t n)
+	{
+		return Write(n);
+	}
+	
+	bool WriteUInt16(uint16_t n)
+	{
+		return Write(n);
+	}
+	
+	bool WriteUInt32(uint32_t n)
+	{
+		return Write(n);
+	}
+
+	bool WriteUInt64(uint64_t n)
+	{
+		return Write(n);
+	}
+
 	bool WriteFloat(float n)
 	{
 		return Write(n);
@@ -247,6 +293,7 @@ public:
 	{
 		return Write(n);
 	}
+
 private:
 	//数据缓冲区
 	char* _pBuff = nullptr;

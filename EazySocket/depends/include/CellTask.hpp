@@ -51,14 +51,6 @@ private:
 	//
 	CellThread _thread;
 public:
-	CellTaskServer()
-	{
-	}
-
-	virtual ~CellTaskServer()
-	{
-	}
-
 	// to push  list table
 	void addTask(CellTask task)
 	//void addTask(CellTaskPtr& task)
@@ -81,6 +73,7 @@ public:
 		//CellLog::Info("CellTaskServer-%d.close end\n", serverId);
 	}
 
+protected:
 	// on doing function
 	void OnRun(CellThread* pThread)
 	{

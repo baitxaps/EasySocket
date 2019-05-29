@@ -169,31 +169,6 @@ void sendThread(int id)
 
 int main()
 {
-	/*
-	CellWriteStream s(128);
-	s.setNetCmd(CMD_LOGOUT);
-	s.WriteInt8(1);
-	s.WriteInt16(2);
-	s.WriteInt32(3);
-	s.WriteFloat(4.5f);
-	s.WriteDouble(6.7);
-	s.WriteString("client...");
-	char a[] = "socket 引擎...";
-	s.WriteArray(a, strlen(a));
-	int b[] = { 1,2,3,4,5 };
-	s.WriteArray(b, 5);
-	s.finsh();
-	MyClient client;
-	client.Connect("192.168.0.107", 4567);
-	
-
-	while (client.OnRun())
-	{
-		client.SendData(s.data(), s.length());
-		CellThread::Sleep(5);
-	}
-	*/
-
 	CellLog::Instance().setLogPath("clientLog.txt", "w");
 	//启动UI线程
 	std::thread t1(cmdThread);

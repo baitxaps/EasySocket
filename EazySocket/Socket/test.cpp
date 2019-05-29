@@ -1,13 +1,102 @@
 #ifdef _WIN32
 	#define WIN32_LEAN_AND_MEAN
+	#define _WINSOCK_DEPRECATED_NO_WARNINGS
+	#include<windows.h>
+	#include<WinSock2.h>
 #endif
 #include<iostream>
-#include<windows.h>
-#include<WinSock2.h>
 #include<functional>
 
-//#pragma comment(lib,"ws2_32.lib")
+#include"EasyTcpClient.hpp"
+#include"CELLMsgStream.hpp"
+
 using namespace std;
+/*
+错误	C4996：
+To disable deprecation, use _CRT_SECURE_NO_WARNINGS.See online help for details.Socket	
+'gmtime': This function or variable may be unsafe.Consider using gmtime_s instead.
+
+'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS
+to disable deprecated API warnings	Socket	
+*/
+
+class MyClient : public EasyTcpClient
+{
+public:
+	//响应网络消息
+	virtual void OnNetMsg(netmsg_DataHeader* header)
+	{
+		switch (header->cmd)
+		{
+		case CMD_LOGOUT_RESULT:
+		{
+			CellReadStream r(header);
+			//读取消息长度
+			r.ReadInt16();
+			//读取消息命令
+			r.getNetCmd();
+			auto n1 = r.ReadInt8();
+			auto n2 = r.ReadInt16();
+			auto n3 = r.ReadInt32();
+			auto n4 = r.ReadFloat();
+			auto n5 = r.ReadDouble();
+			uint32_t n = 0;
+			r.onlyRead(n);
+			char name[32] = {};
+			auto n6 = r.ReadArray(name, 32);
+			char pw[32] = {};
+			auto n7 = r.ReadArray(pw, 32);
+			int ata[10] = {};
+			auto n8 = r.ReadArray(ata, 10);
+			CellLog::Info("<socket=%d> recv msgType：CMD_LOGOUT_RESULT\n", (int)_pClient->sockfd());
+		}
+		break;
+		case CMD_ERROR:
+		{
+			CellLog::Info("<socket=%d> recv msgType：CMD_ERROR\n", (int)_pClient->sockfd());
+		}
+		break;
+		default:
+		{
+			CellLog::Info("error, <socket=%d> recv undefine msgType\n", (int)_pClient->sockfd());
+		}
+		}
+	}
+private:
+
+};
+
+
+int main()
+{
+	CellWriteStream s(128);
+	s.setNetCmd(CMD_LOGOUT);
+	s.WriteInt8(1);
+	s.WriteInt16(2);
+	s.WriteInt32(3);
+	s.WriteFloat(4.5f);
+	s.WriteDouble(6.7);
+	s.WriteString("client");
+	
+	char a[] = "ahah";
+	s.WriteArray(a, strlen(a));
+	int b[] = { 1,2,3,4,5 };
+	s.WriteArray(b, 5);
+	s.finsh();
+	MyClient client;
+	client.Connect("192.168.0.107", 4567);
+
+	while (client.OnRun())
+	{
+		client.SendData(s.data(), s.length());
+		CellThread::Sleep(10);
+	}
+
+	system("pause");
+	return 0;
+}
+
+//-------------------------------------------------------
 void funT()
 {
 	printf("funT\n");
@@ -19,7 +108,7 @@ int funp(int t)
 	return t;
 }
 
-int funm(int t,int m)
+int funm(int t, int m)
 {
 	printf("funP\n");
 	return m;
@@ -30,13 +119,12 @@ void lambda()
 	printf("funP\n");
 }
 
-int main()
-{
+void lambdaTest() {
 	WORD ver = MAKEWORD(2, 2);
 	WSAData dat;
 	WSAStartup(ver, &dat);
 
-	/* 
+	/*
 	lambda sentance express:拉曼达表达式 匿名函数
 	[caputure](parmas) opt-> ret｛body;｝
 	[外部变量捕获列表](参数表) 特殊操作符->返回值类型{ 函数体; };
@@ -60,10 +148,10 @@ int main()
 	4).ret是返回值类型。(选填)
 	5).body是函数体。
 	*/
-	int n=10;
+	int n = 10;
 	std::function<int()>call;
 	call = [n]() -> int {
-		printf("lambda= %d\n",n);
+		printf("lambda= %d\n", n);
 		return 2;
 	};
 	int p = call();
@@ -79,5 +167,6 @@ int main()
 
 	WSACleanup();
 	system("pause");
-	return 0;
 }
+
+//-------------------------------------------------------

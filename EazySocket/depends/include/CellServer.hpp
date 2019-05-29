@@ -9,6 +9,7 @@
 #include<map>
 
 // network message task class  to send 
+
 class CellSToCTask :public CellTask
 {
 private:
@@ -47,7 +48,7 @@ private:
 	fd_set _fdRead_bak;
 	SOCKET _maxSock;
 	// old  timestamp
-	time_t _old_time = CellTime::getNowInMilliSec();
+	time_t _oldTime = CellTime::getNowInMilliSec();
 	//
 	CellThread _thread;
 	//
@@ -117,7 +118,7 @@ public:
 				std::chrono::milliseconds t(1);
 				std::this_thread::sleep_for(t);
 			//  timestamp
-			   _old_time = CellTime::getNowInMilliSec();
+			   _oldTime = CellTime::getNowInMilliSec();
 				continue;
 			}
 
@@ -176,8 +177,8 @@ public:
 	{
 		// current  timestamp
 		auto nowTime = CellTime::getNowInMilliSec();
-		auto dt = nowTime - _old_time;
-		_old_time = nowTime;
+		auto dt = nowTime - _oldTime;
+		_oldTime = nowTime;
 
 		for (auto iter = _clients.begin();iter!=_clients.end();)
 		{
@@ -186,7 +187,7 @@ public:
 			{
 				if (_pNetEvent) _pNetEvent->OnNetLeave(iter->second);
 				_clients_change = true;
-			  // delete iter->second;
+			    delete iter->second;
 				auto iterOld = iter++;
 				_clients.erase(iterOld);
 				continue;
@@ -207,9 +208,8 @@ public:
 			{
 				if (-1 == iter->second->SendDataReal())
 				{
-					_pNetEvent->OnNetLeave(iter->second);
-					//	closesocket(iter->first);
-					//	delete iter->second;
+					OnClientLeave(iter->second);
+
 					_clients.erase(iter);
 				}
 			}

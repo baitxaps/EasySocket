@@ -3,7 +3,6 @@
 
 #include"Cell.hpp"
 #include"CellBuffer.hpp"
-
 #include"CellLog.hpp"
 
 // 60 seconds client heart dead time 
@@ -11,12 +10,12 @@
 // 200ms send cache data to client
 #define CLIENT_SEND_BUFF_TIME 200
 
-typedef std::shared_ptr<netmsg_DataHeader> DataHeaderPtr;
-typedef std::shared_ptr<netmsg_LoginResult> LoginResultPtr;
+//typedef std::shared_ptr<netmsg_DataHeader> DataHeaderPtr;
+//typedef std::shared_ptr<netmsg_LoginResult> LoginResultPtr;
 
 //客户端数据类型
-class CellClient :public ObjectPoolBase<CellClient, 10000>
-//class CellClient 
+//class CellClient :public ObjectPoolBase<CellClient, 10000>
+class CellClient 
 {
 	// for test
 public:
@@ -72,7 +71,7 @@ public:
 	void pop_front_msg()
 	{
 		if(hasMsg())
-		 _recvBuf.pop(front_msg()->dataLength);
+			 _recvBuf.pop(front_msg()->dataLength);
 	}
 
 	// 是否有数据需要写
@@ -135,6 +134,7 @@ public:
 			CellLog::Info("checkSend:s=%d,time = %d", _sockfd, (int)_dtSend);
 			SendDataReal();
 			resetDTSend();
+			return true;
 		}
 		return false;
 	}
