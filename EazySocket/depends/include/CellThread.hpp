@@ -1,4 +1,4 @@
-#ifndef _CELL_THREAD_HPP_
+﻿#ifndef _CELL_THREAD_HPP_
 #define _CELL_THREAD_HPP_
 
 #include"CellSemaphore.hpp"

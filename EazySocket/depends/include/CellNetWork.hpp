@@ -1,4 +1,4 @@
-#ifndef _CELL_NETWORK_HPP_
+ï»¿#ifndef _CELL_NETWORK_HPP_
 #define _CELL_NETWORK_HPP_
 
 #include"Cell.hpp"
@@ -9,14 +9,14 @@ private:
 	CellNetWork()
 	{
 #ifdef _WIN32
-		//Æô¶¯Windows socket 2.x»·¾³
+		//å¯åŠ¨Windows socket 2.xç¯å¢ƒ
 		WORD ver = MAKEWORD(2, 2);
 		WSADATA dat;
 		WSAStartup(ver, &dat);
 #endif
 
 #ifndef _WIN32
-		// ºöÂÔÒì³£ĞÅºÅ£¬Ä¬ÈÏÇé¿ö»áµ¼ÖÂ½ø³ÌÖÕÖ¹
+		// å¿½ç•¥å¼‚å¸¸ä¿¡å·ï¼Œé»˜è®¤æƒ…å†µä¼šå¯¼è‡´è¿›ç¨‹ç»ˆæ­¢
 		//if (signal(SIGPIPE,SIG_IGN)== SIG_ERR)
 		//{
 		//	return (1);
@@ -28,7 +28,7 @@ private:
 	~CellNetWork()
 	{
 #ifdef _WIN32
-		//Çå³ıWindows socket»·¾³
+		//æ¸…é™¤Windows socketç¯å¢ƒ
 		WSACleanup();
 #endif
 	}

@@ -1,4 +1,4 @@
-#ifndef _CELL_TIMESTAMP_HPP_
+Ôªø#ifndef _CELL_TIMESTAMP_HPP_
 #define _CELL_TIMESTAMP_HPP_
 //#include <windows.h>
 #include<chrono>
@@ -32,21 +32,21 @@ public:
 		_begin = high_resolution_clock::now();
     }
     /**
-    *   ªÒ»°µ±«∞√Î
+    *   Ëé∑ÂèñÂΩìÂâçÁßí
     */
     double getElapsedSecond()
     {
         return  getElapsedTimeInMicroSec() * 0.000001;
     }
     /**
-    *   ªÒ»°∫¡√Î
+    *   Ëé∑ÂèñÊØ´Áßí
     */
     double getElapsedTimeInMilliSec()
     {
         return this->getElapsedTimeInMicroSec() * 0.001;
     }
     /**
-    *   ªÒ»°Œ¢√Ó
+    *   Ëé∑ÂèñÂæÆÂ¶ô
     */
     long long getElapsedTimeInMicroSec()
     {

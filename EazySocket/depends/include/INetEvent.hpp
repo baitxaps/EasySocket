@@ -1,4 +1,4 @@
-#ifndef _I_NET_EVENT_HPP_
+ï»¿#ifndef _I_NET_EVENT_HPP_
 #define _I_NET_EVENT_HPP_
 
 #include"Cell.hpp"
@@ -8,18 +8,18 @@ class CellServer;
 
 typedef std::shared_ptr<CellClient> CellClientPtr;
 
-//ÍøÂçÊÂ¼ş½Ó¿Ú
+//ç½‘ç»œäº‹ä»¶æ¥å£
 class INetEvent
 {
 public:
-	//¿Í»§¶Ë¼ÓÈëÊÂ¼ş
+	//å®¢æˆ·ç«¯åŠ å…¥äº‹ä»¶
 	//virtual void OnNetJoin(CellClientPtr& pClient) = 0;
 	virtual void OnNetJoin(CellClient* pClient) = 0;
-	//¿Í»§¶ËÀë¿ªÊÂ¼ş
+	//å®¢æˆ·ç«¯ç¦»å¼€äº‹ä»¶
 	virtual void OnNetLeave(CellClient* pClient) = 0;
-	//¿Í»§¶ËÏûÏ¢ÊÂ¼ş
+	//å®¢æˆ·ç«¯æ¶ˆæ¯äº‹ä»¶
 	virtual void OnNetMsg(CellServer* pCellServer, CellClient* pClient, netmsg_DataHeader* header) = 0;
-	//recv ÊÂ¼ş
+	//recv äº‹ä»¶
 	virtual void OnNetRecv(CellClient* pClient) = 0;
 private:
 

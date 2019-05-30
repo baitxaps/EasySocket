@@ -1,4 +1,4 @@
-#ifndef _CELL_HPP_
+ï»¿#ifndef _CELL_HPP_
 #define _CELL_HPP_
 
 // SOCKET
@@ -29,7 +29,7 @@
 //
 #include<stdio.h>
 
-//»º³åÇø×îĞ¡µ¥Ôª´óĞ¡
+//ç¼“å†²åŒºæœ€å°å•å…ƒå¤§å°
 #ifndef RECV_BUFF_SZIE
 #define RECV_BUFF_SZIE 8192		//10240 * 5
 #define SEND_BUFF_SIZE 10240	//RECV_BUFF_SZIE

@@ -1,4 +1,4 @@
-#ifndef _CellObjectPOOL_HPP_
+ï»¿#ifndef _CellObjectPOOL_HPP_
 #define _CellObjectPOOL_HPP_
 
 #include<assert.h>
@@ -85,7 +85,7 @@ public:
 		NodeHeader *pBlock = (NodeHeader*)((char*)ptr - sizeof(NodeHeader));
 		assert(1 == pBlock->nRef);
 
-		// ÔÚ³ØÖÐÖ¸µ½Í·²¿£¬ÔÚ³ØÍâÖ±½ÓÊÍ·Å
+		// åœ¨æ± ä¸­æŒ‡åˆ°å¤´éƒ¨ï¼Œåœ¨æ± å¤–ç›´æŽ¥é‡Šæ”¾
 		if (pBlock->bPool)
 		{
 			std::lock_guard<std::mutex> lg(_mutex);

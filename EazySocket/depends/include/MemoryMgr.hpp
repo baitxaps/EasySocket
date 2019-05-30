@@ -1,4 +1,4 @@
-#ifndef _MemoryMgr_HPP_
+Ôªø#ifndef _MemoryMgr_HPP_
 #define _MemoryMgr_HPP_
 
 #include<stdlib.h>
@@ -94,7 +94,7 @@ public:
 		MemoryBlock *pBlock = (MemoryBlock*)((char*)ptr - sizeof(MemoryBlock));
 		assert(1 == pBlock->nRef);
 
-		// ‘⁄≥ÿ÷–÷∏µΩÕ∑≤ø£¨‘⁄≥ÿÕ‚÷±Ω” Õ∑≈
+		// Âú®Ê±†‰∏≠ÊåáÂà∞Â§¥ÈÉ®ÔºåÂú®Ê±†Â§ñÁõ¥Êé•ÈáäÊîæ
 		if (pBlock->bPool)
 		{
 			std::lock_guard<std::mutex> lg(_mutex);
@@ -164,7 +164,7 @@ class MemoryAlloctor :public MemoryAlloc
 public:
 	MemoryAlloctor()
 	{
-		// ƒ⁄¥Ê∂‘∆Î
+		// ÂÜÖÂ≠òÂØπÈΩê
 		const size_t n = sizeof(void *);
 		_nSize = nSize/n *n + (nSize%n ? n:0);
 

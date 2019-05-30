@@ -1,10 +1,10 @@
-#ifndef _CELL_STREAM_HPP_
+﻿#ifndef _CELL_STREAM_HPP_
 #define _CELL_STREAM_HPP_
 
 #include<cstdint>
 //#include"CELLLog.hpp"
 
-//�ֽ���BYTE
+//字节流BYTE
 class CellStream
 {
 public:
@@ -42,23 +42,23 @@ public:
 		return _nWritePos;
 	}
 
-	//��������
-	//���ܶ���n�ֽڵ�������?
+	//内联函数
+	//还能读出n字节的数据吗?
 	inline bool canRead(int n)
 	{
 		return _nSize - _nReadPos >= n;
 	}
-	//����д��n�ֽڵ�������?
+	//还能写入n字节的数据吗?
 	inline bool canWrite(int n)
 	{
 		return _nSize - _nWritePos >= n;
 	}
-	//��д��λ�ã�����n�ֽڳ���
+	//已写入位置，添加n字节长度
 	inline void push(int n)
 	{
 		_nWritePos += n;
 	} 
-	//�Ѷ�ȡλ�ã�����n�ֽڳ���
+	//已读取位置，添加n字节长度
 	inline void pop(int n)
 	{
 		_nReadPos += n;
@@ -74,14 +74,14 @@ public:
 	bool Read(T& n, bool bOffset = true)
 	{
 		//
-		//����Ҫ��ȡ���ݵ��ֽڳ���
+		//计算要读取数据的字节长度
 		auto nLen = sizeof(T);
-		//�ж��ܲ��ܶ�
+		//判断能不能读
 		if (canRead(nLen))
 		{
-			//��Ҫ��ȡ������ ��������
+			//将要读取的数据 拷贝出来
 			memcpy(&n, _pBuff + _nReadPos, nLen);
-			//�����Ѷ�����λ��
+			//计算已读数据位置
 			if (bOffset)
 				pop(nLen);
 			return true;
@@ -99,21 +99,21 @@ public:
 	uint32_t ReadArray(T* pArr, uint32_t len)
 	{
 		uint32_t len1 = 0;
-		//��ȡ����Ԫ�ظ���,����ƫ�ƶ�ȡλ��
+		//读取数组元素个数,但不偏移读取位置
 		Read(len1, false);
-		//�жϻ��������ܷ�ŵ���
+		//判断缓存数组能否放得下
 		if (len1 < len)
 		{
-			//����������ֽڳ���
+			//计算数组的字节长度
 			auto nLen = len1 * sizeof(T);
-			//�ж��ܲ��ܶ���
+			//判断能不能读出
 			if (canRead(nLen + sizeof(uint32_t)))
 			{
-				//�����Ѷ�λ��+���鳤����ռ�пռ�
+				//计算已读位置+数组长度所占有空间
 				pop(sizeof(uint32_t));
-				//��Ҫ��ȡ������ ��������
+				//将要读取的数据 拷贝出来
 				memcpy(pArr, _pBuff + _nReadPos, nLen);
-				//�����Ѷ�����λ��
+				//计算已读数据位置
 				pop(nLen);
 				return len1;
 			}
@@ -190,14 +190,14 @@ public:
 		Read(nLen, false);
 		if (nLen > 0)
 		{
-			//�ж��ܲ��ܶ���
+			//判断能不能读出
 			if (canRead(nLen + sizeof(uint32_t)))
 			{
-				//�����Ѷ�λ��+���鳤����ռ�пռ�
+				//计算已读位置+数组长度所占有空间
 				pop(sizeof(uint32_t));
-				//��Ҫ��ȡ������ ��������
+				//将要读取的数据 拷贝出来
 				str.insert(0, _pBuff + _nReadPos, nLen);
-				//�����Ѷ�����λ��
+				//计算已读数据位置
 				pop(nLen);
 				return true;
 			}
@@ -209,14 +209,14 @@ public:
 	template<typename T>
 	bool Write(T n)
 	{
-		//����Ҫд�����ݵ��ֽڳ���
+		//计算要写入数据的字节长度
 		auto nLen = sizeof(T);
-		//�ж��ܲ���д��
+		//判断能不能写入
 		if (canWrite(nLen))
 		{
-			//��Ҫд������� ������������β��
+			//将要写入的数据 拷贝到缓冲区尾部
 			memcpy(_pBuff + _nWritePos, &n, nLen);
-			//������д������β��λ��
+			//计算已写入数据尾部位置
 			push(nLen);
 			return true;
 		}
@@ -226,16 +226,16 @@ public:
 	template<typename T>
 	bool WriteArray(T* pData, uint32_t len)
 	{
-		//����Ҫд��������ֽڳ���
+		//计算要写入数组的字节长度
 		auto nLen = sizeof(T)*len;
-		//�ж��ܲ���д��
+		//判断能不能写入
 		if (canWrite(nLen + sizeof(uint32_t)))
 		{
-			//��д�������Ԫ������
+			//先写入数组的元素数量
 			Write(len);
-			//��Ҫд������� ������������β��
+			//将要写入的数据 拷贝到缓冲区尾部
 			memcpy(_pBuff + _nWritePos, pData, nLen);
-			//��������β��λ��
+			//计算数据尾部位置
 			push(nLen);
 			return true;
 		}
@@ -295,15 +295,15 @@ public:
 	}
 
 private:
-	//���ݻ�����
+	//数据缓冲区
 	char* _pBuff = nullptr;
-	//�������ܵĿռ��С���ֽڳ���
+	//缓冲区总的空间大小，字节长度
 	int _nSize = 0;
-	//��д�����ݵ�β��λ�ã���д�����ݳ���
+	//已写入数据的尾部位置，已写入数据长度
 	int _nWritePos = 0;
-	//�Ѷ�ȡ���ݵ�β��λ��
+	//已读取数据的尾部位置
 	int _nReadPos = 0;
-	//_pBuff���ⲿ��������ݿ�ʱ�Ƿ�Ӧ�ñ��ͷ�
+	//_pBuff是外部传入的数据块时是否应该被释放
 	bool _bDelete = true;
 };
 
