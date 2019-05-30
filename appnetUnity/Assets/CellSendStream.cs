@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using System.Text;
 
 public class CellSendStream {
-
     private List<byte> _byteList = null;
     public CellSendStream(int nSize = 128)
     {

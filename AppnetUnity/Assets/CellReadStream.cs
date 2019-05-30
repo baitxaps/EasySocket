@@ -59,11 +59,6 @@ public class CellReadStream {
         cppStreamObj = CellReadStream_Create(data, len);
     }
 
-    public NetCMD setNetCmd(NetCMD cmd)
-    {
-        return (NetCMD)ReadUInt16();
-    }
-
     public NetCMD ReadNetCmd()
     {
        return (NetCMD)ReadUInt16();
@@ -133,9 +128,9 @@ public class CellReadStream {
     // string
     public string ReadString()
     {
-        Int32 len = (Int32)OnlyReadUInt32();
+        Int32 len = (Int32)ReadUInt32();
         byte[] buffer = new byte[len];
-        for(int n = 0;n < buffer.Length; n++)
+        for (int n = 0; n < buffer.Length; n++)
         {
             buffer[n] = ReadUInt8();
         }
@@ -155,11 +150,11 @@ public class CellReadStream {
             // Error 处理  (try catch)
             return null;
         }
-           
+
         Int32[] data = new Int32[len];
         for (int n = 0; n < len; n++)
         {
-           data[n] = ReadInt32();
+            data[n] = ReadInt32();
         }
         return data;
     }
