@@ -6,10 +6,6 @@
 #include"MessageHeader.hpp"
 #include"CellClient.hpp"
 
-//缓冲区最小单元大小
-#ifndef RECV_BUFF_SZIE
-#define RECV_BUFF_SZIE 1024 
-#endif 
 
 class EasyTcpClient
 {
@@ -101,7 +97,7 @@ public:
 			FD_SET(_sock, &fdRead);
 		
 			int ret = 0;
-			timeval t = { 0,0 };
+			timeval t = { 0,1 };
 			if (_pClient->needWrite())
 			{
 				FD_SET(_sock, &fdWrite);

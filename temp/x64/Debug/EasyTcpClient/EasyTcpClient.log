@@ -1,8 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Intermediate 目录。
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
   client.cpp
-c:\users\chenhairong\documents\git\eazysocket\depends\include\easytcpclient.hpp(108): warning C4244: “参数”: 从“SOCKET”转换到“int”，可能丢失数据
-c:\users\chenhairong\documents\git\eazysocket\depends\include\easytcpclient.hpp(111): warning C4244: “参数”: 从“SOCKET”转换到“int”，可能丢失数据
+c:\users\chenhairong\documents\git\eazysocket\depends\include\easytcpclient.hpp(104): warning C4244: “参数”: 从“SOCKET”转换到“int”，可能丢失数据
+c:\users\chenhairong\documents\git\eazysocket\depends\include\easytcpclient.hpp(107): warning C4244: “参数”: 从“SOCKET”转换到“int”，可能丢失数据
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(65): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellmsgstream.hpp(70): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(80): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
