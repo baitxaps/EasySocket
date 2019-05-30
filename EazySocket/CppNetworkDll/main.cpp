@@ -266,14 +266,14 @@ extern "C"
 		return 0.0;
 	}
 
-	//EXPORT_DLL bool CellReadStream_ReadString(CellReadStream* rStream, char* buffer, int len)
-	//{
-	//	if (rStream && buffer)
-	//	{
-	//		return rStream->ReadArray(buffer, len);
-	//	}
-	//	return false;
-	//}
+	EXPORT_DLL bool CellReadStream_ReadString(CellReadStream* rStream, char* buffer, int len)
+	{
+		if (rStream && buffer)
+		{
+			return rStream->ReadArray(buffer, len);
+		}
+		return false;
+	}
 
 	EXPORT_DLL uint32_t CellReadStream_OnlyReadUInt32(CellReadStream* rStream)
 	{

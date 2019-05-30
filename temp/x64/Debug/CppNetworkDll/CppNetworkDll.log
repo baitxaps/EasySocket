@@ -33,5 +33,12 @@ c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(232
               T=const char
           ]
 c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(239): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(110): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  c:\users\chenhairong\documents\git\eazysocket\cppnetworkdll\main.cpp(273): note: 参见对正在编译的函数 模板 实例化“uint32_t CellStream::ReadArray<char>(T *,uint32_t)”的引用
+          with
+          [
+              T=char
+          ]
+c:\users\chenhairong\documents\git\eazysocket\depends\include\cellstream.hpp(117): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
     正在创建库 C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Debug\CppNetworkDll.lib 和对象 C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Debug\CppNetworkDll.exp
   CppNetworkDll.vcxproj -> C:\Users\chenhairong\Documents\git\EazySocket\../bin/x64/Debug\CppNetworkDll.dll

@@ -41,7 +41,7 @@ public class CellReadStream {
     private static extern double CellReadStream_ReadDouble(IntPtr cppStreamObj);
 
     [DllImport("CppNetworkDll")]
-    private static extern UInt32 CellReadStream_OnlyReadUint32(IntPtr cppStreamObj);
+    private static extern UInt32 CellReadStream_OnlyReadUInt32(IntPtr cppStreamObj);
 
     // string
     [DllImport("CppNetworkDll")]
@@ -126,7 +126,7 @@ public class CellReadStream {
 
     public UInt32 OnlyReadUInt32(UInt32 n = 0)
     {
-        return CellReadStream_OnlyReadUint32(cppStreamObj);
+        return CellReadStream_OnlyReadUInt32(cppStreamObj);
     }
 
 
