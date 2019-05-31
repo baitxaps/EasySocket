@@ -1,4 +1,4 @@
-﻿#ifndef _EasyTcpClient_hpp_
+#ifndef _EasyTcpClient_hpp_
 #define _EasyTcpClient_hpp_
 
 #include"Cell.hpp"
@@ -23,9 +23,11 @@ public:
 	{
 		Close();
 	}
+    
+    
 
 	//初始化socket
-	void InitSocket(int sendSize = SEND_BUFF_SIZE, int recvSize = RECV_BUFF_SZIE)
+	void InitSocket(int sendSize = SEND_BUFF_SIZE, int recvSize = RECV_BUFF_SIZE)
 	{
 		CellNetWork::Init();
 		if (_pClient)
@@ -145,7 +147,7 @@ public:
 	}
 
 	//第二缓冲区 消息缓冲区
-	char _szMsgBuf[RECV_BUFF_SZIE] = {};
+	char _szMsgBuf[RECV_BUFF_SIZE] = {};
 	//消息缓冲区的数据尾部位置
 	int _lastPos = 0;
 

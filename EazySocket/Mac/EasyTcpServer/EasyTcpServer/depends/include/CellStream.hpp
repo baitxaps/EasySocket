@@ -88,7 +88,7 @@ public:
         }
         //断言assert
         //错误日志
-        CellLog::Info("error, CellStream::Read failed.");
+        CellLog::Info("error, CellStream::Read failed.\n");
         return false;
     }
 
@@ -121,7 +121,7 @@ public:
                 return len1;
             }
         }
-        CellLog::Info("error, CELLStream::ReadArray failed.");
+        CellLog::Info("error, CellStream::ReadArray failed.\n");
         return 0;
     }
 
@@ -200,7 +200,7 @@ public:
             push(nLen);
             return true;
         }
-        CellLog::Info("error, CELLStream::Write failed.");
+        CellLog::Info("error, CellStream::Write failed.\n");
         return false;
     }
     template<typename T>
@@ -219,7 +219,7 @@ public:
             push(nLen);
             return true;
         }
-        CellLog::Info("error, CELLStream::WriteArray failed.");
+        CellLog::Info("error, CellStream::WriteArray failed.\n");
         return false;
     }
     

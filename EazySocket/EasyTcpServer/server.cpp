@@ -58,7 +58,7 @@ public:
 		{
 		case CMD_LOGIN:
 		{
-			pClient->resetDTheart();
+			pClient->resetDTHeart();
 			netmsg_Login* login = (netmsg_Login*)header;
 		   //CellLog::Info("收到客户端<Socket=%d>请求：CMD_LOGIN,数据长度：%d,userName=%s PassWord=%s\n",pClient->sockfd(), login->dataLength, login->userName, login->PassWord);
 			//忽略判断用户密码是否正确的过程
@@ -76,7 +76,7 @@ public:
 		break;
 		case CMD_LOGOUT:
 		{
-			pClient->resetDTheart();
+			pClient->resetDTHeart();
 			CellReadStream r(header);
 			//读取消息长度
 			r.ReadInt16();
@@ -113,7 +113,7 @@ public:
 
 		case CMD_C2S_HEART:
 		{
-			pClient->resetDTheart();
+			pClient->resetDTHeart();
 		//	netmsg_c2s_Heart ret;
 		//	pClient->SendData(&ret);
 
