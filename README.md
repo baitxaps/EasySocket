@@ -1,4 +1,4 @@
-EasySocket
+﻿EasySocket
 ==============
 - Full stack, cross-platform
 Socket uses C++ and Socket API to build a network communication engine with millions of processing capabilities
