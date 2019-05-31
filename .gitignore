@@ -1,2 +1,10 @@
-
-EazySocket/.vs/Socket/v15/Browse.VC.opendb
+*.[oa]
+*.[bB]
+dbg
+bin
+temp
+.vs
+*.db
+EazySocket/.vs/* 
+EazySocket/.vs/Socket/v15/.suo
+EazySocket/.vs/Socket/v15/Browse.VC.db
