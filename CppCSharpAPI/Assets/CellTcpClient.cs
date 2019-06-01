@@ -33,23 +33,47 @@ public class CellTcpClient : MonoBehaviour
         }
     }
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern IntPtr CellClient_Create(IntPtr csObj, OnNetMsgCallBack cb,int sendSize,int recvSize);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern bool CellClient_Connect(IntPtr cppClientObj, string ip, short port);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern bool CellClient_OnRun(IntPtr cppClientObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern void CellClient_Close(IntPtr cppClientObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern int CellClient_SendData(IntPtr cppClientObj, byte[] data, int len);
 
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern int CellClient_SendWriteStream(IntPtr cppClientObj, IntPtr cppStreamObj);
 
     private GCHandle _handleThis;

@@ -4,47 +4,99 @@ using System.Runtime.InteropServices;
 
 public class CellReadStream {
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern IntPtr CellReadStream_Create(IntPtr data, int le);
 
     // int
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern sbyte CellReadStream_ReadInt8(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern Int16 CellReadStream_ReadInt16(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern Int32 CellReadStream_ReadInt32(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern Int64 CellReadStream_ReadInt64(IntPtr cppStreamObj);
 
     // uint
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern byte CellReadStream_ReadUInt8(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern UInt16 CellReadStream_ReadUInt16(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern UInt32 CellReadStream_ReadUInt32(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern UInt64 CellReadStream_ReadUInt64(IntPtr cppStreamObj);
 
     // float
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern float CellReadStream_ReadFloat(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern double CellReadStream_ReadDouble(IntPtr cppStreamObj);
 
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern UInt32 CellReadStream_OnlyReadUInt32(IntPtr cppStreamObj);
 
     // string
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
     [DllImport("CppNetworkDll")]
+#endif
     private static extern bool CellReadStream_ReadString(IntPtr cppStreamObj,StringBuilder buffer,int len);
 
     //------------------------------------------------------------------------------------------
