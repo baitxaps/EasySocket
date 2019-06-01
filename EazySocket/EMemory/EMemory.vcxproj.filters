@@ -26,13 +26,10 @@
     <ClInclude Include="Alloctor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryMgr.hpp">
+    <ClInclude Include="CellObjectPool.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CELLTimestamp.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CELLObjectPool.hpp">
+    <ClInclude Include="CellTimestamp.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

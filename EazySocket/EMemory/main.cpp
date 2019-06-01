@@ -63,7 +63,7 @@ int main()
 	{
 		t[n] = thread(workFun, n);
 	}
-	CELLTimestamp tTime;
+	CellTimestamp tTime;
 	for (int n = 0; n < tCount; n++)
 	{
 		t[n].join();
