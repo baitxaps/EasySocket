@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/chenhairong/Documents/git/CppCSharpAPI/cppnet_android.apk
+C:/Users/chenhairong/Documents/git/cppnet_android.apk
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
