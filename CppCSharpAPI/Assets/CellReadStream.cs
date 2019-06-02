@@ -100,6 +100,14 @@ public class CellReadStream
 #endif
     private static extern bool CellReadStream_ReadString(IntPtr cppStreamObj, StringBuilder buffer, int len);
 
+    // release
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
+    [DllImport("CppNetworkDll")]
+#endif
+    private static extern void CellReadStream_Release(IntPtr cppStreamObj);
+
     //------------------------------------------------------------------------------------------
     private IntPtr cppStreamObj = IntPtr.Zero;
     /// <summary>
@@ -212,4 +220,8 @@ public class CellReadStream
         return data;
     }
 
+    public  void Release()
+    {
+        CellReadStream_Release(cppStreamObj);
+    }
 }

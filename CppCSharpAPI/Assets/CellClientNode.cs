@@ -33,6 +33,7 @@ public class CellClientNode : CellTcpClient
         s.WriteInt32s(b);
         s.finsh();
         this.SendData(s);
+        s.Release();
     }
 
     void OnDestroy()
@@ -62,5 +63,7 @@ public class CellClientNode : CellTcpClient
         {
             Debug.Log(arr[n]);
         }
+
+        r.Release();
     }
 }

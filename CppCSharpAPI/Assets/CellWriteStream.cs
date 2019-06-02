@@ -94,6 +94,16 @@ public class CellWriteStream {
     [DllImport("CppNetworkDll")]
 #endif
     private static extern bool CellWriteStream_WriteString(IntPtr cppStreamObj, string s);
+
+
+    // release
+#if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
+	[DllImport("__Internal")]
+#else
+    [DllImport("CppNetworkDll")]
+#endif
+    private static extern void CellWriteStream_Release(IntPtr cppStreamObj);
+ 
     //------------------------------------------------------------------------------------------
 
     private IntPtr cppStreamObj = IntPtr.Zero;
@@ -202,5 +212,10 @@ public class CellWriteStream {
         {
             WriteInt32(data[n]);
         }
+    }
+
+    public void Release()
+    {
+        CellWriteStream_Release(cppStreamObj);
     }
 }
