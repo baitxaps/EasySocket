@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EMemory", "EMemory\EMemory.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppNetworkDll", "CppNetworkDll\CppNetworkDll.vcxproj", "{0C656F6E-8EE4-436B-8321-9F204D92D0FB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppNetForAndroid", "CppNetForAndroid\CppNetForAndroid.vcxproj", "{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -99,6 +101,22 @@ Global
 		{0C656F6E-8EE4-436B-8321-9F204D92D0FB}.Release|x64.Build.0 = Release|x64
 		{0C656F6E-8EE4-436B-8321-9F204D92D0FB}.Release|x86.ActiveCfg = Release|Win32
 		{0C656F6E-8EE4-436B-8321-9F204D92D0FB}.Release|x86.Build.0 = Release|Win32
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|ARM.ActiveCfg = Debug|ARM
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|ARM.Build.0 = Debug|ARM
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|ARM64.Build.0 = Debug|ARM64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|x64.ActiveCfg = Debug|x64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|x64.Build.0 = Debug|x64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|x86.ActiveCfg = Debug|x86
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Debug|x86.Build.0 = Debug|x86
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|ARM.ActiveCfg = Release|ARM
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|ARM.Build.0 = Release|ARM
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|ARM64.ActiveCfg = Release|ARM64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|ARM64.Build.0 = Release|ARM64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|x64.ActiveCfg = Release|x64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|x64.Build.0 = Release|x64
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|x86.ActiveCfg = Release|x86
+		{90A13AD1-3483-4623-A9EA-BAF60CFD53BD}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

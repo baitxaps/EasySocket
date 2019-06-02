@@ -2,7 +2,8 @@
 using System.Text;
 using System.Runtime.InteropServices;
 
-public class CellReadStream {
+public class CellReadStream
+{
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
 	[DllImport("__Internal")]
@@ -97,7 +98,7 @@ public class CellReadStream {
 #else
     [DllImport("CppNetworkDll")]
 #endif
-    private static extern bool CellReadStream_ReadString(IntPtr cppStreamObj,StringBuilder buffer,int len);
+    private static extern bool CellReadStream_ReadString(IntPtr cppStreamObj, StringBuilder buffer, int len);
 
     //------------------------------------------------------------------------------------------
     private IntPtr cppStreamObj = IntPtr.Zero;
@@ -106,14 +107,14 @@ public class CellReadStream {
     /// </summary>
     /// <param name="data">C++消息回调传入的消息数据 指针</param>
     /// <param name="len">数据字节长度</param>
-    public CellReadStream(IntPtr data,int len)
+    public CellReadStream(IntPtr data, int len)
     {
         cppStreamObj = CellReadStream_Create(data, len);
     }
 
     public NetCMD ReadNetCmd()
     {
-       return (NetCMD)ReadUInt16();
+        return (NetCMD)ReadUInt16();
     }
 
     // int
@@ -122,7 +123,7 @@ public class CellReadStream {
         return CellReadStream_ReadInt8(cppStreamObj);
     }
 
-    public Int16 ReadInt16 (Int16 n = 0)
+    public Int16 ReadInt16(Int16 n = 0)
     {
         return CellReadStream_ReadInt16(cppStreamObj);
     }

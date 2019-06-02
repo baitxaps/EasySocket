@@ -4,7 +4,7 @@ using System;
 public class CellClientNode : CellTcpClient
 {
 
-    public string IP = "192.168.0.107";
+    public string IP = "127.0.0.1";
     public short PORT = 4567;
     // Use this for initialization
     void Start()

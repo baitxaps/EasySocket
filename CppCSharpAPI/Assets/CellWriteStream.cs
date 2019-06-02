@@ -6,8 +6,9 @@ using System.Text;
 
 public class CellWriteStream {
 
+
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
@@ -15,28 +16,28 @@ public class CellWriteStream {
 
     // int
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
-    private static extern bool CellWriteStream_WriteInt8(IntPtr cppStreamObj,sbyte n);
+    private static extern bool CellWriteStream_WriteInt8(IntPtr cppStreamObj, sbyte n);
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
     private static extern bool CellWriteStream_WriteInt16(IntPtr cppStreamObj, Int16 n);
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
     private static extern bool CellWriteStream_WriteInt32(IntPtr cppStreamObj, Int32 n);
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
@@ -44,28 +45,28 @@ public class CellWriteStream {
 
     //uint
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
     private static extern bool CellWriteStream_WriteUInt8(IntPtr cppStreamObj, byte n);
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
     private static extern bool CellWriteStream_WriteUInt16(IntPtr cppStreamObj, UInt16 n);
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
     private static extern bool CellWriteStream_WriteUInt32(IntPtr cppStreamObj, UInt32 n);
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
@@ -73,14 +74,14 @@ public class CellWriteStream {
 
     // float
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
     private static extern bool CellWriteStream_WriteFloat(IntPtr cppStreamObj, float n);
 
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif
@@ -88,7 +89,7 @@ public class CellWriteStream {
 
     // string
 #if (UNITY_IPHONE || UNITY_WEBGL) && !UNITY_EDITOR
-	[DllImport("__Internal")]
+    	[DllImport("__Internal")]
 #else
     [DllImport("CppNetworkDll")]
 #endif

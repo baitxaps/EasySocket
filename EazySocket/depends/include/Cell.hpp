@@ -37,3 +37,8 @@
 
 
 #endif
+
+//错误	MSB3073	命令“"C:\\Microsoft\AndroidNDK64\android-ndk-r13b\ndk-build.cmd"”已退出
+//代码为 2。	CppNetForAndroid	
+//C : \Program Files(x86)\Microsoft Visual Studio\2017\
+//	Community\Common7\IDE\VC\VCTargets\Microsoft.MakeFile.Targets	44
