@@ -1,16 +1,17 @@
-#ifdef _WIN32
-#define WIN32_LEAN_AND_MEAN
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
-#include<windows.h>
-#include<WinSock2.h>
-#endif
+//
+//  ViewController.m
+//  EasyTcpDemo
+//
+//  Created by William on 2019/6/3.
+//  Copyright © 2019 技术研发-IOS. All rights reserved.
+//
+
+#import "ViewController.h"
+#include"EasyTcpClient.hpp"
+#include"CellMsgStream.hpp"
 #include<iostream>
 #include<functional>
 
-#include"EasyTcpClient.hpp"
-#include"CellMsgStream.hpp"
-
-using namespace std;
 
 class MyClient : public EasyTcpClient
 {
@@ -64,8 +65,7 @@ private:
     
 };
 
-
-int main()
+void SocketExec()
 {
     CellWriteStream s(256);
     s.setNetCmd(CMD_LOGOUT);
@@ -83,13 +83,21 @@ int main()
     MyClient client;
     client.Connect("192.168.96.159", 4567);
     
-    
     while (client.OnRun())
     {
         client.SendData(s.data(), s.length());
         CellThread::Sleep(10);
     }
-    return 0;
 }
 
 
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    SocketExec();
+}
+
+
+
+@end
