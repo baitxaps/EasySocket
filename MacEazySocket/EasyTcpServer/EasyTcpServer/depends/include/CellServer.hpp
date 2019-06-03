@@ -322,12 +322,12 @@ public:
 			nullptr,
 			// onRun
 			[this](CellThread* pThead) {
-			OnRun(pThead);
-		},
+			   OnRun(pThead);
+		     },
 			// onDestory
 			[this](CellThread* pThead) {
-			ClearClients();
-		}
+			  ClearClients();
+		    }
 		);
 	}
 

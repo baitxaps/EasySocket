@@ -1,7 +1,7 @@
-﻿#ifndef _EasyTcpServer_hpp_
+#ifndef _EasyTcpServer_hpp_
 #define _EasyTcpServer_hpp_
 
-#include"CELL.hpp"
+#include"Cell.hpp"
 #include"CellClient.hpp"
 #include"CellServer.hpp"
 #include"INetEvent.hpp"

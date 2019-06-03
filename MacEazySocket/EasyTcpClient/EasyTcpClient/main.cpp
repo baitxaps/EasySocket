@@ -11,14 +11,6 @@
 #include"CELLMsgStream.hpp"
 
 using namespace std;
-/*
- 错误    C4996：
- To disable deprecation, use _CRT_SECURE_NO_WARNINGS.See online help for details.Socket
- 'gmtime': This function or variable may be unsafe.Consider using gmtime_s instead.
- 
- 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS
- to disable deprecated API warnings    Socket
- */
 
 class MyClient : public EasyTcpClient
 {
@@ -44,15 +36,15 @@ public:
                 r.onlyRead(n);
                 char name[32] = {};
                 auto n6 = r.ReadArray(name, 32);
-                char pw[32] = {};
-                auto n7 = r.ReadArray(pw, 32);
-                int ata[10] = {};
-                auto n8 = r.ReadArray(ata, 10);
-                //                CellLog::Info("<socket=%d> recv msgType：CMD_LOGOUT_RESULT\n", (int)_pClient->sockfd());
-                printf("n1= %d,n2= %d,n3= %d,n4= %f,n5= %f, pw = %s ,name = %s ", n1,n2,n3,n4,n5,pw,name);
-                
+                char pwd[32] = {};
+                auto n7 = r.ReadArray(pwd, 32);
+                int arr[10] = {};
+                auto n8 = r.ReadArray(arr, 10);
+                //CellLog::Info("<socket=%d> recv msgType：CMD_LOGOUT_RESULT\n", (int)_pClient->sockfd());
+                printf("n1= %d,n2= %d,n3= %d,n4= %f,n5= %f, pwd = %s ,name = %s ", n1,n2,n3,n4,n5,pwd,name);
+                printf(",arr =");
                 for (int i = 0; i<5; i++) {
-                    printf("%d", *(ata+i));
+                    printf("%d ", *(arr+i));
                 }
                 printf("\n");
             }
@@ -82,11 +74,11 @@ int main()
     s.WriteInt32(3);
     s.WriteFloat(4.5f);
     s.WriteDouble(6.7);
-    s.WriteString("client");
-    char a[] = "ahah";
-    s.WriteArray(a, strlen(a));
-    int b[] = {1,2,3,4,5};
-    s.WriteArray(b, 5);
+    s.WriteString("socket engine...");
+    char str[] = "client.";
+    s.WriteArray(str, strlen(str));
+    int arr[] = {1,2,3,4,5};
+    s.WriteArray(arr, 5);
     s.finsh();
     MyClient client;
     client.Connect("127.0.0.1", 4567);
@@ -99,7 +91,5 @@ int main()
     }
     return 0;
 }
-
-//-------------------------------------------------------
 
 

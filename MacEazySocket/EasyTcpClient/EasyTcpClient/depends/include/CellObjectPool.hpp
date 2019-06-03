@@ -1,4 +1,4 @@
-﻿#ifndef _CellObjectPOOL_HPP_
+#ifndef _CellObjectPOOL_HPP_
 #define _CellObjectPOOL_HPP_
 
 #include<assert.h>
@@ -16,7 +16,7 @@
 #endif // _DEBUG
 
 template<class T, size_t nPoolSize> 
-class CELLObjectPool
+class CellObjectPool
 {
 private:
 	struct NodeHeader
@@ -68,12 +68,12 @@ private:
 	}
 
 public:
-	CELLObjectPool()
+	CellObjectPool()
 	{
 		initPool();
 	}
 
-	~CELLObjectPool()
+	~CellObjectPool()
 	{
 		if(_pBuf)
 		 delete[] _pBuf;
@@ -169,7 +169,7 @@ public:
 		delete obj;
 	}
 private:
-	typedef CELLObjectPool<T, nPoolSize> ClassTPool;
+	typedef CellObjectPool<T, nPoolSize> ClassTPool;
 	// single instance 
 	static ClassTPool& objectPool()
 	{

@@ -128,6 +128,7 @@ public:
     {
         return _nLast > 0;
     }
+    
 private:
     //第二缓冲区 发送缓冲区
     char* _pBuff = nullptr;
