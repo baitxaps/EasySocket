@@ -16,7 +16,7 @@
 #endif // _DEBUG
 
 template<class T, size_t nPoolSize> 
-class CELLObjectPool
+class CellObjectPool
 {
 private:
 	struct NodeHeader

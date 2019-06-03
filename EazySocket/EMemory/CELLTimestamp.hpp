@@ -5,7 +5,7 @@
 #include<chrono>
 using namespace std::chrono;
 
-class CELLTimestamp
+class CellTimestamp
 {
 public:
     CELLTimestamp()
