@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3D830B3C22A13426006E6919 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D830B3B22A13426006E6919 /* main.cpp */; };
-		3D830B5822A1343B006E6919 /* Alloctor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D830B5022A1343B006E6919 /* Alloctor.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,26 +25,6 @@
 /* Begin PBXFileReference section */
 		3D830B3822A13426006E6919 /* EasyTcpServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EasyTcpServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D830B3B22A13426006E6919 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		3D830B4422A1343B006E6919 /* CellStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellStream.hpp; sourceTree = "<group>"; };
-		3D830B4522A1343B006E6919 /* INetEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = INetEvent.hpp; sourceTree = "<group>"; };
-		3D830B4622A1343B006E6919 /* EasyTcpServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EasyTcpServer.hpp; sourceTree = "<group>"; };
-		3D830B4722A1343B006E6919 /* CellSemaphore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellSemaphore.hpp; sourceTree = "<group>"; };
-		3D830B4822A1343B006E6919 /* CellMsgStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellMsgStream.hpp; sourceTree = "<group>"; };
-		3D830B4922A1343B006E6919 /* CellTimestamp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellTimestamp.hpp; sourceTree = "<group>"; };
-		3D830B4A22A1343B006E6919 /* CellServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellServer.hpp; sourceTree = "<group>"; };
-		3D830B4B22A1343B006E6919 /* MessageHeader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MessageHeader.hpp; sourceTree = "<group>"; };
-		3D830B4C22A1343B006E6919 /* Alloctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alloctor.h; sourceTree = "<group>"; };
-		3D830B4D22A1343B006E6919 /* CellThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellThread.hpp; sourceTree = "<group>"; };
-		3D830B4E22A1343B006E6919 /* CellLog.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellLog.hpp; sourceTree = "<group>"; };
-		3D830B4F22A1343B006E6919 /* Cell.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Cell.hpp; sourceTree = "<group>"; };
-		3D830B5022A1343B006E6919 /* Alloctor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Alloctor.cpp; sourceTree = "<group>"; };
-		3D830B5122A1343B006E6919 /* CellClient.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellClient.hpp; sourceTree = "<group>"; };
-		3D830B5222A1343B006E6919 /* CellObjectPool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellObjectPool.hpp; sourceTree = "<group>"; };
-		3D830B5322A1343B006E6919 /* CellTask.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellTask.hpp; sourceTree = "<group>"; };
-		3D830B5422A1343B006E6919 /* EasyTcpClient.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EasyTcpClient.hpp; sourceTree = "<group>"; };
-		3D830B5522A1343B006E6919 /* CellNetWork.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellNetWork.hpp; sourceTree = "<group>"; };
-		3D830B5622A1343B006E6919 /* MemoryMgr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MemoryMgr.hpp; sourceTree = "<group>"; };
-		3D830B5722A1343B006E6919 /* CellBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CellBuffer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,45 +57,9 @@
 		3D830B3A22A13426006E6919 /* EasyTcpServer */ = {
 			isa = PBXGroup;
 			children = (
-				3D830B4222A1343B006E6919 /* depends */,
 				3D830B3B22A13426006E6919 /* main.cpp */,
 			);
 			path = EasyTcpServer;
-			sourceTree = "<group>";
-		};
-		3D830B4222A1343B006E6919 /* depends */ = {
-			isa = PBXGroup;
-			children = (
-				3D830B4322A1343B006E6919 /* include */,
-			);
-			path = depends;
-			sourceTree = "<group>";
-		};
-		3D830B4322A1343B006E6919 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				3D830B4422A1343B006E6919 /* CellStream.hpp */,
-				3D830B4522A1343B006E6919 /* INetEvent.hpp */,
-				3D830B4622A1343B006E6919 /* EasyTcpServer.hpp */,
-				3D830B4722A1343B006E6919 /* CellSemaphore.hpp */,
-				3D830B4822A1343B006E6919 /* CellMsgStream.hpp */,
-				3D830B4922A1343B006E6919 /* CellTimestamp.hpp */,
-				3D830B4A22A1343B006E6919 /* CellServer.hpp */,
-				3D830B4B22A1343B006E6919 /* MessageHeader.hpp */,
-				3D830B4C22A1343B006E6919 /* Alloctor.h */,
-				3D830B4D22A1343B006E6919 /* CellThread.hpp */,
-				3D830B4E22A1343B006E6919 /* CellLog.hpp */,
-				3D830B4F22A1343B006E6919 /* Cell.hpp */,
-				3D830B5022A1343B006E6919 /* Alloctor.cpp */,
-				3D830B5122A1343B006E6919 /* CellClient.hpp */,
-				3D830B5222A1343B006E6919 /* CellObjectPool.hpp */,
-				3D830B5322A1343B006E6919 /* CellTask.hpp */,
-				3D830B5422A1343B006E6919 /* EasyTcpClient.hpp */,
-				3D830B5522A1343B006E6919 /* CellNetWork.hpp */,
-				3D830B5622A1343B006E6919 /* MemoryMgr.hpp */,
-				3D830B5722A1343B006E6919 /* CellBuffer.hpp */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D830B3C22A13426006E6919 /* main.cpp in Sources */,
-				3D830B5822A1343B006E6919 /* Alloctor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +241,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FZBCM6U2XB;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../depends/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -308,6 +251,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FZBCM6U2XB;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../depends/include";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
