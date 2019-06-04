@@ -1,4 +1,4 @@
-#ifdef _WIN32
+﻿#ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include<windows.h>
@@ -64,7 +64,9 @@ private:
     
 };
 
-
+/*
+请先运行EasyTcpServer端，再把main函数中的Connect,改成要连接服务器的IP
+*/
 int main()
 {
     CellWriteStream s(256);
@@ -81,7 +83,7 @@ int main()
     s.WriteArray(arr, 5);
     s.finsh();
     MyClient client;
-    client.Connect("192.168.96.159", 4567);
+    client.Connect("127.0.0.1", 4567); //请改成连接服务器的IP
     
     
     while (client.OnRun())

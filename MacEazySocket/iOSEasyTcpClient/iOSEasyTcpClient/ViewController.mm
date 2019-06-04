@@ -65,6 +65,10 @@ private:
     
 };
 
+
+/*
+请先运行EasyTcpServer端，再把SocketExec函数中的Connect,改成要连接服务器的IP
+*/
 void SocketExec()
 {
     CellWriteStream s(256);
@@ -81,7 +85,7 @@ void SocketExec()
     s.WriteArray(arr, 5);
     s.finsh();
     MyClient client;
-    client.Connect("192.168.96.159", 4567);
+    client.Connect("127.0.0.1", 4567);
     
     while (client.OnRun())
     {
