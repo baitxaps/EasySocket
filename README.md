@@ -30,14 +30,15 @@ Socket uses C++ and Socket API to build a network communication engine with mill
 
 ###  How to use   
 - Running EasyTcpServer Server    
-- Unity opens CppNetwork Plugin           
-- 1. Client. CPP in EasyTcpClient modifies the server IP you want to connect to        
-- 2. File - > Build set - > platform - > PC, Mac & Linux standaone           
-- 3. build and Run          
-- IOS and Android platforms:          
-- 1. Modify the server IP to connect in CellClientNode. CS           
-- 2. File - > Build set - > platform - > iOS / Android           
-- 3. build and Run
+- Modify the server IP you want to connect to in client.cpp
+- Unity Opens Project CppNetworkPlugin          
+- Modify the server IP to connect in CellClientNode.cs       
+- File - > Build setting - > platform - > PC, Mac & Linux standaone           
+- build and Run          
+- iOS and Android platforms:          
+- Modify the server IP to connect in CellClientNode. CS           
+- File - > Build setting - > platform - > iOS / Android           
+- build and Run
 
 EasySocket
 ==============
@@ -72,13 +73,13 @@ iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2017 + NDK + JDK + A
 ### 怎样使用？
 - 运行EasyTcpServer服务端
 - unity打开CppNetworkPlugin
-- 1. 在EasyTcpClient中的client.cpp修改你所要连接的服务端IP
-- 2. File->Build setting->platform->PC,Mac&Linux standaone
-- 3. build and Run
+- 在EasyTcpClient中的client.cpp修改你所要连接的服务端IP
+- File->Build setting->platform->PC,Mac&Linux standaone
+- build and Run
 - iOS 和android 平台：
-- 1. CellClientNode.cs 中修改要连接的服务端IP
-- 2. File->Build setting->platform->iOS/android
-- 3. build and Run
+- CellClientNode.cs 中修改要连接的服务端IP
+- File->Build setting->platform->iOS/android
+- build and Run
 
 License
 EasySocket is released under the MIT license. See LICENSE for details.
