@@ -1,4 +1,4 @@
-﻿#ifndef _CPP_NET_100_DLL_H_
+#ifndef _CPP_NET_100_DLL_H_
 #define _CPP_NET_100_DLL_H_
 
 #include"EasyTcpClient.hpp"
@@ -52,7 +52,7 @@ extern "C"
 		s += str1;
 		cb(s.c_str());
 	}
-	/////////////////////////////CELLClient
+	/////////////////////////////CellClient
 
 	EXPORT_DLL void* CellClient_Create(void* csObj, OnNetMsgCallBack cb, int sendSize, int recvSize)
 	{
@@ -103,7 +103,7 @@ extern "C"
 		}
 		return 0;
 	}
-	/////////////////////////////CELLStream
+	/////////////////////////////CellStream
 	/////CellWriteStream
 
 	EXPORT_DLL void* CellWriteStream_Create(int nSize)
