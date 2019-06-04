@@ -126,4 +126,9 @@ public class CellSendStream {
             WriteInt32(data[n]);
         }
     }
+
+    public void Release()
+    {
+       
+    }
 }

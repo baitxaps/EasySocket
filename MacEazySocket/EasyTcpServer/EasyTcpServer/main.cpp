@@ -1,5 +1,5 @@
 #include "EasyTcpServer.hpp"
-#include"CellMsgStream.hpp"
+#include "CellMsgStream.hpp"
 
 // !<<<NOTE>>>
 // formater IDE
@@ -87,10 +87,10 @@ public:
                 r.onlyRead(n);
                 char name[32] = {};
                 auto n6 = r.ReadArray(name, 32);
-                char pw[32] = {};
-                auto n7 = r.ReadArray(pw, 32);
-                int ata[10] = {};
-                auto n8 = r.ReadArray(ata, 10);
+                char pwd[32] = {};
+                auto n7 = r.ReadArray(pwd, 32);
+                int arr[10] = {};
+                auto n8 = r.ReadArray(arr, 10);
                 ///
                 CellWriteStream s(128);
                 s.setNetCmd(CMD_LOGOUT_RESULT);
@@ -100,8 +100,8 @@ public:
                 s.WriteFloat(n4);
                 s.WriteDouble(n5);
                 s.WriteArray(name, strlen(name));
-                s.WriteArray(pw, strlen(pw));
-                s.WriteArray(ata, n8);
+                s.WriteArray(pwd, strlen(pwd));
+                s.WriteArray(arr, n8);
                 s.finsh();
                 pClient->SendData(s.data(), s.length());
             }

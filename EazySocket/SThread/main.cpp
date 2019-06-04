@@ -2,14 +2,13 @@
 #include<thread>
 #include<mutex>
 #include<atomic>
+#include <stdio.h>
 
 using namespace std;
-
 mutex m;
 const int tCount = 4;
 // Ô­×ÓËø
 atomic<int> sum = 0;
-
 void workRunction(int index)
 {
 	for (int i = 0; i < 400000; i++)
@@ -37,7 +36,6 @@ void Test()
 	printf("(int)arr[9]-(int)arr[4]=%d\n", (int)&arr[9] - (int)&arr[4]);//20
 }
 
-#include <stdio.h>
 
 void func0()
 {
@@ -71,8 +69,6 @@ void test()
 
 int main()
 {
-	test(); return 0;
-
 	thread t[tCount];
 	for (int i = 0; i < tCount; i++)
 	{

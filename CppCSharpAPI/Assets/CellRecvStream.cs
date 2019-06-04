@@ -166,4 +166,9 @@ public class CellRecvStream {
         return data;
     }
 
+    public void Release()
+    {
+
+    }
+
 }

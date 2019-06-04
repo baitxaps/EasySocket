@@ -6,19 +6,8 @@
 #endif
 #include<iostream>
 #include<functional>
-
 #include"EasyTcpClient.hpp"
-#include"CELLMsgStream.hpp"
-
-using namespace std;
-/*
-错误	C4996：
-To disable deprecation, use _CRT_SECURE_NO_WARNINGS.See online help for details.Socket	
-'gmtime': This function or variable may be unsafe.Consider using gmtime_s instead.
-
-'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS
-to disable deprecated API warnings	Socket	
-*/
+#include"CellMsgStream.hpp"
 
 class MyClient : public EasyTcpClient
 {

@@ -86,7 +86,7 @@ void cmdThread()
 }
 
 //客户端数量
-const int cCount = 100;//1000
+const int cCount = 1000;//1000
 //发送线程数量
 const int tCount = 4;
 //客户端数组

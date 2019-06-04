@@ -68,13 +68,13 @@ private:
 	}
 
 public:
-	CELLObjectPool()
+	CellObjectPool()
 	{
 		_pBuf = nullptr;
 		initPool();
 	}
 
-	~CELLObjectPool()
+	~CellObjectPool()
 	{
 		if(_pBuf)
 		 delete[] _pBuf;
@@ -170,7 +170,7 @@ public:
 		delete obj;
 	}
 private:
-	typedef CELLObjectPool<T, nPoolSize> ClassTPool;
+	typedef CellObjectPool<T, nPoolSize> ClassTPool;
 	// single instance 
 	static ClassTPool& objectPool()
 	{
