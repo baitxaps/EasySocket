@@ -1,8 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<thread>
 #include<mutex>
 #include<atomic>
-#include <stdio.h>
+#include<stdio.h>
 
 using namespace std;
 mutex m;
@@ -22,6 +23,26 @@ void workRunction(int index)
 	}
 }
 
+int main()
+{
+	thread t[tCount];
+	for (int i = 0; i < tCount; i++)
+	{
+		t[i] = thread(workRunction,i);
+	}
+
+	for (int i = 0; i < tCount; i++)
+	{
+		t[i].detach();
+	//	t[i].join();
+	}
+
+	cout << "hello,main thread sum="<<sum << endl;
+	system("pause");
+	while (true) {}
+	return 0;
+}
+
 void Test()
 {
 	int p = 0x123456;
@@ -31,11 +52,10 @@ void Test()
 	// 32bit cup
 	int arr[10];
 	// 相减是间隔元素个数
-	printf("&arr[9]-&arr[4]=%d\n", &arr[9]-&arr[4]);//5
+	printf("&arr[9]-&arr[4]=%d\n", &arr[9] - &arr[4]);//5
 	// 纯粹是数值类型数据相减
 	printf("(int)arr[9]-(int)arr[4]=%d\n", (int)&arr[9] - (int)&arr[4]);//20
 }
-
 
 void func0()
 {
@@ -57,32 +77,11 @@ void test()
 	int choice;
 	printf("pls input your choice\n");
 	std::scanf("%d", &choice);
-	while (choice >= 0 && choice <3)
+	while (choice >= 0 && choice < 3)
 	{
 		//(*pfArr[choice])();
 		pfArr[choice]();
 		scanf("%d", &choice);
 	}
 	printf(" your put err select\n");
-}
-
-
-int main()
-{
-	thread t[tCount];
-	for (int i = 0; i < tCount; i++)
-	{
-		t[i] = thread(workRunction,i);
-	}
-
-	for (int i = 0; i < tCount; i++)
-	{
-		t[i].detach();
-	//	t[i].join();
-	}
-
-	cout << "hello,main thread sum="<<sum << endl;
-	system("pause");
-	while (true) {}
-	return 0;
 }

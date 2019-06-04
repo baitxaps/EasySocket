@@ -1,10 +1,10 @@
 #include<iostream>
 #include"Alloctor.h"
-#include"CELLTimestamp.hpp"
+#include"CellTimestamp.hpp"
 #include<thread>
 #include<mutex>
 #include<memory>
-#include"CELLObjectPool.hpp"
+#include"CellObjectPool.hpp"
 
 using namespace std;
 mutex m;
