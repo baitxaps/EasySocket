@@ -33,7 +33,7 @@ Socket uses C++ and Socket API to build a network communication engine with mill
 - Modify the server IP you want to connect to in client.cpp
 - Unity Opens Project CppNetworkPlugin          
 - Modify the server IP to connect in CellClientNode.cs       
-- File - > Build setting - > platform - > PC, Mac & Linux standaone           
+- File - > Build setting - > platform - > PC, Mac & Linux standalone           
 - build and Run          
 - iOS and Android platforms:          
 - Modify the server IP to connect in CellClientNode. CS           
@@ -74,7 +74,7 @@ iOS/ MacOS MacOS(MacOS 10.12 64位)+ Xcode 9 Windows 10 + VS2017 + NDK + JDK + A
 - 运行EasyTcpServer服务端
 - unity打开CppNetworkPlugin
 - 在EasyTcpClient中的client.cpp修改你所要连接的服务端IP
-- File->Build setting->platform->PC,Mac&Linux standaone
+- File->Build setting->platform->PC,Mac&Linux standalone
 - build and Run
 - iOS 和android 平台：
 - CellClientNode.cs 中修改要连接的服务端IP
