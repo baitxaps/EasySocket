@@ -185,6 +185,27 @@ public:
         return n;
     }
 
+	bool ReadString(std::string& str)
+	{
+		uint32_t nLen = 0;
+		Read(nLen, false);
+		if (nLen > 0)
+		{
+			//判断能不能读出
+			if (canRead(nLen + sizeof(uint32_t)))
+			{
+				//计算已读位置+数组长度所占有空间
+				pop(sizeof(uint32_t));
+				//将要读取的数据 拷贝出来
+				str.insert(0, _pBuff + _nReadPos, nLen);
+				//计算已读数据位置
+				pop(nLen);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	//Write
     template<typename T>
     bool Write(T n)
