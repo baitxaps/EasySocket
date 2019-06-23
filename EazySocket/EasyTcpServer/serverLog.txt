@@ -1,34 +1,11 @@
-Info [2019-5-29 15:47:15]CellLog::setLogPath sucess,<serverLog.txt,w>
-Info [2019-5-29 15:47:15]create socket<196> success...
-Info [2019-5-29 15:47:15]bind port<4567> success...
-Info [2019-5-29 15:47:15]listen port<196> success...
-Info [2019-5-29 15:47:16]thread<4>,time<1.000929>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:17]thread<4>,time<1.000314>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:18]thread<4>,time<1.000344>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:19]thread<4>,time<1.000343>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:20]thread<4>,time<1.000356>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:21]thread<4>,time<1.000339>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:22]thread<4>,time<1.000341>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:23]thread<4>,time<1.000344>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:24]thread<4>,time<1.000357>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:25]thread<4>,time<1.000326>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:26]thread<4>,time<1.000344>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:27]thread<4>,time<1.000344>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:28]thread<4>,time<1.000368>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:29]thread<4>,time<1.000333>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:30]thread<4>,time<1.000341>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:31]thread<4>,time<1.000342>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:32]thread<4>,time<1.000349>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:33]thread<4>,time<1.000351>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:34]thread<4>,time<1.000343>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:35]thread<4>,time<1.000357>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:36]thread<4>,time<1.000337>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:37]thread<4>,time<1.000339>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:38]thread<4>,time<1.000358>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:39]thread<4>,time<1.000343>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:40]thread<4>,time<1.000339>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:41]thread<4>,time<1.000350>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:42]thread<4>,time<1.000348>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:43]thread<4>,time<1.000348>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:44]thread<4>,time<1.000348>,socket<196>,clients<0>,recv<0>,msg<0>
-Info [2019-5-29 15:47:45]thread<4>,time<1.000352>,socket<196>,clients<0>,recv<0>,msg<0>
+Info [2019-6-23 7:55:41]CellLog::setLogPath sucess,<serverLog.txt,w>
+Info [2019-6-23 7:55:41]create socket<184> success...
+Info [2019-6-23 7:55:41]bind port<4567> success...
+Info [2019-6-23 7:55:41]listen port<184> success...
+Info [2019-6-23 7:55:42]thread<4>,time<1.000254>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-6-23 7:55:43]thread<4>,time<1.000521>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-6-23 7:55:44]thread<4>,time<1.000645>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-6-23 7:55:45]thread<4>,time<1.000637>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-6-23 7:55:46]thread<4>,time<1.000564>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-6-23 7:55:47]thread<4>,time<1.000546>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-6-23 7:55:48]thread<4>,time<1.000564>,socket<184>,clients<0>,recv<0>,msg<0>

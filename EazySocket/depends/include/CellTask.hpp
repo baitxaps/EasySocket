@@ -8,32 +8,6 @@
 #include"CellSemaphore.hpp"
 #include"CellThread.hpp"
 
-//#include"CellLog.hpp"
-
-// Task type for base class
-//class CellTask
-//{
-//private:
-//
-//public:
-//    CellTask()
-//    {
-//
-//    }
-//
-//    virtual ~CellTask()
-//    {
-//
-//    }
-//
-//    //Task Exec
-//    virtual void doTask()
-//    {
-//
-//    }
-//};
-
-//typedef std::shared_ptr<CellTask> CellTaskPtr;
 class CellTaskServer
 {
 public:

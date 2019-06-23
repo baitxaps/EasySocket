@@ -2,6 +2,7 @@
 #define _CELL_THREAD_HPP_
 
 #include"CellSemaphore.hpp"
+#include <functional>
 
 class CellThread
 {

@@ -2,7 +2,7 @@
 #include"CellTimestamp.hpp"
 #include<thread>
 #include<atomic>
-#include"CELLMsgStream.hpp"
+#include"CellMsgStream.hpp"
 
 class MyClient : public EasyTcpClient
 {
