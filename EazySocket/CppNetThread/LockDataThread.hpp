@@ -105,7 +105,6 @@ public:
 		return false;
 	}
 
-
 	bool lock_outMsgLULProc(int& command)
 	{
 		msgMutex.lock();
@@ -119,6 +118,37 @@ public:
 		}
 		msgMutex.unlock();
 		return false;
+	}
+
+	// 条件变量
+	void condtion_outMsgRecvQueue()
+	{
+		int command = 0;
+		while (true)
+		{
+			std::unique_lock<std::mutex> sbg(msgMutex);
+
+			cond.wait(sbg, [this] {
+				if (!msgReceiveQueue.empty())
+					return true;
+				return false;
+				});
+
+			command = msgReceiveQueue.front();
+			msgReceiveQueue.pop_front();
+			sbg.unlock();
+		}
+	}
+
+	void condtion_notify_inMsgRecvQueue()
+	{
+		for (int i = 0; i < 1000; i++)
+		{
+			std::cout << "inMsgRecvQueue() exec，Insert the element" << i << std::endl;
+			std::unique_lock<std::mutex> sbg(msgMutex);
+			msgReceiveQueue.push_back(i);
+			cond.notify_one();
+		}
 	}
 
 	// 多个方法中，锁的锁定次序要一致，否则产生死锁
@@ -139,7 +169,6 @@ public:
 		msgMutex_loc.unlock();
 		return false;
 	}
-
 
 	void inMsgRecvQueue() 
 	{
@@ -199,7 +228,6 @@ public:
 		std::cout << "inMsgRecvQueue Done." << std::endl;
 	}
 
-
 	void _inMsgRecvQueue()
 	{
 		for (int i = 0; i < 1000; i++)
@@ -216,6 +244,9 @@ private:
 	std::list<int> msgReceiveQueue;
 	std::mutex msgMutex;
 	std::mutex msgMutex_loc;
+
+	std::condition_variable cond;
+
 };
 
 
