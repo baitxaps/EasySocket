@@ -1,4 +1,4 @@
-#ifndef _LOCKDATATHREAD_HPP_
+ï»¿#ifndef _LOCKDATATHREAD_HPP_
 #define _LOCKDATATHREAD_HPP_
 
 #include<list>
@@ -55,7 +55,7 @@ public:
 	bool _outMsgLULProc(int& command)
 	{
 		std::lock(msgMutex, msgMutex_loc);
-		std::lock_guard<std::mutex> guard1(msgMutex, std::adopt_lock);//std::adopt_lock ·ÀÖ¹ÔÙ¹¹Ôì
+		std::lock_guard<std::mutex> guard1(msgMutex, std::adopt_lock);//std::adopt_lock é˜²æ­¢å†æ„é€ 
 		std::lock_guard<std::mutex> guard2(msgMutex_loc, std::adopt_lock);
 
 		//std::lock_guard<std::mutex> lock(msgMutex);
@@ -93,7 +93,7 @@ public:
 	bool guard_adopt_lock_outMsgLULProc(int& command)
 	{
 		std::lock(msgMutex, msgMutex_loc);
-		std::lock_guard<std::mutex> guard1(msgMutex, std::adopt_lock);//std::adopt_lock ·ÀÖ¹ÔÙ¹¹Ôì
+		std::lock_guard<std::mutex> guard1(msgMutex, std::adopt_lock);//std::adopt_lock é˜²æ­¢å†æ„é€ 
 		std::lock_guard<std::mutex> guard2(msgMutex_loc, std::adopt_lock);
 
 		if (!msgReceiveQueue.empty())
@@ -121,8 +121,8 @@ public:
 		return false;
 	}
 
-	// ¶à¸ö·½·¨ÖĞ£¬ËøµÄËø¶¨´ÎĞòÒªÒ»ÖÁ£¬·ñÔò²úÉúËÀËø
-	// ºÄÊ±´óµÄ»°£¬Ó°ÏìĞÔÄÜ
+	// å¤šä¸ªæ–¹æ³•ä¸­ï¼Œé”çš„é”å®šæ¬¡åºè¦ä¸€è‡´ï¼Œå¦åˆ™äº§ç”Ÿæ­»é”
+	// è€—æ—¶å¤§çš„è¯ï¼Œå½±å“æ€§èƒ½
 	bool mult_lock_outMsgLULProc(int& command)
 	{
 		msgMutex.lock();
@@ -165,16 +165,16 @@ public:
 		{
 			std::cout << "inMsgRecvQueue ,insert the elem :" << i << std::endl;
 			std::unique_lock<std::mutex> sbg(msgMutex, std::defer_lock);
-			sbg.lock(); // ²»ÓÃ×Ô¼ºunlock
-			// ´¦Àí¹²Ïí´úÂë
+			sbg.lock(); // ä¸ç”¨è‡ªå·±unlock
+			// å¤„ç†å…±äº«ä»£ç 
 
 			sbg.unlock();
-			// ´¦Àí·Ç¹²Ïí´úÂë
+			// å¤„ç†éå…±äº«ä»£ç 
 
 			sbg.lock();
-			// ´¦Àí¹²Ïí´úÂë
+			// å¤„ç†å…±äº«ä»£ç 
 
-			//sbg.unlock();// »­ÉßÌí×ã£¬µ«Ò²¿ÉÒÔ
+			//sbg.unlock();// ç”»è›‡æ·»è¶³ï¼Œä½†ä¹Ÿå¯ä»¥
 
 			msgReceiveQueue.push_back(i);
 		}

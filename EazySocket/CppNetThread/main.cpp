@@ -1,21 +1,22 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include<thread>
 #include<mutex>
 #include<atomic>
 #include<stdio.h>
-#include "LockDataThread.hpp"
+#include"LockDataThread.hpp"
+#include"NetworkManager.hpp"
 
 using namespace std;
 mutex m;
 const int tCount = 4;
-// Ô­×ÓËø
+// åŸå­é”
 atomic<int> sum = 0;
 void workRunction(int index)
 {
 	for (int i = 0; i < 400000; i++)
 	{
-		// ×Ô½âËø
+		// è‡ªè§£é”
 	//	lock_guard<mutex>lg(m);
 	//  m.lock();
 		sum++;
@@ -24,15 +25,35 @@ void workRunction(int index)
 	}
 }
 
+// é™æ€å˜é‡åˆå§‹åŒ–
+NetworkManager* NetworkManager::m_instance = NULL;
+
+void threadSingleIntanceTest()
+{
+	std::cout << "start ..." << std::endl;
+	NetworkManager* m = NetworkManager::GetInstance();
+	std::cout << "end..." << std::endl;
+}
+
 int main()
 {
-	LockDataThread obj;
-	std::thread outMsgObj(&LockDataThread::outMsgRecvQueue, &obj);
-	std::thread intMsgObj(&LockDataThread::lock_defer_inMsgRecvQueue, &obj);
+	//LockDataThread obj;
+	//std::thread outMsgObj(&LockDataThread::outMsgRecvQueue, &obj);
+	//std::thread intMsgObj(&LockDataThread::lock_defer_inMsgRecvQueue, &obj);
+	//intMsgObj.join();
+	//outMsgObj.join();
 
-	intMsgObj.join();
-	outMsgObj.join();
-	
+	// ä¸»çº¿ç¨‹ä¸­å•ä¾‹åˆ›å»ºå¥½ï¼Œç„¶ååœ¨å­çº¿ç¨‹ä¸­ä½¿ç”¨å³å¯ã€‚
+	//single instance;
+	//NetworkManager* m = NetworkManager::GetInstance();
+	//m->test();
+
+	std::thread obj1(threadSingleIntanceTest);
+	std::thread obj2(threadSingleIntanceTest);
+	obj1.join();
+	obj2.join();
+
+
 	cout << "hello,main thread sum="<<sum << endl;
 	system("pause");
 //	while (true) {}
@@ -61,9 +82,9 @@ void Test()
 
 	// 32bit cup
 	int arr[10];
-	// Ïà¼õÊÇ¼ä¸ôÔªËØ¸öÊı
+	// ç›¸å‡æ˜¯é—´éš”å…ƒç´ ä¸ªæ•°
 	printf("&arr[9]-&arr[4]=%d\n", &arr[9] - &arr[4]);//5
-	// ´¿´âÊÇÊıÖµÀàĞÍÊı¾İÏà¼õ
+	// çº¯ç²¹æ˜¯æ•°å€¼ç±»å‹æ•°æ®ç›¸å‡
 	printf("(int)arr[9]-(int)arr[4]=%d\n", (int)&arr[9] - (int)&arr[4]);//20
 }
 void func0()
