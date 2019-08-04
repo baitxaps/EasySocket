@@ -4,6 +4,7 @@
 #include<mutex>
 #include<atomic>
 #include<stdio.h>
+#include "LockDataThread.hpp"
 
 using namespace std;
 mutex m;
@@ -25,10 +26,25 @@ void workRunction(int index)
 
 int main()
 {
+	LockDataThread obj;
+	std::thread outMsgObj(&LockDataThread::outMsgRecvQueue, &obj);
+	std::thread intMsgObj(&LockDataThread::lock_defer_inMsgRecvQueue, &obj);
+
+	intMsgObj.join();
+	outMsgObj.join();
+	
+	cout << "hello,main thread sum="<<sum << endl;
+	system("pause");
+//	while (true) {}
+	return 0;
+}
+
+void threadCmd()
+{
 	thread t[tCount];
 	for (int i = 0; i < tCount; i++)
 	{
-		t[i] = thread(workRunction,i);
+		t[i] = thread(workRunction, i);
 	}
 
 	for (int i = 0; i < tCount; i++)
@@ -36,13 +52,7 @@ int main()
 		t[i].detach();
 	//	t[i].join();
 	}
-
-	cout << "hello,main thread sum="<<sum << endl;
-	system("pause");
-	while (true) {}
-	return 0;
 }
-
 void Test()
 {
 	int p = 0x123456;
@@ -56,7 +66,6 @@ void Test()
 	// 纯粹是数值类型数据相减
 	printf("(int)arr[9]-(int)arr[4]=%d\n", (int)&arr[9] - (int)&arr[4]);//20
 }
-
 void func0()
 {
 	printf("func0()");
@@ -69,8 +78,6 @@ void func2()
 {
 	printf("func2()");
 }
-
-
 void test()
 {
 	void(*pfArr[3])() = { &func0,&func1,&func2 };

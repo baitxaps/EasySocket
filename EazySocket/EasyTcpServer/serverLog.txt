@@ -1,11 +1,83 @@
-Info [2019-6-23 7:55:41]CellLog::setLogPath sucess,<serverLog.txt,w>
-Info [2019-6-23 7:55:41]create socket<184> success...
-Info [2019-6-23 7:55:41]bind port<4567> success...
-Info [2019-6-23 7:55:41]listen port<184> success...
-Info [2019-6-23 7:55:42]thread<4>,time<1.000254>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-6-23 7:55:43]thread<4>,time<1.000521>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-6-23 7:55:44]thread<4>,time<1.000645>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-6-23 7:55:45]thread<4>,time<1.000637>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-6-23 7:55:46]thread<4>,time<1.000564>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-6-23 7:55:47]thread<4>,time<1.000546>,socket<184>,clients<0>,recv<0>,msg<0>
-Info [2019-6-23 7:55:48]thread<4>,time<1.000564>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:32]CellLog::setLogPath sucess,<serverLog.txt,w>
+Info [2019-7-21 15:27:32]create socket<184> success...
+Info [2019-7-21 15:27:32]bind port<4567> success...
+Info [2019-7-21 15:27:32]listen port<184> success...
+Info [2019-7-21 15:27:33]thread<4>,time<1.005623>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:34]thread<4>,time<1.015509>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:35]thread<4>,time<1.015503>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:36]thread<4>,time<1.015531>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:37]thread<4>,time<1.015553>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:38]thread<4>,time<1.013441>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:39]thread<4>,time<1.015548>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:40]thread<4>,time<1.015535>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:41]thread<4>,time<1.015551>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:42]thread<4>,time<1.015547>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:43]thread<4>,time<1.015561>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:44]thread<4>,time<1.015565>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:45]thread<4>,time<1.015545>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:46]thread<4>,time<1.015556>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:47]thread<4>,time<1.015551>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:48]thread<4>,time<1.015557>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:49]thread<4>,time<1.015554>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:50]thread<4>,time<1.015549>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:51]thread<4>,time<1.015567>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:52]thread<4>,time<1.015555>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:53]thread<4>,time<1.015543>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:54]thread<4>,time<1.015558>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:55]thread<4>,time<1.015566>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:56]thread<4>,time<1.015524>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:57]thread<4>,time<1.015574>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:58]thread<4>,time<1.015548>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:27:59]thread<4>,time<1.015541>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:0]thread<4>,time<1.015568>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:1]thread<4>,time<1.015527>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:2]thread<4>,time<1.015560>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:3]thread<4>,time<1.015512>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:4]thread<4>,time<1.015558>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:5]thread<4>,time<1.015554>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:6]thread<4>,time<1.015540>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:7]thread<4>,time<1.015550>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:8]thread<4>,time<1.015555>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:9]thread<4>,time<1.015544>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:10]thread<4>,time<1.015549>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:12]thread<4>,time<1.015549>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:13]thread<4>,time<1.015565>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:14]thread<4>,time<1.015566>,socket<184>,clients<0>,recv<0>,msg<0>
+Info [2019-7-21 15:28:15]thread<4>,time<1.015537>,socket<184>,clients<268>,recv<0>,msg<0>
+Info [2019-7-21 15:28:16]thread<4>,time<1.015564>,socket<184>,clients<844>,recv<0>,msg<0>
+Info [2019-7-21 15:28:17]thread<4>,time<1.015537>,socket<184>,clients<1000>,recv<5908>,msg<5908>
+Info [2019-7-21 15:28:18]thread<4>,time<1.022521>,socket<184>,clients<1000>,recv<7823>,msg<7823>
+Info [2019-7-21 15:28:19]thread<4>,time<1.008571>,socket<184>,clients<1000>,recv<8923>,msg<8923>
+Info [2019-7-21 15:28:20]thread<4>,time<1.022492>,socket<184>,clients<1000>,recv<7824>,msg<7824>
+Info [2019-7-21 15:28:21]thread<4>,time<1.008622>,socket<184>,clients<1000>,recv<8923>,msg<8923>
+Info [2019-7-21 15:28:22]thread<4>,time<1.015512>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:23]thread<4>,time<1.015549>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:24]thread<4>,time<1.015648>,socket<184>,clients<1000>,recv<7876>,msg<7876>
+Info [2019-7-21 15:28:25]thread<4>,time<1.015514>,socket<184>,clients<1000>,recv<8616>,msg<8616>
+Info [2019-7-21 15:28:26]thread<4>,time<1.015506>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:27]thread<4>,time<1.015547>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:28]thread<4>,time<1.015530>,socket<184>,clients<1000>,recv<8123>,msg<8123>
+Info [2019-7-21 15:28:29]thread<4>,time<1.015558>,socket<184>,clients<1000>,recv<7631>,msg<7631>
+Info [2019-7-21 15:28:30]thread<4>,time<1.015550>,socket<184>,clients<1000>,recv<8616>,msg<8616>
+Info [2019-7-21 15:28:31]thread<4>,time<1.015603>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:32]thread<4>,time<1.015509>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:33]thread<4>,time<1.021694>,socket<184>,clients<1000>,recv<7096>,msg<7096>
+Info [2019-7-21 15:28:34]thread<4>,time<1.009485>,socket<184>,clients<1000>,recv<8435>,msg<8435>
+Info [2019-7-21 15:28:35]thread<4>,time<1.015564>,socket<184>,clients<1000>,recv<7918>,msg<7918>
+Info [2019-7-21 15:28:36]thread<4>,time<1.015468>,socket<184>,clients<1000>,recv<8066>,msg<8066>
+Info [2019-7-21 15:28:37]thread<4>,time<1.015587>,socket<184>,clients<1000>,recv<8123>,msg<8123>
+Info [2019-7-21 15:28:38]thread<4>,time<1.015520>,socket<184>,clients<1000>,recv<8616>,msg<8616>
+Info [2019-7-21 15:28:39]thread<4>,time<1.015623>,socket<184>,clients<1000>,recv<7876>,msg<7876>
+Info [2019-7-21 15:28:40]thread<4>,time<1.015546>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:41]thread<4>,time<1.015559>,socket<184>,clients<1000>,recv<8862>,msg<8862>
+Info [2019-7-21 15:28:42]thread<4>,time<1.015500>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:43]thread<4>,time<1.015592>,socket<184>,clients<1000>,recv<8123>,msg<8123>
+Info [2019-7-21 15:28:44]thread<4>,time<1.015533>,socket<184>,clients<1000>,recv<8369>,msg<8369>
+Info [2019-7-21 15:28:45]thread<4>,time<1.015507>,socket<184>,clients<1000>,recv<8370>,msg<8370>
+Info [2019-7-21 15:28:46]thread<4>,time<1.015544>,socket<184>,clients<1000>,recv<7826>,msg<7826>
+Info [2019-7-21 15:28:47]thread<4>,time<1.000122>,socket<184>,clients<1000>,recv<8550>,msg<8550>
+Info [2019-7-21 15:28:48]thread<4>,time<1.015279>,socket<184>,clients<1000>,recv<8125>,msg<8125>
+Info [2019-7-21 15:28:49]thread<4>,time<1.015597>,socket<184>,clients<1000>,recv<8123>,msg<8123>
+Info [2019-7-21 15:28:50]thread<4>,time<1.015510>,socket<184>,clients<1000>,recv<7877>,msg<7877>
+Info [2019-7-21 15:28:51]thread<4>,time<1.015574>,socket<184>,clients<1000>,recv<8429>,msg<8429>
+Info [2019-7-21 15:28:52]thread<4>,time<1.015579>,socket<184>,clients<1000>,recv<8063>,msg<8063>
