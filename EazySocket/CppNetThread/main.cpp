@@ -1,8 +1,5 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
-#include<iostream>
-#include<thread>
-#include<mutex>
-#include<atomic>
+
 #include<stdio.h>
 #include"LockDataThread.hpp"
 #include"NetworkManager.hpp"
@@ -12,7 +9,7 @@ mutex m;
 const int tCount = 4;
 // 原子锁
 atomic<int> sum = 0;
-void workRunction(int index)
+int workRunction(int index)
 {
 	for (int i = 0; i < 400000; i++)
 	{
@@ -23,10 +20,28 @@ void workRunction(int index)
 	//	cout << "index=" << index<<"hello,other thread"<<"i="<<i<< endl;
 	//	m.unlock();
 	}
+	return 1;
+}
+
+void promise_thread(std::promise<int>& ppt, int cout)
+{
+	cout++;
+	std::chrono::milliseconds dura(500);
+	std::this_thread::sleep_for(dura);
+	int res = cout * 2;
+	ppt.set_value(res);
+}
+
+void promise_otherThread(std::future<int>& tmpf)
+{
+	auto res = tmpf.get();
+	std::cout << "promise_otherThread" << res << std::endl;
 }
 
 // 静态变量初始化
 NetworkManager* NetworkManager::m_instance = NULL;
+
+
 
 void threadSingleIntanceTest()
 {
@@ -34,7 +49,6 @@ void threadSingleIntanceTest()
 	NetworkManager* m = NetworkManager::GetInstance();
 	std::cout << "end..." << std::endl;
 }
-
 int main()
 {
 	//LockDataThread obj;
@@ -48,18 +62,57 @@ int main()
 	//NetworkManager* m = NetworkManager::GetInstance();
 	//m->test();
 
-	std::thread obj1(threadSingleIntanceTest);
-	std::thread obj2(threadSingleIntanceTest);
-	obj1.join();
-	obj2.join();
+	//std::thread obj1(threadSingleIntanceTest);
+	//std::thread obj2(threadSingleIntanceTest);
+	//obj1.join();
+	//obj2.join();
 
+	// packaged_task -> function
+	std::packaged_task<int(int)> mypt(workRunction);
+	std::thread td(std::ref(mypt), 1);
+	td.join();
+	std::future<int> result = mypt.get_future();
+	std::cout << result.get() << std::endl;
 
-	cout << "hello,main thread sum="<<sum << endl;
+	//packaged_task -> lambda 
+	std::packaged_task<int(int)> lambda([](int var) {
+		std::chrono::milliseconds dura(500);
+		std::this_thread::sleep_for(dura);
+		std::cout << "lamda done thead id = " << std::this_thread::get_id() << std::endl;
+		return 1;
+		});
+	std::thread lamt(std::ref(lambda), 1);
+	lamt.join();
+	std::future<int> lamdaRes = lambda.get_future();
+	std::cout << lamdaRes.get() << std::endl;
+
+	// vector container
+	//vector <std::packaged_task<int(int)>> tasks;
+	//tasks.push_back(std::move(lambda));
+	//std::packaged_task<int(int)>vec;
+	//auto iter = tasks.begin();
+	//vec = std::move(*iter);
+	//tasks.erase(iter);
+	//vec(123);
+	//std::future<int> vres = vec.get_future();
+	//std::cout << vres.get() << std::endl;
+
+	// promise
+	std::promise<int>prom;
+	std::thread pt(promise_thread, std::ref(prom), 180);
+	pt.join();
+	std::future<int>ful = prom.get_future();
+	//auto fres = ful.get();
+	//std::cout << fres << std::endl;
+	std::thread othert(promise_otherThread, std::ref(ful));
+	othert.join();
+
+	std::cout << "hello,main thread sum="<<sum << std::endl;
 	system("pause");
+
 //	while (true) {}
 	return 0;
 }
-
 void threadCmd()
 {
 	thread t[tCount];

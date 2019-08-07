@@ -15,11 +15,9 @@ class NetworkManager
 	}
 
 private:
-	
 	NetworkManager() {}
 private:
 	static NetworkManager *m_instance;
-	
 public:
 	static NetworkManager* GetInstance()
 	{

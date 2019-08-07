@@ -2,7 +2,14 @@
 #define _LOCKDATATHREAD_HPP_
 
 #include<list>
+#include<vector>
+#include <map>
 #include<mutex>
+#include<future>
+#include<thread>
+#include<atomic>
+#include<iostream>
+#include <string>
 
 class LockDataThread
 {
@@ -238,6 +245,26 @@ public:
 			msgMutex.unlock();
 		}
 		std::cout << "inMsgRecvQueue Done." << std::endl;
+	}
+
+	int asnyc_get_thread(int temp)
+	{
+		std::cout << "thread" << std::this_thread::get_id() << std::endl;
+		std::chrono::milliseconds dura(2000);
+		std::this_thread::sleep_for(dura);
+		std::cout << "thead end" << "thread =" << std::this_thread::get_id() << std::endl;
+		return 3;
+	}
+
+	void test_async()
+	{
+		LockDataThread obj ;
+		int temp = 5;
+		std::cout << "main" << "threadid = " << std::this_thread::get_id() << std::endl;
+		//std::future<int>  result = std::async(obj->asnyc_get_thread);
+		std::future<int>  result = std::async(&LockDataThread::asnyc_get_thread,&obj, temp);
+		std::cout << "continue..." << std::endl;
+		std::cout << result.get() << std::endl;
 	}
 
 private:
